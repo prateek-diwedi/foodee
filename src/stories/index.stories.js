@@ -6,6 +6,7 @@ import { action } from "@storybook/addon-actions";
 //------------------------- importing components ---------------------------------//
 import Button from "../components/Button";
 import SearchBar from "../components/SearchBar";
+import PictureWithInfo from "../components/PictureWithInfo";
 
 
 //-------------------------------- categories Data ----------------------------------//
@@ -1280,3 +1281,10 @@ storiesOf("Button", module)
     onSearch={action("onSearch")}
     />
   ))
+
+  // ----------------------------------- Picture with image ---------------------------- //
+  storiesOf("PictureWithInfo", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Food Picture", () => <PictureWithInfo>Picture</PictureWithInfo>)

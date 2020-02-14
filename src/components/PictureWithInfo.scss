@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+article h2 {
+  margin-bottom: 3em;
+}
