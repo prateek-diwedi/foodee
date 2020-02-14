@@ -3,6 +3,8 @@ import React, { Fragment } from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 
+//------------------------- importing components ---------------------------------//
+import Button from "../components/Button";
 
 
 //-------------------------------- categories Data ----------------------------------//
@@ -1244,3 +1246,24 @@ const reviews = {
     }
   ]
 }
+
+
+// ----------------------------------- creating stories -----------------------------//
+
+//--------------------- Buttons -------------------- //
+storiesOf("Button", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Base", () => <Button>Base</Button>)
+  .add("Login", () => <Button confirm>Login</Button>)
+  .add("Logout", () => <Button danger>Logout</Button>)
+  .add("Prateek", () => <Button danger>Prateek</Button>)
+  .add("Clickable", () => (
+    <Button onClick={action("button-clicked")}>Clickable</Button>
+  ))
+  .add("Disabled", () => (
+    <Button disabled onClick={action("button-clicked")}>
+      Disabled
+    </Button>
+  ));
