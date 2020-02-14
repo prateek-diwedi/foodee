@@ -1267,3 +1267,8 @@ storiesOf("Button", module)
       Disabled
     </Button>
   ));
+
+  storiesOf("search-bar", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
