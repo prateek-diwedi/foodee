@@ -5,6 +5,7 @@ import { action } from "@storybook/addon-actions";
 
 //------------------------- importing components ---------------------------------//
 import Button from "../components/Button";
+import SearchBar from "../components/SearchBar";
 
 
 //-------------------------------- categories Data ----------------------------------//
@@ -1248,7 +1249,7 @@ const reviews = {
 }
 
 
-// ----------------------------------- creating stories -----------------------------//
+// -----------------------------------  stories -------------------------------------//
 
 //--------------------- Buttons -------------------- //
 storiesOf("Button", module)
@@ -1268,7 +1269,12 @@ storiesOf("Button", module)
     </Button>
   ));
 
-  storiesOf("search-bar", module)
+  // --------------------------------- Search Bar -------------------------- //
+  storiesOf("SearchBar", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
   })
+  .add("Search Bar", () => <SearchBar>Search</SearchBar>)
+  .add("Clickable", () => (
+    <SearchBar onSearch={action("Searching")}>Clickable</SearchBar>
+  ))
