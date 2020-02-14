@@ -1269,12 +1269,6 @@ storiesOf("Button", module)
     </Button>
   ));
 
-<<<<<<< HEAD
-  storiesOf("search-bar", module)
-  .addParameters({
-    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
-  })
-=======
   // --------------------------------- Search Bar -------------------------- //
   storiesOf("SearchBar", module)
   .addParameters({
@@ -1284,4 +1278,3 @@ storiesOf("Button", module)
   .add("Clickable", () => (
     <SearchBar onSearch={action("Searching")}>Clickable</SearchBar>
   ))
->>>>>>> search-bar
