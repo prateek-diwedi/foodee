@@ -1276,5 +1276,7 @@ storiesOf("Button", module)
   })
   .add("Search Bar", () => <SearchBar>Search</SearchBar>)
   .add("Clickable", () => (
-    <SearchBar onSearch={action("Searching")}>Clickable</SearchBar>
+    <SearchBar 
+    onSearch={action("onSearch")}
+    />
   ))
