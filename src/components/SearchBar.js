@@ -8,11 +8,14 @@ const { Search } = Input;
 export default function SearchBar() {
 
   return (
-    <div>
-      <Search placeholder="input search text"
-        onSearch={value => console.log(value)}
-        enterButton />
-
-    </div>
+    <div class="container">
+  <input type="text" placeholder="Search..."/>
+  <div class="search"></div>
+  </div>
   );
 }
+
+
+ {/* <Search placeholder="input search text"
+        onSearch={value => console.log(value)}
+        enterButton /> */}
