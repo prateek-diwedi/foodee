@@ -8,6 +8,7 @@ import Button from "../components/Button";
 import SearchBar from "../components/SearchBar";
 import PictureWithInfo from "../components/PictureWithInfo";
 import NavBar from "../components/NavBar";
+import PictureWithInfoReverse from "../components/PictureWithInfoRevrese"
 
 
 //-------------------------------- categories Data ----------------------------------//
@@ -1296,3 +1297,9 @@ storiesOf("Button", module)
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
   })
   .add("Nav Bar", () => <NavBar>Nav Bar</NavBar>)
+  // ----------------------------------- Picture with image Reverse ---------------------------- //
+  storiesOf("PictureWithInfoReverse", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Food Picture", () => <PictureWithInfoReverse>Picture</PictureWithInfoReverse>)
