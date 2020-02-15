@@ -1,3 +1,4 @@
+
 //-------------------------------- categories Data ----------------------------------//
 const categories = {
   "categories": [
@@ -1237,5 +1238,3 @@ const reviews = {
     }
   ]
 }
-
-export default {categories,location,search,restaurant,reviews}
