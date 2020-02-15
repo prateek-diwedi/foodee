@@ -1,12 +1,11 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 * {
-  box-siznig: border-box;
+  box-sizing: border-box;
   margin: 0;
 }
 
 body {
   margin: 0;
-  paddign: 0;
   width: 100%;
   height: 100vh;
   background-size: cover;
@@ -88,14 +87,14 @@ li a {
   color: #fff;
   animation: 1.5s myFlash linear infinite;
   text-shadow: 2px 2px 30px #fff;
-  transtion: 2s;
+  transition: 2s;
 }
 
 .active3:hover {
   color: #fff;
   animation: 1.5s myFlash linear infinite;
   text-shadow: 2px 2px 30px #fff;
-  transtion: 2s;
+  transition: 2s;
   margin-top: -100px;
 }
 
@@ -103,21 +102,21 @@ li a {
   color: #fff;
   animation: 1.5s myFlash linear infinite;
   text-shadow: 2px 2px 30px #fff;
-  transtion: 2s;
+  transition: 2s;
 }
 
 .active1:hover {
   color: #fff;
   animation: 1.5s myFlash linear infinite;
   text-shadow: 2px 2px 30px #fff;
-  transtion: 2s;
+  transition: 2s;
 }
 
 .active:hover {
   color: #fff;
   animation: 1.5s myFlash linear infinite;
   text-shadow: 2px 2px 30px #fff;
-  transtion: 2s;
+  transition: 2s;
 }
 
 @keyframes myFlash {
