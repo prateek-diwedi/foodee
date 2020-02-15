@@ -6,6 +6,9 @@ import { action } from "@storybook/addon-actions";
 //------------------------- importing components ---------------------------------//
 import Button from "../components/Button";
 import SearchBar from "../components/SearchBar";
+import PictureWithInfo from "../components/PictureWithInfo";
+import NavBar from "../components/NavBar";
+import PictureWithInfoReverse from "../components/PictureWithInfoRevrese"
 
 
 //-------------------------------- categories Data ----------------------------------//
@@ -1280,3 +1283,23 @@ storiesOf("Button", module)
     onSearch={action("onSearch")}
     />
   ))
+
+  // ----------------------------------- Picture with image ---------------------------- //
+  storiesOf("PictureWithInfo", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Food Picture", () => <PictureWithInfo>Picture</PictureWithInfo>)
+
+  // ----------------------------------- NavBar ---------------------------- //
+  storiesOf("NavBar", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Nav Bar", () => <NavBar>Nav Bar</NavBar>)
+  // ----------------------------------- Picture with image Reverse ---------------------------- //
+  storiesOf("PictureWithInfoReverse", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Food Picture", () => <PictureWithInfoReverse>Picture</PictureWithInfoReverse>)

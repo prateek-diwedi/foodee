@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 2em;
+}
+article h2 {
+  margin-bottom: 3em;
+}
+
+img {
+  width: 69%;
+  height: auto;
+}
