@@ -1,22 +1,14 @@
 import React from "react";
-import Photo from "./singlePhoto"
-import { Carousel } from 'antd';
-import "./photoCarousel.scss"
+// import Photo from "./singlePhoto"
+import { Carousel } from "antd";
+import "./photoCarousel.scss";
 
-
-
-const PhotoCarousel = (props) =>{
+const PhotoCarousel = props => {
   let photosMap = props.photoList.map(photo => {
-    return (
-      <div>
-        <Photo url={photo.photo.url} />
-      </div>
-    );
+    return <img className="d-block w-100" src={photo.photo.url} alt="" />;
   });
 
-return(
-  <Carousel autoplay>{photosMap}</Carousel>
-)
+  return <Carousel autoplay>{photosMap}</Carousel>;
 };
 
 export default PhotoCarousel;
