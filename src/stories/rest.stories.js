@@ -6,7 +6,7 @@ import { storiesOf } from "@storybook/react";
 //------------------------- importing components ---------------------------------//
 import Button from "../components/Button";
 
-import Photo from "../components/singlePhoto"
+import Photo from "../components/SinglePhoto"
 // ----------------------------------- RESTAURANT DATA -----------------------------//
 const restaurant = {
   "R": {
