@@ -7,6 +7,7 @@ import { action } from "@storybook/addon-actions";
 import Button from "../components/Button";
 import SearchBar from "../components/SearchBar";
 import PictureWithInfo from "../components/PictureWithInfo";
+import NavBar from "../components/NavBar";
 
 
 //-------------------------------- categories Data ----------------------------------//
@@ -1288,3 +1289,10 @@ storiesOf("Button", module)
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
   })
   .add("Food Picture", () => <PictureWithInfo>Picture</PictureWithInfo>)
+
+  // ----------------------------------- NavBar ---------------------------- //
+  storiesOf("NavBar", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Nav Bar", () => <NavBar>Nav Bar</NavBar>)
