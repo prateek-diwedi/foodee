@@ -3,14 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "latest",
+    "@material-ui/lab": "latest",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "antd": "^3.26.9",
+    "autosuggest-highlight": "latest",
+    "lodash": "latest",
+    "mapbox-gl": "^1.7.0",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.1"
+    "react-places-autocomplete": "^7.2.1",
+    "react-scripts": "3.3.1",
+    "use-places-autocomplete": "^0.5.5"
   },
   "scripts": {
     "start": "react-scripts start",

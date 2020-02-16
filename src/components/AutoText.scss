@@ -1,12 +1,11 @@
 
-
-body 
-{
-  margin: 0;
-  padding: 0;
+.looking {
+position: absolute;
+top:40%;
+left:30%;
 }
 
-h1
+.textAnimation
 {
   position:absolute;
   top:50%;
@@ -19,7 +18,7 @@ h1
   padding:0;
   color: transparent;
 }
-h1:before
+.textAnimation:before
 {
   content: attr(data-text);
   position:absolute;

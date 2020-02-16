@@ -12,6 +12,9 @@ import PictureWithInfoReverse from "../components/PictureWithInfoRevrese"
 import Footer from "../components/Footer"
 import WelcomePage from "../components/WelcomePage"
 import AutoText from "../components/AutoText"
+import Categories from "../components/Categories"
+import Location from "../components/Location"
+import SignInPage from "../components/SignInPage"
 
 
 //-------------------------------- categories Data ----------------------------------//
@@ -1328,3 +1331,18 @@ storiesOf("Button", module)
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
   })
   .add("Auto Text", () => <AutoText>Auto</AutoText>)
+
+  // --------------------------------------- Categories ------------------------------------------------ //
+  storiesOf("Categories", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Categories", () => <Categories>Categories</Categories>)
+
+  // -------------------------------------------- Location ---------------------------------------------- //
+  storiesOf("Location", module)
+  .add("Location", () => <Location>Location</Location>)
+
+  // -------------------------------------------- Sign In Page ----------------------------------------- //
+  storiesOf("SignInPage", module)
+  .add("Sign In Page", () => <SignInPage></SignInPage>)

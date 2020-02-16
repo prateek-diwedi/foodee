@@ -1,0 +1,30 @@
+.category-icons {
+  height: 48px;
+  width: 48px; 
+  
+}
+
+.categories-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 3%;
+}
+
+.category-icons:hover {
+  opacity: 0.7;
+  transform: scale(1.5);
+}
+
+.category-text {
+  color: black;
+  font-size: medium
+}
+
+.wrapper {
+  display: contents;
+}
+
+.categories-search-text {
+  padding-top: 5%;
+  padding-left: 7%;
+}
