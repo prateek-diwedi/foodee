@@ -8,10 +8,10 @@ import { Col, Container, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Description from "./components/description";
 
-const name = restaurant.name;
+const name =restaurant.name;
 const hours = restaurant.timings;
 const cuisine = restaurant.cuisines;
-const location = restaurant.location.address;
+const location = restaurant.location;
 const user_rating = restaurant.user_rating;
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
           hours={hours}
           cuisine={cuisine}
           location={location}
-          user_rating={user_rating}
+          user_rating = {user_rating}
         ></Description>
       </div>
     </div>
