@@ -3,12 +3,19 @@ import React from "react";
 import { Carousel } from "antd";
 import "./photoCarousel.scss";
 
+const divStyle = {
+
+};
 const PhotoCarousel = props => {
   let photosMap = props.photoList.map(photo => {
     return <img className="d-block w-100" src={photo.photo.url} alt="" />;
   });
 
-  return <Carousel autoplay>{photosMap}</Carousel>;
+  return (
+    <div style={divStyle}>
+      <Carousel autoplay>{photosMap}</Carousel>;
+    </div>
+  );
 };
 
 export default PhotoCarousel;
