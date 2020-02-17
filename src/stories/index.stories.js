@@ -16,7 +16,11 @@ import Categories from "../components/Categories"
 import Location from "../components/Location"
 import SignInPage from "../components/SignInPage"
 import FirstPage from "../components/firstPage"
+<<<<<<< HEAD
 import SearchCard from "../SecondPage"
+=======
+// import CameraAccess from "../components/Camera"
+>>>>>>> bc25f61e69c5a36a9003075fc8649462622b0943
 
 
 //-------------------------------- categories Data ----------------------------------//
