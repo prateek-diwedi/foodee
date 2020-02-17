@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
     "@material-ui/lab": "latest",

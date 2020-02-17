@@ -1,4 +1,15 @@
 .welcomePage img {
+  position: relative;
   height: auto;
   width: 100%;
+}
+
+.login-Button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.autoText-welcome-page {
+  top: 10%;
 }
