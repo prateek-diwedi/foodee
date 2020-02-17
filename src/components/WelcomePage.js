@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "../components/Button"
-import SearchBox from "../components/SearchBar"
+import SearchBar from "../components/SearchBar"
 import AutoText from "../components/AutoText"
+import Location from "../components/Location"
 import "./WelcomePage.scss"
 
 export default function WelcomePage() {
@@ -12,11 +13,14 @@ export default function WelcomePage() {
       <div className="login-Button">
       <Button  confirm>Login</Button>
       </div>
-      <div className = "search_button_Home_page">
-      <SearchBox></SearchBox>
+      <div className = "search_bar_Home_page">
+      <SearchBar></SearchBar>
       </div>
       <div className="autoText-welcome-page">
       <AutoText></AutoText>
+      </div>
+      <div className="location-front-page">
+        <Location></Location>
       </div>
     </div>
   );
