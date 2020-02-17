@@ -27,7 +27,7 @@ function ThirdPage() {
           </Row>
         </Container>
       </div>
-
+      <br/>
       <div>
         <Description
           name={name}
@@ -37,6 +37,7 @@ function ThirdPage() {
           user_rating = {user_rating}
         ></Description>
       </div>
+      <br/>
       <div>
         <Container>
          <TabMenu restaurant = {restaurant}>

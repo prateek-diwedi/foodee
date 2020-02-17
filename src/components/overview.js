@@ -7,24 +7,25 @@ const Overview = (props)=>{
   return(
     <div>
     <Container>
+      <br/>
       <Row>
       <Col sm={2}>
       <b>Highlight : </b>
       </Col>
-      <Col md="auto">
-        {props.restaurant.highlights}
+      <Col >
+        {props.restaurant.highlights.join(', ')}
       </Col>
       </Row>
-
+      <br/>
       <Row>
       <Col sm={2}>
       <b>Price range :</b>
       </Col>
       <Col md="4">
-        <Rate character='$' color='#08c' defaultValue={props.restaurant.price_range}/>
+        <Rate disabled character='$' color='#08c' defaultValue={props.restaurant.price_range}/>
       </Col>
       </Row>
-
+      <br/>
       <Row>
       <Col sm={2}>
       <b>Average Cost : </b>
@@ -33,7 +34,7 @@ const Overview = (props)=>{
         {props.restaurant.average_cost_for_two} $
       </Col>
       </Row>
-
+      <br/>
       <Row>
      <Col sm={2}>
      <b>Total Reviews : </b>
@@ -42,17 +43,17 @@ const Overview = (props)=>{
         {props.restaurant.all_reviews_count}
       </Col>
       </Row>
-
+      <br/>
       <Row>
       <Col sm={2}>
       <b>Total Rate : </b>
       </Col>
       <Col md="auto" icon="star" >
-        {props.restaurant.user_rating.aggregate_rating} <Rate character={<Icon theme="filled" type="star" />} allowHalf defaultValue={props.restaurant.user_rating.aggregate_rating} />
+        {props.restaurant.user_rating.aggregate_rating} <Rate disabled character={<Icon theme="filled" type="star" />} allowHalf defaultValue={props.restaurant.user_rating.aggregate_rating} />
       </Col>
       </Row>
-     
-
+      <br/>
+      <br/>
     </Container>
     </div>
 

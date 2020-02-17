@@ -46,6 +46,7 @@ const Description = props => {
           <Col md="auto">{Number(props.user_rating.aggregate_rating)}</Col>
           <Col md="auto">{props.user_rating.rating_text}</Col>
         </Row>
+        <br/>
         <Row>
           <Col md="auto">
             <Button type="primary" icon="star" onClick={event => {}}>

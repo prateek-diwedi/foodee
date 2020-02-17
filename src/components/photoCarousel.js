@@ -13,7 +13,7 @@ const PhotoCarousel = props => {
 
   return (
     <div style={divStyle}>
-      <Carousel autoplay>{photosMap}</Carousel>;
+      <Carousel autoplay>{photosMap}</Carousel>
     </div>
   );
 };
