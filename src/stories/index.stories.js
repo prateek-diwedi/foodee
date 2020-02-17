@@ -15,7 +15,7 @@ import AutoText from "../components/AutoText"
 import Categories from "../components/Categories"
 import Location from "../components/Location"
 import SignInPage from "../components/SignInPage"
-import firstPage from "../components/firstPage"
+import FirstPage from "../components/firstPage"
 
 
 //-------------------------------- categories Data ----------------------------------//
@@ -1350,4 +1350,4 @@ storiesOf("Button", module)
 
   //-----------------------------------------------  first Page--------------------------------------- //
   storiesOf("firstPage", module)
-  .add("First Page", () => <firstPage></firstPage>)
+  .add("First Page", () => <FirstPage></FirstPage>)
