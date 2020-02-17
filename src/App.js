@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <div>
       {/* <FirstPage></FirstPage> */}
-      <ThirdPage></ThirdPage>
+      {/* <ThirdPage></ThirdPage> */}
       <FirstPage></FirstPage>
     </div>
     </div>
