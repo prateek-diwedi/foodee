@@ -9,6 +9,12 @@ import SearchBar from "../components/SearchBar";
 import PictureWithInfo from "../components/PictureWithInfo";
 import NavBar from "../components/NavBar";
 import PictureWithInfoReverse from "../components/PictureWithInfoRevrese"
+import Footer from "../components/Footer"
+import WelcomePage from "../components/WelcomePage"
+import AutoText from "../components/AutoText"
+import Categories from "../components/Categories"
+import Location from "../components/Location"
+import SignInPage from "../components/SignInPage"
 
 
 //-------------------------------- categories Data ----------------------------------//
@@ -1297,9 +1303,46 @@ storiesOf("Button", module)
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
   })
   .add("Nav Bar", () => <NavBar>Nav Bar</NavBar>)
+
   // ----------------------------------- Picture with image Reverse ---------------------------- //
   storiesOf("PictureWithInfoReverse", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
   })
   .add("Food Picture", () => <PictureWithInfoReverse>Picture</PictureWithInfoReverse>)
+
+  // ------------------------------------- Footer ----------------------------------------------- //
+  storiesOf("Footer", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Footer", () => <Footer>Footer</Footer>)
+
+  // -------------------------------------- welcome page -------------------------------------------- //
+  storiesOf("WelcomePage", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Welcome Page", () => <WelcomePage>Welcome</WelcomePage>)
+
+  // --------------------------------------- Auto Text --------------------------------------------------//
+  storiesOf("AutoText", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Auto Text", () => <AutoText>Auto</AutoText>)
+
+  // --------------------------------------- Categories ------------------------------------------------ //
+  storiesOf("Categories", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Categories", () => <Categories>Categories</Categories>)
+
+  // -------------------------------------------- Location ---------------------------------------------- //
+  storiesOf("Location", module)
+  .add("Location", () => <Location>Location</Location>)
+
+  // -------------------------------------------- Sign In Page ----------------------------------------- //
+  storiesOf("SignInPage", module)
+  .add("Sign In Page", () => <SignInPage></SignInPage>)

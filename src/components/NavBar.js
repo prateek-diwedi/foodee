@@ -13,7 +13,7 @@ export default function NavBar() {
                 <li><a href="https://codepen.io/EneergeticTomy/" target="_blank" class="active">Logo</a></li>
                 <li><a href="https://codepen.io/TomikaBoy/full/LqMpaE" target="_blank" class="active1">Location</a></li>
                 <li><a href="https://codepen.io/" target="_blank" class="active2">Contact</a></li>
-                <li><a href="https://w3schools.com/" target="_blank" class="active3">Login</a></li>
+                <li><a  target="_blank" class="active3">Login</a></li>
                 <div class="line"></div>
                 <li><a><i class="fa fa-search" type="text" placeholder="Search...">
                 <div class="search"></div>
