@@ -16,6 +16,7 @@ import Categories from "../components/Categories"
 import Location from "../components/Location"
 import SignInPage from "../components/SignInPage"
 import FirstPage from "../components/firstPage"
+import RestaurantPage from "../thirdpage";
 // import CameraAccess from "../components/Camera"
 
 
@@ -1356,3 +1357,7 @@ storiesOf("Button", module)
   // ------------------------------------------------- cmaera ----------------------------------------- //
   // storiesOf("CameraAccess", module)
   // .add("Camera Modal", () => <CameraAccess></CameraAccess>)
+
+  // ------------------------------------------------- Restaurant Page ---------------------------------- //
+  storiesOf("Restaurant Page", module)
+  .add("Restaurant Page", () => <RestaurantPage></RestaurantPage>)
