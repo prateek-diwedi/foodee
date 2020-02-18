@@ -16,11 +16,10 @@ import Categories from "../components/Categories"
 import Location from "../components/Location"
 import SignInPage from "../components/SignInPage"
 import FirstPage from "../components/firstPage"
-<<<<<<< HEAD
 import SearchCard from "../SecondPage"
-=======
+
+import RestaurantPage from "../thirdpage";
 // import CameraAccess from "../components/Camera"
->>>>>>> bc25f61e69c5a36a9003075fc8649462622b0943
 
 
 //-------------------------------- categories Data ----------------------------------//
@@ -1357,6 +1356,16 @@ storiesOf("Button", module)
   storiesOf("firstPage", module)
   .add("First Page", () => <FirstPage></FirstPage>)
 
+
   //------------------------------------------- search card -----------------------------------//
   storiesOf("Search Card", module)
   .add("Search Card", () => <SearchCard></SearchCard>)
+
+  // ------------------------------------------------- cmaera ----------------------------------------- //
+  // storiesOf("CameraAccess", module)
+  // .add("Camera Modal", () => <CameraAccess></CameraAccess>)
+
+  // ------------------------------------------------- Restaurant Page ---------------------------------- //
+  storiesOf("Restaurant Page", module)
+  .add("Restaurant Page", () => <RestaurantPage></RestaurantPage>)
+

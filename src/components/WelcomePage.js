@@ -4,6 +4,7 @@ import SearchBar from "../components/SearchBar"
 import AutoText from "../components/AutoText"
 import Location from "../components/Location"
 import "./WelcomePage.scss"
+import { Link } from 'react-router-dom'
 
 export default function WelcomePage() {
 
@@ -11,7 +12,7 @@ export default function WelcomePage() {
     <div className = "welcomePage" >
 		  <img src={require('../images/foodee.jpg')}/>
       <div className="login-Button">
-      <Button  confirm>Login</Button>
+      <Link to="/signIn">Login</Link>
       </div>
       <div className = "search_bar_Home_page">
       <SearchBar></SearchBar>
