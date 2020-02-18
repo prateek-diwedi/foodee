@@ -1,7 +1,7 @@
 import React from "react";
 //import FirstPage from "./components/firstPage"
-// import ThirdPage from "./thirdpage";
-import SecondPage from "./SecondPage";
+import ThirdPage from "./thirdpage";
+// import SecondPage from "./SecondPage";
 
 
 // import FirstPage from "./components/firstPage";
@@ -12,8 +12,8 @@ function App() {
       {/* <div className="App"> */}
         <div>
           {/* <FirstPage></FirstPage> */}
-          <SecondPage></SecondPage>
-          {/* <ThirdPage></ThirdPage> */}
+          {/* <SecondPage></SecondPage> */}
+          <ThirdPage></ThirdPage>
           {/* <FirstPage></FirstPage> */}
         {/* </div> */}
       </div>

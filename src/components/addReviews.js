@@ -31,7 +31,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
   </div>
 );
 
-class App extends React.Component {
+class ReviewsList extends React.Component {
   state = {
     comments: [],
     submitting: false,
@@ -97,4 +97,4 @@ class App extends React.Component {
     );
   }
 }
-export default CommentList;
+export default ReviewsList;
