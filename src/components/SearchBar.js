@@ -5,9 +5,9 @@ import './SearchBar.scss';
 export default function SearchBar() {
 
   return (
-    <div class="container">
-  <input type="text" placeholder="Search..."/>
-  <div class="search"></div>
-  </div>
+    <div className="search-bar-container">
+      <input type="text" placeholder="Search..."/>
+      <div class="search"></div>
+    </div>
   );
 }
