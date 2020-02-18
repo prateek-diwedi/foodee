@@ -18,7 +18,7 @@ import SignInPage from "../components/SignInPage"
 import FirstPage from "../components/firstPage"
 import SearchCard from "../SecondPage"
 import RestaurantPage from "../thirdpage";
-// import CameraAccess from "../components/Camera"
+import Background_Video from "../components/Background-Video";
 
 
 //-------------------------------- categories Data ----------------------------------//
@@ -1360,9 +1360,9 @@ storiesOf("Button", module)
   storiesOf("Search Card", module)
   .add("Search Card", () => <SearchCard></SearchCard>)
 
-  // ------------------------------------------------- cmaera ----------------------------------------- //
-  // storiesOf("CameraAccess", module)
-  // .add("Camera Modal", () => <CameraAccess></CameraAccess>)
+  // ------------------------------------------------- Video ----------------------------------------- //
+  storiesOf("Background Video", module)
+  .add("Background Video", () => <Background_Video></Background_Video>)
 
   // ------------------------------------------------- Restaurant Page ---------------------------------- //
   storiesOf("Restaurant Page", module)
