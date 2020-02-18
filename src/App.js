@@ -1,22 +1,28 @@
-import React from "react";
-//import FirstPage from "./components/firstPage"
-import ThirdPage from "./thirdpage";
-// import SecondPage from "./SecondPage";
-
-
-// import FirstPage from "./components/firstPage";
+import React, { useState } from "react";
+import FirstPage from "./components/firstPage";
+import axios from 'axios'
 
 function App() {
+  const [message, setMessage] = useState("NO MESSAGE YET")
   return (
     <div>
       {/* <div className="App"> */}
         <div>
           {/* <FirstPage></FirstPage> */}
           {/* <SecondPage></SecondPage> */}
-          <ThirdPage></ThirdPage>
+          {/* <ThirdPage></ThirdPage> */}
           {/* <FirstPage></FirstPage> */}
         {/* </div> */}
       </div>
+       
+      <FirstPage></FirstPage>
+
+      <button onClick={() => {
+        axios.get('/api/dogs')
+          .then(res => setMessage(res.data.message))
+      }}>CLICK</button>
+      <h1>{message}</h1>
+      
     </div>
   );
 }
