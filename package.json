@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^7.1.2",
     "antd": "^3.26.9",
     "autosuggest-highlight": "latest",
+    "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "lodash": "latest",
     "mapbox-gl": "^1.7.0",
@@ -53,5 +54,6 @@
     "@storybook/addons": "^5.3.13",
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.13"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
