@@ -10,17 +10,17 @@ const divStyle = {
 };
 const SearchDescription = props => {
   return (
-  
+    <div className="search-container-style">
     <div className="search-container" style={divStyle}>
       <div class="clearfix float-my-children">
         <Image src={props.thumb} fluid />
       </div> 
 
-      <div className="search-name">
+      <div className="clearfix search-name">
         <h1>{props.name}</h1>
       </div>
 
-      <div className="search-desc">
+      <div className="clearfix search-desc">
         <Row>
           <Col>
             <p>
@@ -39,7 +39,7 @@ const SearchDescription = props => {
           </Row>
       </div>
       
-      <div className="search-rating">
+      <div className="clearfix search-rating">
         <Row>
           <Col md="auto">
             <Rate 
@@ -60,6 +60,7 @@ const SearchDescription = props => {
           </Col>
         </Row>
       </div>
+    </div>
     </div>
   );
 };
