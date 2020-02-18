@@ -17,11 +17,11 @@ function App() {
        
       <FirstPage></FirstPage>
 
-      <button onClick={() => {
+      {/* <button onClick={() => {
         axios.get('/api/dogs')
           .then(res => setMessage(res.data.message))
       }}>CLICK</button>
-      <h1>{message}</h1>
+      <h1>{message}</h1> */}
       
     </div>
   );
