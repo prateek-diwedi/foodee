@@ -5,6 +5,7 @@ import Overview from "./overview";
 import PhotoCards from "./photocards"
 import ReviewsList from "./reviews";
 import MapDirection from "./directionMap"
+import CommentList from "./addReviews"
 const TabMenu = props => {
   const restaurant = props.restaurant;
   return (
@@ -17,6 +18,7 @@ const TabMenu = props => {
       </Tab>
       <Tab eventKey="Reviews" title="Reviews">
         <ReviewsList></ReviewsList>
+        <CommentList></CommentList>
       </Tab>
       <Tab eventKey="Menu" title="Menu">
         <p>Menu</p>
