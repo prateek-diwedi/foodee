@@ -3,7 +3,18 @@ import { Comment, Avatar, Form, Button, List, Input } from "antd";
 import moment from "moment";
 
 const { TextArea } = Input;
+// This is a function to transfer input reviews data from API to the required format in this component
 
+const formatedReviews = data => {
+  let reviewNew = data.map(item => {
+    return ({author : item.review.user.name,
+            avatar : item.review.user.profile_image,
+            content : item.review.review_text,
+            datetime : item.review.review_time_friendly
+  });
+  })
+  return reviewNew;
+}
 const CommentList = ({ comments }) => (
   <List
     dataSource={comments}
@@ -32,11 +43,14 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 );
 
 class ReviewsList extends React.Component {
-  state = {
-    comments: [],
+  constructor(props) {
+    super(props);
+    this.state = {
+    user : props.user,  
+    comments: formatedReviews(props.comments),
     submitting: false,
     value: ""
-  };
+  };}
 
   handleSubmit = () => {
     if (!this.state.value) {
@@ -53,9 +67,8 @@ class ReviewsList extends React.Component {
         value: "",
         comments: [
           {
-            author: "Han Solo",
-            avatar:
-              "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+            author: this.state.user.username,
+            avatar: this.state.user.avatar,
             content: <p>{this.state.value}</p>,
             datetime: moment().fromNow()
           },
@@ -72,7 +85,7 @@ class ReviewsList extends React.Component {
   };
 
   render() {
-    const { comments, submitting, value } = this.state;
+    const { user, comments, submitting, value } = this.state;
 
     return (
       <div>
@@ -80,8 +93,8 @@ class ReviewsList extends React.Component {
         <Comment
           avatar={
             <Avatar
-              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              alt="Han Solo"
+              src= {user.avatar}
+              alt= {user.username}
             />
           }
           content={

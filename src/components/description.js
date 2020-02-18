@@ -48,9 +48,9 @@ const Description = props => {
         <br/>
         <Row>
           <Col md="auto">
-            <Button type="primary" icon="star" onClick={event => {}}>
-              Add Review
-              
+            <Button type="primary"  theme="filled" icon="heart" onClick={event => {}}>
+              Favorite
+        
             </Button>
           </Col>
         </Row>
