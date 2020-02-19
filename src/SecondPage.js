@@ -5,7 +5,7 @@ import "../src/index.css";
 //import restaurant from "./data/resdatabase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SearchDescription from "./components/SearchDescription";
-import Footer from "../src/components/Footer"
+import Footer from "../src/components/Footer";
 import NavBar from "./components/NavBar";
 const axios = require('axios');
 
