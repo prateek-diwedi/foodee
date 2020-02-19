@@ -6,6 +6,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import SignIpPage from "./components/SignInPage"
 import RestaurantPage from "./thirdpage";
+import SearchPage from "./SecondPage";
 //import history from "./history"
 
 const routing = (
@@ -15,6 +16,7 @@ const routing = (
       <Route exact path = "/" component={App}/>
       <Route path = "/signIn" component={SignIpPage}/>
       <Route path = "/restaurant" component={RestaurantPage}/>
+      <Route path = "/search" component={SearchPage}/>
       </Switch>
     </div>
   </Router>
