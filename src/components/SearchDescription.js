@@ -1,9 +1,14 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from 'react-bootstrap/Image'
 import { Rate } from "antd";
 import "./SearchDescription.scss";
+import axios from "axios";
+import restaurant from "../data/resdatabase";
+
+
+ 
 
 const divStyle = {
   padding: "0.5em"
@@ -33,7 +38,7 @@ const SearchDescription = props => {
             </p>
             <p>
               <b>Address: </b>
-              {props.location.address}
+              {props.address}
             </p>
             </Col>
           </Row>
@@ -45,17 +50,16 @@ const SearchDescription = props => {
             <Rate 
               disabled
               allowHalf
-              defaultValue={Number(props.user_rating.aggregate_rating)}
+              defaultValue={Number(props.avgRating)}
             />
           </Col>
           <Col md="auto">
             <b>
-              {Number(props.user_rating.aggregate_rating)}
+              {Number(props.avgRating)}
             </b>
           </Col>
           <Col md="auto">
             <b>
-              {props.user_rating.rating_text}
             </b>
           </Col>
         </Row>

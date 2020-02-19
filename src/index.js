@@ -1,18 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Route,  Switch,  BrowserRouter as Router } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import SignIpPage from "./components/SignInPage"
 import RestaurantPage from "./thirdpage";
+import SearchPage from "./SecondPage";
+//import history from "./history"
 
 const routing = (
-  <Router>
+  <Router >
     <div>
+      <Switch>
       <Route exact path = "/" component={App}/>
       <Route path = "/signIn" component={SignIpPage}/>
       <Route path = "/restaurant" component={RestaurantPage}/>
+      <Route path = "/search" component={SearchPage}/>
+      </Switch>
     </div>
   </Router>
 )
