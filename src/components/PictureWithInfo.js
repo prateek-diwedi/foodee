@@ -4,7 +4,7 @@ import "../images/image1.jpg"
 export default function PictureWithInfo(){
 
   return (
-    <div class = "container" >
+    <div className = "container-picture-with-info" >
 		<img src={require('../images/image1.jpg')}/>
 		
     <article>
