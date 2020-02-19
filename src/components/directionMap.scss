@@ -1,9 +1,23 @@
 .mapContainer {
-  height: 200px;
-  width: 360px;
   position: relative;
-  top: 10px;
-  right: 10px;
+  top: 0;
+  right: 0;
   left: 0;
-  bottom: 100px;
+  bottom: 0;
+  }
+#map {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+.mapboxgl-canvas-container {
+  width: 250ch;
+  height: 75vh;
+
+}
+.mapboxgl-canvas {
+  // position: relative;
+  width: 250ch;
+  height: 75vh;
 }

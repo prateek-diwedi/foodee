@@ -10,12 +10,12 @@ import Description from "./components/description";
 import TabMenu from "./components/tabs";
 import axios from "axios";
 import NavBar from "./components/NavBar";
-
-// const restaurant_id = 16618033; //16618773; // 16617115 16618902 16618033 16619055 16617176 16625742 16626268 16628153 16708849
+import Footer from '../src/components/Footer';
+// const restaurant_id = 16619055; //16618773; // 16617115 16618902 16618033 16619055 16617176 16625742 16626268 16628153 16708849
 function ThirdPage(props) {
   console.log(props);
   const [rest, setRest] = useState(null);
-  const [revs, setReviews] = useState([]);
+  const [revs, setReviews] = useState(null);
   useEffect(() => {
     // const restPromise =
     const restaurantPromise = axios({
@@ -23,6 +23,7 @@ function ThirdPage(props) {
       method: "get",
       params: {
         res_id: props.match.params.restaurant_id
+        // res_id : restaurant_id
       },
       headers: {
         Accept: "application/json",
@@ -35,6 +36,7 @@ function ThirdPage(props) {
       method: "get",
       params: {
         res_id: props.match.params.restaurant_id
+        // res_id : restaurant_id
       },
       headers: {
         Accept: "application/json",
@@ -46,22 +48,24 @@ function ThirdPage(props) {
       .then(values => {
         setRest(values[0].data);
         setReviews(values[1].data);
+        console.log(values[1])
       })
       .catch(e => console.log(e));
   }, []);
 
-  if (rest) {
+  if (rest&&revs) {
     const name = rest.name;
     const hours = rest.timings;
     const cuisine = rest.cuisines;
     const location = rest.location;
     const user_rating = rest.user_rating;
     rest.all_reviews.reviews = revs.user_reviews;
+    console.log(revs)
     return (
       <div>
         <div className="App">
           <NavBar></NavBar>
-
+           
           <Row>
             <Col>
               <PhotoCarousel photoList={rest.photos}></PhotoCarousel>
@@ -81,11 +85,12 @@ function ThirdPage(props) {
         <br />
         <div>
           <TabMenu restaurant={rest}></TabMenu>
+          <Footer></Footer>
         </div>
       </div>
     );
   } else {
-    return <div>Unexpected error in reading API!!!</div>;
+    return <div></div>;
   }
 }
 

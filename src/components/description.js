@@ -1,9 +1,10 @@
 import React from "react";
-//import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Rate } from "antd";
-import { Button } from "antd";
+import Button from 'react-bootstrap/Button'
+import MapDirection from "./directionMap"
+import MapModal from "./mapmodal"
 const divStyle = {
   padding: "0.5em"
 };
@@ -50,8 +51,12 @@ const Description = props => {
           <Col md="auto">
             <Button type="primary"  theme="filled" icon="heart" onClick={event => {}}>
               Favorite
-        
             </Button>
+          </Col>
+          <Col md="auto">
+            <MapModal>
+              <MapDirection start_lng={-123.1278} start_lat={49.2778} end_lng={props.location.longitude} end_lat={props.location.latitude} />
+            </MapModal>
           </Col>
         </Row>
       
