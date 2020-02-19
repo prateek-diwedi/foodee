@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
+//import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Rate } from "antd";
@@ -10,7 +10,7 @@ const divStyle = {
 const Description = props => {
   return (
     <div style={divStyle}>
-      <Container>
+   
         <Row>
           <Col>
   <h1>{props.name}</h1>
@@ -54,7 +54,7 @@ const Description = props => {
             </Button>
           </Col>
         </Row>
-      </Container>
+      
     </div>
   );
 };

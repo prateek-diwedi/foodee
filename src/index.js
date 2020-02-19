@@ -15,7 +15,7 @@ const routing = (
       <Switch>
       <Route exact path = "/" component={App}/>
       <Route path = "/signIn" component={SignIpPage}/>
-      <Route path = "/restaurant" component={RestaurantPage}/>
+      <Route path= "/restaurant/:restaurant_id" component={RestaurantPage}/>
       <Route path = "/search" component={SearchPage}/>
       </Switch>
     </div>

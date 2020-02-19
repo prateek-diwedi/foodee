@@ -30,9 +30,9 @@ const TabMenu = props => {
       </Tab>
      
       <Tab eventKey = "Direction" title = "Direction Map">
-        <section >
+       
           <MapDirection  start_lng ={-123.1278} start_lat = {49.2778}  end_lng ={restaurant.location.longitude} end_lat ={restaurant.location.latitude}/>
-        </section>
+        
       </Tab>
     </Tabs>
   );
