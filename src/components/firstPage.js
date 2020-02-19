@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Button from "../components/Button";
 import SearchBar from "../components/SearchBar";
 import PictureWithInfo from "../components/PictureWithInfo";
@@ -10,29 +10,23 @@ import Categories from "../components/Categories"
 import Location from "../components/Location"
 
 
-
 export default function FirstPage() {
 
   return (
     <div>
      <WelcomePage>
-        <Button confirm>Login</Button>
         <AutoText></AutoText>
         <Location></Location>
         <SearchBar></SearchBar>
-        </WelcomePage>
+     </WelcomePage>
+
+     <Categories></Categories>
       
+     <PictureWithInfo></PictureWithInfo>
       
-        <Categories></Categories>
+     <PictureWithInfoReverse></PictureWithInfoReverse>
       
-      
-        <PictureWithInfo></PictureWithInfo>
-      
-      
-        <PictureWithInfoReverse></PictureWithInfoReverse>
-      
-      
-        <Footer></Footer>
+     <Footer></Footer>
     </div>
   )
 }
