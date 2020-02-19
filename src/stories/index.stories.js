@@ -17,7 +17,6 @@ import Location from "../components/Location"
 import SignInPage from "../components/SignInPage"
 import FirstPage from "../components/firstPage"
 import SearchCard from "../SecondPage"
-
 import RestaurantPage from "../thirdpage";
 // import CameraAccess from "../components/Camera"
 
