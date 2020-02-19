@@ -6,6 +6,7 @@ import { Rate } from "antd";
 import "./SearchDescription.scss";
 import axios from "axios";
 import restaurant from "../data/resdatabase";
+import { Container } from "react-bootstrap";
 
 
  
@@ -15,6 +16,7 @@ const divStyle = {
 };
 const SearchDescription = props => {
   return (
+    <Container>
     <div className="search-container-style">
     <div className="search-container" style={divStyle}>
       <div class="clearfix float-my-children">
@@ -66,6 +68,8 @@ const SearchDescription = props => {
       </div>
     </div>
     </div>
+    </Container>
+
   );
 };
 
