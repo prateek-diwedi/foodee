@@ -4,7 +4,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Rate } from "antd";
 import { Button } from "antd";
-
 const divStyle = {
   padding: "0.5em"
 };
@@ -49,8 +48,9 @@ const Description = props => {
         <br/>
         <Row>
           <Col md="auto">
-            <Button type="primary" icon="star" onClick={event => {}}>
-              Add Review
+            <Button type="primary"  theme="filled" icon="heart" onClick={event => {}}>
+              Favorite
+        
             </Button>
           </Col>
         </Row>

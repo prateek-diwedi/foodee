@@ -1,13 +1,13 @@
 import React from "react";
-import "./App.css";
+import "./thirdpage.scss";
 import "antd/dist/antd.css";
 import "../src/index.css";
 import restaurant from "./data/resdatabase";
 import PhotoCarousel from "./components/photoCarousel";
 import { Col, Container, Row } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Description from "./components/description";
 import TabMenu from "./components/tabs";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const name =restaurant.name;
 const hours = restaurant.timings;
@@ -18,13 +18,14 @@ const user_rating = restaurant.user_rating;
 function ThirdPage() {
   return (
     <div>
-      <div className="App">
+      <div className="third_page">
         <Container>
-          <Row>
-            <Col>
-              <PhotoCarousel photoList={restaurant.photos}></PhotoCarousel>
-            </Col>
-          </Row>
+
+            <Row>
+              <Col>
+                <PhotoCarousel photoList={restaurant.photos}></PhotoCarousel>
+              </Col>
+            </Row>
         </Container>
       </div>
       <br/>
@@ -40,8 +41,8 @@ function ThirdPage() {
       <br/>
       <div>
         <Container>
-         <TabMenu restaurant = {restaurant}>
-        </TabMenu> 
+          <TabMenu restaurant = {restaurant}>
+          </TabMenu> 
         </Container>
         
       </div>
