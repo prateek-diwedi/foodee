@@ -3,9 +3,7 @@ import React from "react";
 import { Carousel } from "antd";
 import './photoCarousel.scss'
 
-const divStyle = {
 
-};
 
 const PhotoCarousel = props => {
   let photosMap = props.photoList.map(photo => {
@@ -13,9 +11,9 @@ const PhotoCarousel = props => {
   });
 
   return (
-    <div style={divStyle}>
+    // <div style={divStyle}>
       <Carousel autoplay>{photosMap}</Carousel>
-    </div>
+    // </div>
   );
 };
 

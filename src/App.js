@@ -1,19 +1,3 @@
-// import React from "react";
-// //import FirstPage from "./components/firstPage";
-// import RestaurantPage from "./thirdpage";
-
-// function App() {
-//   return (
-//     <div>
-//        <RestaurantPage/>
-//       {/* <FirstPage></FirstPage> */}
-      
-//     </div>
-//   );
-// }
-
-// export default App;
-
 
 import React from "react";
 //import FirstPage from "./components/firstPage"

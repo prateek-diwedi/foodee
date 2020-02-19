@@ -1,12 +1,11 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Rate, Icon } from 'antd';
 const Overview = (props)=>{
   return(
     <div>
-    <Container>
+    
       <br/>
       <Row>
       <Col sm={2}>
@@ -54,7 +53,7 @@ const Overview = (props)=>{
       </Row>
       <br/>
       <br/>
-    </Container>
+    
     </div>
 
   )
