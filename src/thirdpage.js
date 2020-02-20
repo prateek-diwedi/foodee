@@ -16,6 +16,7 @@ function ThirdPage(props) {
   console.log(props);
   const [rest, setRest] = useState(null);
   const [revs, setReviews] = useState(null);
+  const [revss, setReviewsfromdatabase] = useState(null);
   useEffect(() => {
     // const restPromise =
     const restaurantPromise = axios({
@@ -41,24 +42,38 @@ function ThirdPage(props) {
         "user-key": "16e9855be80e0336fe3bc1dafa559ad2"
       },
       responseType: "json"
-    });
-    Promise.all([restaurantPromise, reviewsPromise])
+    })
+
+    const reviews = axios({
+      url: "http://localhost:3001/api/v1/reviews",
+      method: "get",
+      params: {
+        res_id: props.match.params.restaurant_id
+      },
+      headers: {
+        Accept: "application/json"
+      },
+      responseType: "json"
+    })
+    Promise.all([restaurantPromise, reviewsPromise, reviews])
       .then(values => {
         setRest(values[0].data);
         setReviews(values[1].data);
-        console.log(values[1])
+        setReviewsfromdatabase(values[2].data);
+        console.log("values of 2", values[2])
+
       })
       .catch(e => console.log(e));
   }, []);
 
-  if (rest&&revs) {
+  if (rest&&revs&&revss) {
     const name = rest.name;
     const hours = rest.timings;
     const cuisine = rest.cuisines;
     const location = rest.location;
     const user_rating = rest.user_rating;
     rest.all_reviews.reviews = revs.user_reviews;
-    console.log(revs)
+    console.log(revss)
     return (
       <div>
         <div className="App">
