@@ -47,7 +47,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
       <TextArea rows={4} onChange={onChange} value={value} />
     </Form.Item>
     <Form.Item>
-      <Rating></Rating>
+      <Rating onChange={onChange} value={value}></Rating>
     </Form.Item>
     <Form.Item>
       <Button
