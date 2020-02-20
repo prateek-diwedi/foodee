@@ -23,7 +23,6 @@ function ThirdPage(props) {
       method: "get",
       params: {
         res_id: props.match.params.restaurant_id
-        // res_id : restaurant_id
       },
       headers: {
         Accept: "application/json",
@@ -36,7 +35,6 @@ function ThirdPage(props) {
       method: "get",
       params: {
         res_id: props.match.params.restaurant_id
-        // res_id : restaurant_id
       },
       headers: {
         Accept: "application/json",

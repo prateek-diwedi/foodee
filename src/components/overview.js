@@ -27,7 +27,7 @@ const Overview = (props)=>{
       <br/>
       <Row>
       <Col sm={2}>
-      <b>Average Cost : </b>
+      <b>Average cost for tow person : </b>
       </Col>
       <Col md="4">
         {props.restaurant.average_cost_for_two} $

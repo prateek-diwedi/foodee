@@ -2,17 +2,19 @@ import React ,{useState} from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
-
+import {Icon} from 'antd';
 function LargeModal(props) {
     return (
       <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Directions 
+            Directions - Walking
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            {props.children}
+          <div height ="60ch">
+          {props.children}
+          </div>
          </Modal.Body>
         <Modal.Footer>
           <Button onClick={props.onHide}>Close</Button>
@@ -26,11 +28,10 @@ function LargeModal(props) {
   
     return (
       <ButtonToolbar>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
-          Get Direction!
-        </Button>
+        <Icon style ={{fontSize: '40px', color: '#08c'}} type="environment"  variant="primary" onClick={() => setModalShow(true)} />
+        
   
-        <LargeModal size = "xl" show={modalShow} onHide={() => setModalShow(false)}>
+        <LargeModal size = "lg" show={modalShow} onHide={() => setModalShow(false)}>
             {props.children}
         </LargeModal>
       </ButtonToolbar>

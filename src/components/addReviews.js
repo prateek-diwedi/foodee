@@ -1,26 +1,43 @@
-import React from 'react';
-import { Comment, Avatar, Form, Button, List, Input } from "antd";
+import React from "react";
+import { Comment, Avatar, Form, Button, List, Input, Rate } from "antd";
 import moment from "moment";
-
+import Rating from "./Rating";
 const { TextArea } = Input;
 // This is a function to transfer input reviews data from API to the required format in this component
 
 const formatedReviews = data => {
   let reviewNew = data.map(item => {
-    return ({author : item.review.user.name,
-            avatar : item.review.user.profile_image,
-            content : item.review.review_text,
-            datetime : item.review.review_time_friendly
+    return {
+      author: item.review.user.name,
+      avatar: item.review.user.profile_image,
+      content: item.review.review_text,
+      datetime: item.review.review_time_friendly,
+      rate: item.review.rating
+    };
   });
-  })
   return reviewNew;
-}
+};
 const CommentList = ({ comments }) => (
   <List
     dataSource={comments}
     header={`${comments.length} ${comments.length > 1 ? "replies" : "reply"}`}
     itemLayout="horizontal"
-    renderItem={props => <Comment {...props} />}
+    renderItem={props => {
+      return (
+        <div>
+          <div>
+            <Comment {...props} />
+          </div>
+          <div>
+          <Rate
+            disabled
+            allowHalf
+            defaultValue={Number(props.rate)}
+          />
+          </div>
+        </div>
+      );
+    }}
   />
 );
 
@@ -28,6 +45,9 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
   <div>
     <Form.Item>
       <TextArea rows={4} onChange={onChange} value={value} />
+    </Form.Item>
+    <Form.Item>
+      <Rating></Rating>
     </Form.Item>
     <Form.Item>
       <Button
@@ -46,11 +66,12 @@ class ReviewsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    user : props.user,  
-    comments: formatedReviews(props.comments),
-    submitting: false,
-    value: ""
-  };}
+      user: props.user,
+      comments: formatedReviews(props.comments),
+      submitting: false,
+      value: ""
+    };
+  }
 
   handleSubmit = () => {
     if (!this.state.value) {
@@ -91,12 +112,7 @@ class ReviewsList extends React.Component {
       <div>
         {comments.length > 0 && <CommentList comments={comments} />}
         <Comment
-          avatar={
-            <Avatar
-              src= {user.avatar}
-              alt= {user.username}
-            />
-          }
+          avatar={<Avatar src={user.avatar} alt={user.username} />}
           content={
             <Editor
               onChange={this.handleChange}

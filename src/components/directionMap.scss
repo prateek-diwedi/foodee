@@ -4,6 +4,7 @@
   right: 0;
   left: 0;
   bottom: 0;
+  width: 100%
   }
 #map {
   position: relative;
@@ -12,12 +13,24 @@
   width: 100%;
 }
 .mapboxgl-canvas-container {
-  width: 250ch;
-  height: 75vh;
+  height: 60ch;
+  
+}
+// canvas.mapboxgl-canvas {
+//    position: inherit !important;
+//   //  width: 100% !important;
+//   //  height: 100% !important;
+// }
 
-}
-.mapboxgl-canvas {
-  // position: relative;
-  width: 250ch;
-  height: 75vh;
-}
+
+// .geocoder {
+//   position: absolute;
+//   z-index: 1;
+//   width: 50%;
+//   left: 50%;
+//   margin-left: -25%;
+//   top: 20px;
+//   }
+//   .mapboxgl-ctrl-geocoder {
+//   min-width: 100%;
+  // }
