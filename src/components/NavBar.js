@@ -19,10 +19,10 @@ export default function NavBar() {
     </Form>
   </Navbar>
   
-  <div className="desc">
+  {/* <div className="desc">
     {/* <h1>Local Restaurants NearBy</h1> */}
-     Local Restaurants NearBy
-  </div>
+     {/* Local Restaurants NearBy */}
+  {/* </div> */} 
   
   </div>
   )
