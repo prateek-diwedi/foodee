@@ -166,39 +166,7 @@ class MapDirection extends React.Component {
       req.send();
     }
 
-    // map.on('load', function() {
-
-    //   // make an initial directions request that
-    //   // starts and ends at the same location
-    //   getRoute(end,end);
-
-    //   // Add starting point to the map
-
-    //   map.addLayer({
-    //     id: 'start',
-    //     type: 'circle',
-    //     source: {
-    //       type: 'geojson',
-    //       data: {
-    //         type: 'FeatureCollection',
-    //         features: [{
-    //           type: 'Feature',
-    //           properties: {},
-    //           geometry: {
-    //             type: 'Point',
-    //             coordinates: start
-    //           }
-    //         }
-    //         ]
-    //       }
-    //     },
-    //     paint: {
-    //       'circle-radius': 10,
-    //       'circle-color': '#3887be'
-    //     }
-    //   });
-    //   getRoute(start,end);
-    // })
+    
     map.on('click', function (e) {
       var coordsObj = e.lngLat;
       canvas.style.cursor = '';

@@ -6,7 +6,7 @@ const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
 class Rating extends React.Component {
   state = {
-    value: 3,
+    value: 0,
   };
 
   handleChange = value => {
