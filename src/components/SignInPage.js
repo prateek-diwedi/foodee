@@ -13,6 +13,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from "../components/Footer"
+const axios = require("axios");
+
 
 function Copyright() {
   return (
@@ -60,6 +62,17 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignInSide() {
   const classes = useStyles();
+  axios
+  .post("http://localhost:3001/api/v1/users", 
+   {user : {email: "p@o.com", password: "abc"}
+  })
+  .then(function(response) {
+    console.log("response",response);
+  })
+  .catch(function(error) {
+    console.log(error.message);
+  })
+
 
   return (
     <div>
@@ -117,7 +130,7 @@ export default function SignInSide() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/signUp" variant="body2">
+                <Link href="/SignUp" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
