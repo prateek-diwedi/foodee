@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { GoogleComponent } from 'react-google-location' 
  
 
-const API_KEY = process.env.REACT_APP_APIKEY  // how to get key - step are below
- 
+const API_KEY = process.env.REACT_APP_APIKEY  
+
 class LocationWithCoordinates extends Component {
   constructor(props) {
     super(props)

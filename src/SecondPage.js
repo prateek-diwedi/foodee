@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import "antd/dist/antd.css";
 import "../src/index.css";
+import { Link } from "react-router-dom"
 //import restaurant from "./data/resdatabase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SearchDescription from "./components/SearchDescription";
@@ -16,8 +17,11 @@ const axios = require('axios');
 // const location = restaurant.location;
 // const user_rating = restaurant.user_rating;
 
-const apiUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=280&entity_type=city&cuisines=cafe"
+const apiUrl = "https://developers.zomato.com/api/v2.1/search?lat=49.2827&lon=-123.1207"
 
+const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
+
+console.log("api key ----", ZOMATO_API_KEY)
 function SecondPage(props) {
   const [state, setState] = useState({data:[]});
   
@@ -25,7 +29,7 @@ function SecondPage(props) {
   
   const getApi = () => {
     axios
-      .get(apiUrl, {headers: {"user-key": "16e9855be80e0336fe3bc1dafa559ad2"}})
+      .get(apiUrl, {headers: {"user-key": ZOMATO_API_KEY}})
       .then(response => {
         return response.data.restaurants.map(({restaurant}) => {
           return {
@@ -63,7 +67,7 @@ function SecondPage(props) {
       <NavBar></NavBar>
       <br></br>
       {(state.data || []).map((props) => {
-        return (<SearchDescription key={`${props.id}`} {...props} ></SearchDescription>)
+        return (<Link to={`/restaurant/${props.id}`}><SearchDescription key={`${props.id}`} {...props} ></SearchDescription></Link>)
       })}
       <Footer></Footer>
     </div>
