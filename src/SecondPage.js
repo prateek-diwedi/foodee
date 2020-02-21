@@ -46,6 +46,10 @@ function SecondPage(props) {
           isLoading: false
         })
       })
+      // .get("http://localhost:3001/api/v1/reviews")
+      // .then(response =>{
+      //   console.log("response from server",response)
+      // })
         .catch(error => setState({ error, isLoading: false }))
   }
 
