@@ -32,11 +32,12 @@ function SecondPage(props) {
             id: restaurant.id,
             thumb: `${restaurant.thumb}`,
             name: `${restaurant.name}`,
-            cuisine: `${restaurant.cuisine}`,
-            hours: `${restaurant.hours}`,
+            cuisine: `${restaurant.cuisines}`,
+            hours: `${restaurant.timings}`,
             address: `${restaurant.location.address}`,
             avgRating: `${restaurant.user_rating.aggregate_rating}`,
-            textRating: `${restaurant.user_rating.rating_text}`
+            textRating: `${restaurant.user_rating.rating_text}`,
+            averageCost: `${restaurant.average_cost_for_two}`
           }
         })
       }).then(data => {
