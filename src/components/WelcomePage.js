@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from "../components/Button"
 import SearchBar from "../components/SearchBar"
 import AutoText from "../components/AutoText"
-import Location from "../components/Location"
+import Location from "../components/LocationWithCoordinates"
 import "./WelcomePage.scss"
 import { Link, useHistory } from 'react-router-dom'
 import Background_Video from "../components/Background-Video"

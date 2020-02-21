@@ -17,8 +17,9 @@ import Location from "../components/Location"
 import SignInPage from "../components/SignInPage"
 import FirstPage from "../components/firstPage"
 import SearchCard from "../SecondPage"
-import RestaurantPage from "../thirdpage";
+//import RestaurantPage from "../thirdpage";
 import Background_Video from "../components/Background-Video";
+import LocationWithCoords from "../components/LocationWithCoordinates"
 
 
 //-------------------------------- categories Data ----------------------------------//
@@ -1365,7 +1366,9 @@ storiesOf("Button", module)
   .add("Background Video", () => <Background_Video></Background_Video>)
 
   // ------------------------------------------------- Restaurant Page ---------------------------------- //
-  storiesOf("Restaurant Page", module)
-  .add("Restaurant Page", () => <RestaurantPage></RestaurantPage>)
+  // storiesOf("Restaurant Page", module)
+  // .add("Restaurant Page", () => <RestaurantPage></RestaurantPage>)
 
-
+ // ------------------------------------------------- Location with coords ---------------------------------- //
+storiesOf("location with coords", module)
+.add("Location with coords", () => <LocationWithCoords/>)
