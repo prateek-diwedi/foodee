@@ -7,6 +7,8 @@ import "./SearchDescription.scss";
 import axios from "axios";
 import restaurant from "../data/resdatabase";
 import { Container } from "react-bootstrap";
+// import { bounce } from "react-animations";
+// import { styled, keyframes } from 'styled-components';
 
 
  
@@ -14,8 +16,11 @@ import { Container } from "react-bootstrap";
 const divStyle = {
   padding: "0.5em"
 };
+// const Bounce = styled.div `animation : 2s ${keyframes `${bounce}`} infinite`;
+
 const SearchDescription = props => {
   return (
+    // <Bounce>
     <Container>
     <div className="search-container-style">
     <div className="search-container" style={divStyle}>
@@ -37,6 +42,10 @@ const SearchDescription = props => {
             <p>
               <b>Hours: </b>
               {props.hours}
+            </p>
+            <p>
+              <b>Cost for two persons: </b>
+              {props.averageCost} $
             </p>
             <p>
               <b>Address: </b>
@@ -69,6 +78,7 @@ const SearchDescription = props => {
     </div>
     </div>
     </Container>
+    // </Bounce>
 
   );
 };
