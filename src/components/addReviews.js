@@ -47,7 +47,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
       <TextArea rows={4} onChange={onChange} value={value} />
     </Form.Item>
     <Form.Item>
-      <Rating></Rating>
+      <Rating onChange={onChange} value={value}></Rating>
     </Form.Item>
     <Form.Item>
       <Button
@@ -59,6 +59,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
         Add Comment
       </Button>
     </Form.Item>
+    
   </div>
 );
 
@@ -91,7 +92,8 @@ class ReviewsList extends React.Component {
             author: this.state.user.username,
             avatar: this.state.user.avatar,
             content: <p>{this.state.value}</p>,
-            datetime: moment().fromNow()
+            datetime: moment().fromNow(),
+            rate: this.state.rate
           },
           ...this.state.comments
         ]

@@ -8,7 +8,7 @@ class VideoBackground extends Component {
     }
   render() {
       const videoOptions = {
-        src: '/foodee-video.mp4',
+        src: '/foodee-video2.mp4',
         autoPlay: true,
         loop: true,
         muted: true

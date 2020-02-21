@@ -8,6 +8,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import parse from 'autosuggest-highlight/parse';
 import throttle from 'lodash/throttle';
 
+let apiKey = process.env.REACT_APP_APIKEY
+
 function loadScript(src, position, id) {
   if (!position) {
     return;
@@ -38,7 +40,7 @@ export default function GoogleMaps() {
   if (typeof window !== 'undefined' && !loaded.current) {
     if (!document.querySelector('#google-maps')) {
       loadScript(
-        'https://maps.googleapis.com/maps/api/js?key={key}&libraries=places',
+        `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`,
         document.querySelector('head'),
         'google-maps',
       );
@@ -75,6 +77,7 @@ export default function GoogleMaps() {
     }
 
     fetch({ input: inputValue }, results => {
+      console.log('res',results);
       if (active) {
         setOptions(results || []);
       }
@@ -93,6 +96,7 @@ export default function GoogleMaps() {
       filterOptions={x => x}
       options={options}
       autoComplete
+      coordinates={true}
       includeInputInList
       freeSolo
       disableOpenOnFocus
@@ -107,6 +111,7 @@ export default function GoogleMaps() {
       )}
       renderOption={option => {
         const matches = option.structured_formatting.main_text_matched_substrings;
+        console.log('what is matches', option)
         const parts = parse(
           option.structured_formatting.main_text,
           matches.map(match => [match.offset, match.offset + match.length]),
