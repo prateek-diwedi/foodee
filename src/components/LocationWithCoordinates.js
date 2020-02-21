@@ -17,10 +17,8 @@ class LocationWithCoordinates extends Component {
     return (
       <div >
          <GoogleComponent
-         
           apiKey={API_KEY}
           language={'en'}
-          // country={'country:us'}
           coordinates={true}
           // locationBoxStyle={{ "width":"400px"}}
           // locationListStyle={{ "width":"400px"}}
