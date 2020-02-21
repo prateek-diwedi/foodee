@@ -63,31 +63,20 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignUp() {
   const classes = useStyles();
+ 
   axios
-    .get("http://localhost:3001/api/v1/users", {
-      params: {
-        ID: 12345
-      }
+    .post("http://localhost:3001/api/v1/users", 
+     {user : {name: "peo", email: "p@o.com", password: "abc"}
     })
     .then(function(response) {
-      console.log(response);
+      console.log("response",response);
     })
     .catch(function(error) {
-      console.log(error);
+      console.log("error response",error.message);
     })
-    .then(function() {
-      // always executed
-    });
 
-  // Want to use async/await? Add the `async` keyword to your outer function/method.
-  async function getUser() {
-    try {
-      const response = await axios.get("http://localhost:3001/api/v1/users");
-      console.log(response);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  
+
 
   return (
     <div>
