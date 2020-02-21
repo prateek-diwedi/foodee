@@ -44,7 +44,7 @@ function ThirdPage(props) {
       responseType: "json"
     })
 
-    const reviews = axios({
+    const reviewsAPIPromise = axios({
       url: "http://localhost:3001/api/v1/reviews",
       method: "get",
       params: {
@@ -55,7 +55,7 @@ function ThirdPage(props) {
       },
       responseType: "json"
     })
-    Promise.all([restaurantPromise, reviewsPromise, reviews])
+    Promise.all([restaurantPromise, reviewsPromise, reviewsAPIPromise])
       .then(values => {
         setRest(values[0].data);
         setReviews(values[1].data);
