@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -62,24 +62,35 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SignUp() {
+  const [state, setState] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
   const classes = useStyles();
- 
-  axios
-    .post("http://localhost:3001/api/v1/users", 
-     {user : {name: "peo", email: "p@o.com", password: "abc"}
-    })
-    .then(function(response) {
-      console.log("response",response);
-    })
-    .catch(function(error) {
-      console.log("error response",error.message);
-    })
 
-  
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(state);
+    axios
+      .post("http://localhost:3001/api/v1/users", {
+        user: { name: state.name, email: state.email, password: state.password }
+      })
+      .then(function(response) {
+        console.log("response", response);
+      })
+      .catch(function(error) {
+        console.log("error response", error.message);
+      });
+  };
 
-
-
-    
+  function handleChange(evt) {
+    const value = evt.target.value;
+    setState({
+      ...state,
+      [evt.target.id]: value
+    });
+  }
 
   return (
     <div>
@@ -94,8 +105,13 @@ export default function SignUp() {
             <Typography component="h1" variant="h5">
               Sign Up
             </Typography>
-            <form className={classes.form} noValidate>
+            <form
+              className={classes.form}
+              noValidate
+              onSubmit={event => handleSubmit(event)}
+            >
               <TextField
+                onChange={handleChange}
                 variant="outlined"
                 margin="normal"
                 required
@@ -106,6 +122,7 @@ export default function SignUp() {
                 autoFocus
               />
               <TextField
+                onChange={handleChange}
                 variant="outlined"
                 margin="normal"
                 required
@@ -116,6 +133,7 @@ export default function SignUp() {
                 autoFocus
               />
               <TextField
+                onChange={handleChange}
                 variant="outlined"
                 margin="normal"
                 required
@@ -145,6 +163,7 @@ export default function SignUp() {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
+                
               >
                 Sign Up
               </Button>
