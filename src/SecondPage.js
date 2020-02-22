@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SearchDescription from "./components/SearchDescription";
 import Footer from "../src/components/Footer";
 import NavBar from "./components/NavBar";
+import SearchCategories from "./components/SearchCategories";
 const axios = require('axios');
 
 // const thumb = restaurant.thumb;
@@ -67,9 +68,12 @@ function SecondPage(props) {
     <div>
       <NavBar></NavBar>
       <br></br>
+      <SearchCategories></SearchCategories>
+      <br></br>
       {(state.data || []).map((props) => {
         return (<Link to={`/restaurant/${props.id}`}><SearchDescription key={`${props.id}`} {...props} ></SearchDescription></Link>)
       })}
+      <br></br>
       <Footer></Footer>
     </div>
   </div>)
