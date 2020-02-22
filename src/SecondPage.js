@@ -17,14 +17,15 @@ const axios = require('axios');
 // const location = restaurant.location;
 // const user_rating = restaurant.user_rating;
 
-const apiUrl = "https://developers.zomato.com/api/v2.1/search?lat=49.2827&lon=-123.1207"
 
 const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
 
-console.log("api key ----", ZOMATO_API_KEY)
+//console.log("api key ----", ZOMATO_API_KEY)
 function SecondPage(props) {
+  console.log("props--->", props)
   const [state, setState] = useState({data:[]});
   
+  const apiUrl = `https://developers.zomato.com/api/v2.1/search?lat=${props.match.params.lat}&lon=${props.match.params.lon}`
     
   
   const getApi = () => {

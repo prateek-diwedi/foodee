@@ -1,13 +1,15 @@
 import React from 'react';
 import './SearchBar.scss';
+import { OmitProps } from 'antd/lib/transfer/renderListBody';
 
 
-export default function SearchBar() {
+export default function SearchBar(props) {
 
   function search(e) {
     console.log("e.key", e.key);
-      if (e.key === "Enter") {
+    if (e.key === "Enter") {
       alert(e.target.value);
+      props.onSubmit(e.target.value)
     }
   }
 

@@ -12,8 +12,11 @@ import axios from "axios";
 import NavBar from "./components/NavBar";
 import Footer from '../src/components/Footer';
 // const restaurant_id = 16619055; //16618773; // 16617115 16618902 16618033 16619055 16617176 16625742 16626268 16628153 16708849
+
+const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
+
 function ThirdPage(props) {
-  console.log(props);
+  console.log("props--->>",props);
   const [rest, setRest] = useState(null);
   const [revs, setReviews] = useState(null);
   const [revss, setReviewsfromdatabase] = useState(null);
@@ -27,7 +30,7 @@ function ThirdPage(props) {
       },
       headers: {
         Accept: "application/json",
-        "user-key": "16e9855be80e0336fe3bc1dafa559ad2"
+        "user-key": ZOMATO_API_KEY
       },
       responseType: "json"
     });
@@ -39,7 +42,7 @@ function ThirdPage(props) {
       },
       headers: {
         Accept: "application/json",
-        "user-key": "16e9855be80e0336fe3bc1dafa559ad2"
+        "user-key": ZOMATO_API_KEY
       },
       responseType: "json"
     })

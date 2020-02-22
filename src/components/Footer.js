@@ -18,6 +18,7 @@ export default function Footer() {
 			<div class="footer-left">
 
 				<p class="footer-links">
+					
 					<a class="link-1" href="#">Home</a>
 
 					<a href="#">About</a>
