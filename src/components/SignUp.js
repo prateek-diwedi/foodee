@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SignUp() {
+export default function SignUp(props) {
   const [state, setState] = useState({
     name: "",
     email: "",
@@ -82,6 +82,7 @@ export default function SignUp() {
       .catch(function(error) {
         console.log("error response", error.message);
       });
+    props.history.push("/");
   };
 
   function handleChange(evt) {
@@ -163,7 +164,6 @@ export default function SignUp() {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
-                
               >
                 Sign Up
               </Button>
