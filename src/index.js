@@ -7,6 +7,8 @@ import * as serviceWorker from './serviceWorker';
 import SignIpPage from "./components/SignInPage"
 import RestaurantPage from "./thirdpage";
 import SearchPage from "./SecondPage";
+import SignUp from './components/SignUp';
+
 //import history from "./history"
 
 const routing = (
@@ -15,6 +17,7 @@ const routing = (
       <Switch>
       <Route exact path = "/" component={App}/>
       <Route path = "/signIn" component={SignIpPage}/>
+      <Route path = "/SignUp"  component={SignUp}/>
       <Route path= "/restaurant/:restaurant_id" component={RestaurantPage}/>
       {/* <Route path = "/restaurant" component={RestaurantPage}/> */}
       <Route path = "/search" component={SearchPage}/>

@@ -61,13 +61,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SignInSide(props) {
+export default function SignUp(props) {
   const [state, setState] = useState({
+    name: "",
     email: "",
     password: ""
   });
-
   const classes = useStyles();
+
   const handleSubmit = event => {
     event.preventDefault();
     console.log(state);
@@ -103,7 +104,7 @@ export default function SignInSide(props) {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              Sign Up
             </Typography>
             <form
               className={classes.form}
@@ -116,10 +117,20 @@ export default function SignInSide(props) {
                 margin="normal"
                 required
                 fullWidth
+                id="name"
+                label="Name"
+                name="name"
+                autoFocus
+              />
+              <TextField
+                onChange={handleChange}
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
                 id="email"
                 label="Email Address"
                 name="email"
-                autoComplete="email"
                 autoFocus
               />
               <TextField
@@ -132,7 +143,16 @@ export default function SignInSide(props) {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="Confirm password"
+                label="Confirm Password"
+                type="password"
+                id="password"
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -145,19 +165,11 @@ export default function SignInSide(props) {
                 color="primary"
                 className={classes.submit}
               >
-                Sign In
+                Sign Up
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="/SignUp" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
+                <Grid item xs></Grid>
+                <Grid item></Grid>
               </Grid>
               <Box mt={5}>
                 <Copyright />

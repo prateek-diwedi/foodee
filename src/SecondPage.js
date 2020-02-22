@@ -11,12 +11,7 @@ import NavBar from "./components/NavBar";
 import SearchCategories from "./components/SearchCategories";
 const axios = require('axios');
 
-// const thumb = restaurant.thumb;
-// const name =restaurant.name;
-// const hours = restaurant.timings;
-// const cuisine = restaurant.cuisines;
-// const location = restaurant.location;
-// const user_rating = restaurant.user_rating;
+
 
 const apiUrl = "https://developers.zomato.com/api/v2.1/search?lat=49.2827&lon=-123.1207"
 
@@ -52,10 +47,7 @@ function SecondPage(props) {
           isLoading: false
         })
       })
-      // .get("http://localhost:3001/api/v1/reviews")
-      // .then(response =>{
-      //   console.log("response from server",response)
-      // })
+      
         .catch(error => setState({ error, isLoading: false }))
   }
 
