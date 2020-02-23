@@ -14,6 +14,7 @@ import WelcomePage from "../components/WelcomePage"
 import AutoText from "../components/AutoText"
 import Categories from "../components/Categories"
 import Location from "../components/Location"
+import SearchCategories from "../components/SearchCategories";
 import SignInPage from "../components/SignInPage"
 import FirstPage from "../components/firstPage"
 import SearchCard from "../SecondPage"
@@ -1372,3 +1373,9 @@ storiesOf("Button", module)
  // ------------------------------------------------- Location with coords ---------------------------------- //
 storiesOf("location with coords", module)
 .add("Location with coords", () => <LocationWithCoords/>)
+
+ // ------------------------------------------------- Search Category ---------------------------------- //
+
+ storiesOf("SearchCategories", module)
+ .add("SearchCategories", () => <SearchCategories>Search Categories</SearchCategories>)
+

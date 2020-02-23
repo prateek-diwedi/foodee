@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from 'react-bootstrap/Image'
@@ -7,6 +7,8 @@ import "./SearchDescription.scss";
 import axios from "axios";
 import restaurant from "../data/resdatabase";
 import { Container } from "react-bootstrap";
+import { gsap, TweenMax, ScrollToPlugin, Draggable, MotionPathPlugin } from "gsap/all";
+
 // import { bounce } from "react-animations";
 // import { styled, keyframes } from 'styled-components';
 
@@ -19,10 +21,20 @@ const divStyle = {
 // const Bounce = styled.div `animation : 2s ${keyframes `${bounce}`} infinite`;
 
 const SearchDescription = props => {
+  let cardRef = useRef([]);
+      
+  useEffect(() => {
+    console.log(cardRef);
+
+    TweenMax.staggerFrom(cardRef.current, 1, {
+      scale: 0,
+    }, 0.3);
+  }, []);
+
   return (
     // <Bounce>
     <Container>
-    <div className="search-container-style">
+    <div className="search-container-style" ref={element => {cardRef.current[0] = element;}}>
     <div className="search-container" style={divStyle}>
       <div class="clearfix float-my-children">
         <Image src={props.thumb} fluid />
