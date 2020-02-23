@@ -17,7 +17,8 @@ import Location from "../components/Location"
 import SearchCategories from "../components/SearchCategories";
 import SignInPage from "../components/SignInPage"
 import FirstPage from "../components/firstPage"
-import SearchCard from "../SecondPage"
+import SearchCard from "../SecondPage";
+import Text from "../components/Text";
 //import RestaurantPage from "../thirdpage";
 import Background_Video from "../components/Background-Video";
 import LocationWithCoords from "../components/LocationWithCoordinates"
@@ -1379,3 +1380,6 @@ storiesOf("location with coords", module)
  storiesOf("SearchCategories", module)
  .add("SearchCategories", () => <SearchCategories>Search Categories</SearchCategories>)
 
+ // ------------------------------------------------- Text  ---------------------------------- //
+ storiesOf("Text", module)
+ .add("Text", () => <Text>Text</Text>)
