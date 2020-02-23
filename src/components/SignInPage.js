@@ -72,8 +72,8 @@ export default function SignInSide(props) {
     event.preventDefault();
     console.log(state);
     axios
-      .post("http://localhost:3001/api/v1/users", {
-        user: { name: state.name, email: state.email, password: state.password }
+      .get("http://localhost:3001/api/v1/users", {
+        user: { email: state.email, password: state.password }
       })
       .then(function(response) {
         console.log("response", response);

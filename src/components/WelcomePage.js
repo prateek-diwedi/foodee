@@ -17,6 +17,7 @@ export default function WelcomePage() {
       <Background_Video></Background_Video>
       </div>
       <div className="login-Button">
+        
       <Button confirm onClick={() => history.push('/signIn')}>Login</Button>
       </div>
       <div className = "search_bar_Home_page">
