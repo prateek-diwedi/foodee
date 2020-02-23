@@ -19,6 +19,7 @@ import SignInPage from "../components/SignInPage"
 import FirstPage from "../components/firstPage"
 import SearchCard from "../SecondPage";
 import Text from "../components/Text";
+import Profile from "../components/Profile";
 //import RestaurantPage from "../thirdpage";
 import Background_Video from "../components/Background-Video";
 import LocationWithCoords from "../components/LocationWithCoordinates"
@@ -1383,3 +1384,8 @@ storiesOf("location with coords", module)
  // ------------------------------------------------- Text  ---------------------------------- //
  storiesOf("Text", module)
  .add("Text", () => <Text>Text</Text>)
+
+
+ // ------------------------------------------------- profile  ---------------------------------- //
+ storiesOf("Profile", module)
+ .add("Profile", () => <Profile>Profile</Profile>)

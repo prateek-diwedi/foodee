@@ -7,10 +7,7 @@ import "./SearchDescription.scss";
 import axios from "axios";
 import restaurant from "../data/resdatabase";
 import { Container } from "react-bootstrap";
-import { gsap, TweenMax, ScrollToPlugin, Draggable, MotionPathPlugin } from "gsap/all";
-
-// import { bounce } from "react-animations";
-// import { styled, keyframes } from 'styled-components';
+import { TweenMax } from "gsap/all";
 
 
  
@@ -18,7 +15,6 @@ import { gsap, TweenMax, ScrollToPlugin, Draggable, MotionPathPlugin } from "gsa
 const divStyle = {
   padding: "0.5em"
 };
-// const Bounce = styled.div `animation : 2s ${keyframes `${bounce}`} infinite`;
 
 const SearchDescription = props => {
   let cardRef = useRef([]);
@@ -32,7 +28,6 @@ const SearchDescription = props => {
   }, []);
 
   return (
-    // <Bounce>
     <Container>
     <div className="search-container-style" ref={element => {cardRef.current[0] = element;}}>
     <div className="search-container" style={divStyle}>
@@ -90,7 +85,6 @@ const SearchDescription = props => {
     </div>
     </div>
     </Container>
-    // </Bounce>
 
   );
 };
