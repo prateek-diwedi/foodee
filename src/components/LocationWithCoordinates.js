@@ -27,10 +27,10 @@ class LocationWithCoordinates extends Component {
     // console.log("info received", location)
     return (
       <div style={{
-      // "width": "400px", 
-      // "backgroundColor": "white",
-      // "border-color": "brown",
-      // "border-radius": "20px",
+      "width": "400px", 
+      "backgroundColor": "white",
+      "border-color": "brown",
+      "border-radius": "20px",
   }}>
          <GoogleComponent
           apiKey={API_KEY}
