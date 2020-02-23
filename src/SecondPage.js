@@ -25,7 +25,9 @@ function SecondPage(props) {
   console.log("props--->", props)
   const [state, setState] = useState({data:[]});
   
-  const apiUrl = `https://developers.zomato.com/api/v2.1/search?lat=${props.match.params.lat}&lon=${props.match.params.lon}`
+  // const apiUrl = `https://developers.zomato.com/api/v2.1/search?lat=${props.match.params.lat}&lon=${props.match.params.lon}`
+
+  const apiUrl = ` https://developers.zomato.com/api/v2.1/search?q=${props.match.params.search}&lat=${props.match.params.lat}&lon=${props.match.params.lon}&radius=15000`
     
   
   const getApi = () => {

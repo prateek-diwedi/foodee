@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { GoogleComponent } from 'react-google-location' 
+import { green } from '@material-ui/core/colors';
  
 
 const API_KEY = process.env.REACT_APP_APIKEY  
@@ -26,17 +27,17 @@ class LocationWithCoordinates extends Component {
     // console.log("info received", location)
     return (
       <div style={{
-      "width": "400px", 
-      "background": "transparent",
-      "border-color": "brown",
-      "border-radius": "20px",
+      // "width": "400px", 
+      // "backgroundColor": "white",
+      // "border-color": "brown",
+      // "border-radius": "20px",
   }}>
          <GoogleComponent
           apiKey={API_KEY}
           language={'en'}
           coordinates={true}
-          // locationBoxStyle={{ width:"400px"}}
-          // locationListStyle={{ "width":"400px"}}
+          locationBoxStyle={'custom-style-box'}
+          locationListStyle={'custom-style-list'}
           onChange={this.update}
           // props={this.location}
            />
