@@ -72,16 +72,13 @@ export default function SignInSide(props) {
     event.preventDefault();
     console.log(state);
     axios
-      .get("http://localhost:3001/api/v1/users", {
-        user: { email: state.email, password: state.password }
+      .post("http://localhost:3001/api/v1/sessions", {
+        session: { email: state.email, password: state.password }
       })
-      .then(function(response) {
-        console.log("response", response);
-      })
-      .catch(function(error) {
+      .then((res)=>{console.log(res);})
+      .catch((error)=>{
         console.log("error response", error.message);
       });
-    props.history.push("/");
   };
 
   function handleChange(evt) {

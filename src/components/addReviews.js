@@ -29,25 +29,29 @@ const CommentList = ({ comments }) => (
             <Comment {...props} />
           </div>
           <div>
-          <Rate
-            disabled
-            allowHalf
-            defaultValue={Number(props.rate)}
-          />
+            <Rate
+              disabled
+              allowHalf
+              value={props.rate}
+            />
           </div>
         </div>
       );
     }}
   />
 );
+const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
-const Editor = ({ onChange, onSubmit, submitting, value }) => (
+const Editor = ({ onChangeNote, onChangeRate, onSubmit, submitting, notevalue, ratevalue }) => (
   <div>
     <Form.Item>
-      <TextArea rows={4} onChange={onChange} value={value} />
+      <TextArea rows={4} onChange={onChangeNote} id="note" value={notevalue} />
     </Form.Item>
     <Form.Item>
-      <Rating onChange={onChange} value={value}></Rating>
+      <span>
+        <Rate tooltips={desc} onChange={onChangeRate} id="rate" value={ratevalue} />
+        {ratevalue ? <span className="ant-rate-text">{desc[ratevalue - 1]}</span> : ''}
+      </span>
     </Form.Item>
     <Form.Item>
       <Button
@@ -59,7 +63,7 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
         Add Comment
       </Button>
     </Form.Item>
-    
+
   </div>
 );
 
@@ -70,12 +74,13 @@ class ReviewsList extends React.Component {
       user: props.user,
       comments: formatedReviews(props.comments),
       submitting: false,
-      value: ""
+      note: null,
+      rate: null
     };
   }
 
   handleSubmit = () => {
-    if (!this.state.value) {
+    if (!this.state.note || !this.state.rate) {
       return;
     }
 
@@ -86,30 +91,42 @@ class ReviewsList extends React.Component {
     setTimeout(() => {
       this.setState({
         submitting: false,
-        value: "",
+        note: null,
+        rate: null,
         comments: [
           {
             author: this.state.user.username,
             avatar: this.state.user.avatar,
-            content: <p>{this.state.value}</p>,
+            content: <p>{this.state.note}</p>,
             datetime: moment().fromNow(),
             rate: this.state.rate
           },
           ...this.state.comments
         ]
       });
+    console.log(this.state.comments)  
     }, 1000);
+    
   };
 
-  handleChange = e => {
+  handleNoteChange = e => {
+    console.log(this.state)
     this.setState({
-      value: e.target.value
+      note: e.target.value
     });
   };
 
-  render() {
-    const { user, comments, submitting, value } = this.state;
+  handleRateChange = e => {
+    console.log(this.state)
+    this.setState({
+      rate: e
+    });
+  };
 
+
+  render() {
+    const { user, comments, submitting, note, rate } = this.state;
+    console.log(comments)
     return (
       <div>
         {comments.length > 0 && <CommentList comments={comments} />}
@@ -117,10 +134,12 @@ class ReviewsList extends React.Component {
           avatar={<Avatar src={user.avatar} alt={user.username} />}
           content={
             <Editor
-              onChange={this.handleChange}
+              onChangeNote={this.handleNoteChange}
+              onChangeRate={this.handleRateChange}
               onSubmit={this.handleSubmit}
               submitting={submitting}
-              value={value}
+              notevalue={note}
+              ratevalue={rate}
             />
           }
         />
