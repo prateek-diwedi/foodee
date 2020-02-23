@@ -9,6 +9,7 @@ import SearchDescription from "./components/SearchDescription";
 import Footer from "../src/components/Footer";
 import NavBar from "./components/NavBar";
 import SearchCategories from "./components/SearchCategories";
+import Text from "./components/Text";
 const axios = require('axios');
 
 
@@ -59,8 +60,11 @@ function SecondPage(props) {
   <div>
     <div>
       <NavBar></NavBar>
-      <br></br>
+   
+     
       <SearchCategories></SearchCategories>
+     
+      <Text></Text>
       <br></br>
       {(state.data || []).map((props) => {
         return (<Link to={`/restaurant/${props.id}`}><SearchDescription key={`${props.id}`} {...props} ></SearchDescription></Link>)
