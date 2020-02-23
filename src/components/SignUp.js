@@ -65,7 +65,8 @@ export default function SignUp(props) {
   const [state, setState] = useState({
     name: "",
     email: "",
-    password: ""
+    password: "",
+    password_confirmation :""
   });
   const classes = useStyles();
 
@@ -73,16 +74,17 @@ export default function SignUp(props) {
     event.preventDefault();
     console.log(state);
     axios
-      .post("http://localhost:3001/api/v1/users", {
-        user: { name: state.name, email: state.email, password: state.password }
-      })
-      .then(function(response) {
-        console.log("response", response);
-      })
-      .catch(function(error) {
-        console.log("error response", error.message);
-      });
-    props.history.push("/");
+    .post("http://localhost:3001/api/v1/users", 
+     {user : {name: state.name,
+     email: state.email,
+     password: state.password}
+    })
+    .then(function(response) {
+      console.log("response",response);
+    })
+    .catch(function(error) {
+      console.log("error response",error.message);
+    })
   };
 
   function handleChange(evt) {
@@ -145,6 +147,7 @@ export default function SignUp(props) {
                 id="password"
               />
               <TextField
+                onChange={handleChange}
                 variant="outlined"
                 margin="normal"
                 required
@@ -152,7 +155,7 @@ export default function SignUp(props) {
                 name="Confirm password"
                 label="Confirm Password"
                 type="password"
-                id="password"
+                id="password_confirmation"
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
