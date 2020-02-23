@@ -12,9 +12,14 @@ export default function WelcomePage(props) {
   const history = useHistory();
   //store lat ln  as state
   const [coordinates, setCoordinates] = useState({});
-
+  // state coming from search box
+  const [search, setSearch] = useState({});
+  
+  console.log("searched in homepage", search);
+  // console.log("searched in homepage-->", setSearch);
+  
   const onSubmit = () => {
-    history.push(`/search/${coordinates.coords.lat}/${coordinates.coords.lng}`)
+    history.push(`/search/${coordinates.coords.lat}/${coordinates.coords.lng}/${search}`)
   };
 
   return (
@@ -27,7 +32,7 @@ export default function WelcomePage(props) {
         <Button confirm onClick={() => history.push('/signIn')}>Login</Button>
       </div>
       <div className="search_bar_Home_page">
-        <SearchBar onSubmit={onSubmit}></SearchBar>
+        <SearchBar setSearch={setSearch} onSubmit={onSubmit}></SearchBar>
       </div>
       <div className="autoText-welcome-page">
         <AutoText></AutoText>
