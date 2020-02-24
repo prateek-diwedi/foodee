@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleComponent } from 'react-google-location' 
 import { green } from '@material-ui/core/colors';
+import "./LocationWithCoordinates.scss"
  
 
 const API_KEY = process.env.REACT_APP_APIKEY  
