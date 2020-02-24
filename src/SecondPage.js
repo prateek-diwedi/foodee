@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import "antd/dist/antd.css";
 import "../src/index.css";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 //import restaurant from "./data/resdatabase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SearchDescription from "./components/SearchDescription";
@@ -19,7 +19,17 @@ const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
 
 //console.log("api key ----", ZOMATO_API_KEY)
 function SecondPage(props) {
-  console.log("props--->", props)
+  const [search, setSearch] = useState({});
+  // console.log()
+  const history = useHistory(
+    
+  );
+  const onClick = () => {
+    console.log("inside the submit")
+    history.push(`/search/${props.match.params.lat}/${props.match.params.lon}/${search}`)
+    window.location.reload()
+  };
+  // console.log("props--->", props)
   const [state, setState] = useState({data:[]});
   
   // const apiUrl = `https://developers.zomato.com/api/v2.1/search?lat=${props.match.params.lat}&lon=${props.match.params.lon}`
@@ -45,7 +55,7 @@ function SecondPage(props) {
           }
         })
       }).then(data => {
-        console.log(data)
+        // console.log(data)
         setState({
           data: data,
           isLoading: false
@@ -62,7 +72,7 @@ function SecondPage(props) {
   return (
   <div>
     <div>
-      <NavBar></NavBar>
+      <NavBar setSearch={setSearch} onClick={onClick}></NavBar>
    
      
       <SearchCategories></SearchCategories>
