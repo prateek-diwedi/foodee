@@ -63,7 +63,7 @@ window.onload = function() {
     <div className="text_type">
     <h1>
   <a href="" class="typewrite" data-period="2000" 
-  data-type='[ "Hi, Welcome to fooddee!", "Local Restuarants NearBy." ]'>
+  data-type='[ "Hi, Welcome to fooddee!", "Local Restuarants NearBy" ]'>
     <span class="wrap"></span>
   </a>
 </h1>
