@@ -16,7 +16,7 @@ export default function Categories() {
     let cardRef = useRef([]);
       
       useEffect(() => {
-        console.log(cardRef);
+        // console.log(cardRef);
     
         TweenMax.staggerFrom(cardRef.current, 1, {
           scale: 0,
@@ -33,7 +33,7 @@ export default function Categories() {
       <div class="categories-container" ref={element => {cardRef.current[1] = element;}}>
         {/* <Row> */}
           {/* <Col> */}
-            <a href="https://www.zomato.com/vancouver/restaurants/pizza" class="column ta-center start-categories-item">
+            <a href="https://www.zomato.com/vancouver/breakfast" class="column ta-center start-categories-item">
               <img class="pic" src={require('../images/breakfast.jpeg')} data-original="https://b.zmtcdn.com/images/search_tokens/app_icons/category_8.png?output-format=webp"/>
               <div class="category-text" ref={element => {cardRef.current[2] = element;}}>Breakfast</div>
             </a>
