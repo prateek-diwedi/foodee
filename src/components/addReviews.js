@@ -1,7 +1,6 @@
 import React from "react";
 import { Comment, Avatar, Form, Button, List, Input, Rate } from "antd";
 import moment from "moment";
-import Rating from "./Rating";
 const { TextArea } = Input;
 // This is a function to transfer input reviews data from API to the required format in this component
 
