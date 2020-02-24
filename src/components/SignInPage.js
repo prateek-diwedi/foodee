@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -11,8 +11,10 @@ import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import Footer from "../components/Footer";
+import PropTypes from 'prop-types';
+
 const axios = require("axios");
 
 function Copyright() {
@@ -28,7 +30,7 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   root: {
     height: "100vh"
   },
@@ -59,35 +61,73 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2)
   }
-}));
+});
 
-export default function SignInSide(props) {
-  const [state, setState] = useState({
-    email: "",
-    password: ""
-  });
+class SignIpPage extends React.Component {
+  constructor(props){
+    super(props)
+    this.state ={
+      email: '',
+      password: '',
+      errors : ''
+    }
+    
+  }
+  componentWillMount() {
+    // return this.props.loggedInStatus ? this.redirect() : null
+  }
 
-  const classes = useStyles();
-  const handleSubmit = event => {
-    event.preventDefault();
-    console.log(state);
-    axios
-      .post("http://localhost:3001/api/v1/sessions", {
-        session: { email: state.email, password: state.password }
-      })
-      .then((res)=>{console.log(res);})
-      .catch((error)=>{
-        console.log("error response", error.message);
-      });
+  handleChange = (event) => {
+    const {name, value} = event.target
+    this.setState({
+      [name]: value
+    })
   };
 
-  function handleChange(evt) {
-    const value = evt.target.value;
-    setState({
-      ...state,
-      [evt.target.id]: value
-    });
+handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state);
+    const {username, email, password} = this.state
+    let user = {
+      username: username,
+      email: email, 
+      password: password
+    };
+    axios
+      .post("http://localhost:3001/login", {user},
+      {withCredentials: true})
+      .then(response => {
+        if (response.data.logged_in) {
+          // this.props.handleLogin(response.data)
+          this.redirect()
+        } else {
+          this.setState({
+            errors: response.data.errors
+          })
+        }
+      })
+      .catch(error => console.log('api errors:', error))
+  };
+  redirect = () => {
+    this.props.history.push('/')
   }
+handleErrors = () => {
+    return (
+      <div>
+        <ul>
+        {this.state.errors.map(error => {
+        return <li key={error}>{error}</li>
+          })
+        }
+        </ul>
+      </div>
+    )
+  }
+render() {
+    const { classes } = this.props;
+
+    const {username,email, password} = this.state
+
 
   return (
     <div>
@@ -105,10 +145,24 @@ export default function SignInSide(props) {
             <form
               className={classes.form}
               noValidate
-              onSubmit={event => handleSubmit(event)}
+              onSubmit={event => this.handleSubmit(event)}
             >
               <TextField
-                onChange={handleChange}
+                onChange={this.handleChange}
+                value={username}
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="username"
+                label="User Name"
+                name="username"
+                autoComplete="username"
+                autoFocus
+              />
+              <TextField
+                onChange={this.handleChange}
+                value={email}
                 variant="outlined"
                 margin="normal"
                 required
@@ -120,7 +174,8 @@ export default function SignInSide(props) {
                 autoFocus
               />
               <TextField
-                onChange={handleChange}
+                onChange={this.handleChange}
+                value={password}
                 variant="outlined"
                 margin="normal"
                 required
@@ -160,6 +215,11 @@ export default function SignInSide(props) {
                 <Copyright />
               </Box>
             </form>
+            <div>
+          {
+            this.state.errors ? this.handleErrors() : null
+          }
+        </div>
           </div>
         </Grid>
       </Grid>
@@ -167,3 +227,11 @@ export default function SignInSide(props) {
     </div>
   );
 }
+}
+SignIpPage.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+
+
+export default withStyles(styles)(SignIpPage);
