@@ -1,9 +1,25 @@
 
-import React from "react";
+import React,  { Component, useState } from "react";
 import "./NavBar.scss";
 import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
+import { Route, Link, useHistory } from 'react-router-dom';
 
-export default function NavBar() {
+
+export default function NavBar(props) {
+
+  const [state, setState] = useState('');
+  
+  function Navchange(e) {
+    console.log('change thing', e.target.value)
+
+    props.setSearch(e.target.value);
+  }
+
+  function onSubmit(e)  {
+   props.onClick();
+    console.log("serached item in nav bar -->", state)
+  }
+
 
   return (
     <div>
@@ -14,15 +30,15 @@ export default function NavBar() {
       <Nav.Link href="#features">Location</Nav.Link>
     </Nav>
     <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-light">Search</Button>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2"   
+      onChange={Navchange}
+      />
+   
+      <Button variant="outline-light" onClick={onSubmit} onChange={Navchange}> 
+        Search
+      </Button>
     </Form>
   </Navbar>
-  
-  {/* <div className="desc">
-    {/* <h1>Local Restaurants NearBy</h1> */}
-     {/* Local Restaurants NearBy */}
-  {/* </div> */} 
   
   </div>
   )
