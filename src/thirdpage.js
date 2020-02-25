@@ -48,7 +48,7 @@ function ThirdPage(props) {
     })
 
     const reviewsAPIPromise = axios({
-      url: "http://localhost:3001/api/v1/reviews",
+      url: "http://localhost:3001/find_review",
       method: "get",
       params: {
         res_id: props.match.params.restaurant_id
@@ -61,15 +61,24 @@ function ThirdPage(props) {
     Promise.all([restaurantPromise, reviewsPromise, reviewsAPIPromise])
       .then(values => {
         setRest(values[0].data);
+        
+        if (!values[2].data){
+        let rev = [...values[1].data.user_reviews]
+        console.log(rev)
+        } else {
+         let rev = [...values[1].data.user_reviews,values[2].data]
+         console.log(values[2].data)
+         console.log(rev)
+        }
         setReviews(values[1].data);
-        setReviewsfromdatabase(values[2].data);
-        console.log("values of 2", values[2])
 
+        console.log(values[1].data.user_reviews)
+        
       })
       .catch(e => console.log(e));
   }, []);
 
-  if (rest&&revs&&revss) {
+  if (rest&&revs) {
     const name = rest.name;
     const hours = rest.timings;
     const cuisine = rest.cuisines;
