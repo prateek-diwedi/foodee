@@ -9,7 +9,6 @@
 .search-container {
   display: flex;
   justify-content: space-between;
-  text-decoration: none;
   padding: 20px;
 }
 
@@ -51,9 +50,4 @@
   border:1px dashed red;
   margin-bottom:10px;    
   text-decoration: none;
-}
-
-.serachBoxContainerListItem {
-  text-decoration: none;
-  color: white;
 }
