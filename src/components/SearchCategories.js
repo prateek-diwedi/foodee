@@ -44,7 +44,7 @@ export default function Categories() {
               <div class="category-text" ref={element => { cardRef.current[6] = element; }}>Cafés</div>
             </a>
             <a style={{ textDecoration: 'none', color: 'white' }} href="http://localhost:3000/search/49.2827291/-123.1207375/take-away" class="column ta-center start-categories-item">
-              <img class="pic" src={require('../images/takeout.jpeg')} data-original="https://b.zmtcdn.com/images/search_tokens/app_icons/category_5.png?output-format=webp" />
+              <img class="pic3" src={require('../images/takeout.jpeg')} data-original="https://b.zmtcdn.com/images/search_tokens/app_icons/category_5.png?output-format=webp" />
               <div class="category-text" ref={element => { cardRef.current[7] = element; }}>Take-Out</div>
             </a>
           </div>
