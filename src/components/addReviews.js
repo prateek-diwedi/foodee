@@ -90,13 +90,13 @@ class ReviewsList extends React.Component {
       submitting: true
     });
   let review = {
-    user_id: 5,
+    user_id: this.state.user.user_id,
     res_id: this.res_id,
     review_text :this.state.note
   }
 
   let rating = {
-    user_id: 5,
+    user_id: this.state.user.user_id,
     res_id: this.res_id,
     rating : this.state.rate
   }
