@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Rate } from "antd";
@@ -6,11 +6,33 @@ import MapDirection from "./directionMap";
 import MapModal from "./mapmodal";
 // import Button from 'react-bootstrap/Button'
 import { Icon } from "antd";
+const axios = require("axios");
+
 
 const divStyle = {
   padding: "0.5em"
 };
 const Description = props => {
+  const [theme, setTheme] = useState(false)
+  const handleliked = () => {
+    // let favourite = {
+    //   user_id: 2,
+    //   res_id: 16626796 
+    // }
+    // axios
+    // .post("http://localhost:3001/favourites", 
+    //  {favourite}
+    // )
+    //  .then(response => {
+       setTheme(!theme);
+    //     console.log(theme);
+    //     console.log(response)
+    //   })
+    //   .catch(e=>{console.log(e)})
+  };
+
+  
+ 
   return (
     <div style={divStyle}>
       <Row>
@@ -53,9 +75,10 @@ const Description = props => {
       <Row>
         <Col md="auto">
           <Icon
+           theme = {theme? 'filled':'outlined'}
             type="like"
             style={{ fontSize: "40px", color: "#08c" }}
-            onClick={event => {}}
+            onClick={handleliked}
           />
         </Col>
 
