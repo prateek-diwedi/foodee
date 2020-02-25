@@ -6,6 +6,7 @@ import Location from "../components/LocationWithCoordinates"
 import "./WelcomePage.scss"
 import { Route, Link, useHistory } from 'react-router-dom'
 import Background_Video from "../components/Background-Video"
+import Cookies from 'js-cookie'
 //import history from "../history"
 
 export default function WelcomePage(props) {
@@ -14,13 +15,20 @@ export default function WelcomePage(props) {
   const [coordinates, setCoordinates] = useState({});
   // state coming from search box
   const [search, setSearch] = useState({});
-  
-  console.log("searched in homepage", search);
-  // console.log("searched in homepage-->", setSearch);
-  
+
+  //console.log("props in homepage", Cookies.get('name'));
+  let loggedInUser = Cookies.get('name')
+  console.log("Logged in homepage-->", loggedInUser);
+
   const onSubmit = () => {
     history.push(`/search/${coordinates.coords.lat}/${coordinates.coords.lng}/${search}`)
   };
+
+  const logoutUser = () => {
+    Cookies.remove('name');
+    window.location.reload();
+    console.log('user logged out')
+  }
 
   return (
     <div className="welcomePage" >
@@ -28,9 +36,17 @@ export default function WelcomePage(props) {
       <div className="background_video">
         <Background_Video></Background_Video>
       </div>
-      <div className="login-Button">
-        <Button confirm onClick={() => history.push('/signIn')}>Login</Button>
-      </div>
+
+      {loggedInUser ? (
+        <div className="logout-Button">
+          <Button danger onClick={logoutUser}>Logout</Button>
+        </div>
+       ) : (
+        <div className="login-Button">
+          <Button confirm onClick={() => history.push('/signIn')}>Login</Button>
+        </div>
+       )
+      }
       <div className="search_bar_Home_page">
         <SearchBar setSearch={setSearch} onSubmit={onSubmit}></SearchBar>
       </div>
@@ -43,3 +59,4 @@ export default function WelcomePage(props) {
     </div>
   );
 }
+

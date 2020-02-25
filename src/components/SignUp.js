@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -11,15 +11,18 @@ import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from 'prop-types';
+
 import Footer from "../components/Footer";
+
 const axios = require("axios");
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="/">
         Foodee
       </Link>{" "}
       {new Date().getFullYear()}
@@ -28,7 +31,7 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   root: {
     height: "100vh"
   },
@@ -59,42 +62,72 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2)
   }
-}));
+});
 
-export default function SignUp(props) {
-  const [state, setState] = useState({
-    name: "",
-    email: "",
-    password: "",
-    password_confirmation :""
-  });
-  const classes = useStyles();
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    console.log(state);
-    axios
-    .post("http://localhost:3001/api/v1/users", 
-     {user : {name: state.name,
-     email: state.email,
-     password: state.password}
-    })
-    .then(function(response) {
-      console.log("response",response);
-    })
-    .catch(function(error) {
-      console.log("error response",error.message);
-    })
-  };
+class SignUp extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+    username: '',
+    email: '',
+    password: '',
+    password_confirmation :'',
+    errors:''
+    }
+    
 
-  function handleChange(evt) {
-    const value = evt.target.value;
-    setState({
-      ...state,
-      [evt.target.id]: value
-    });
   }
 
+  handleChange = (event) => {
+    const {name, value} = event.target
+    this.setState({
+      [name]: value
+    })
+  };
+  
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const {username, email, password, password_confirmation} = this.state
+    let user = {
+      username: username,
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation
+    }
+    axios
+    .post("http://localhost:3001/users", 
+     {user}, 
+     {withCredentials: true})
+    .then(response => {
+      if (response.data.status === 'created') {
+        // this.props.handleLogin(response.data)
+        this.redirect()
+      } else {
+        this.setState({
+          errors: response.data.errors
+        })
+      }
+    })
+    .catch(error => console.log('api errors:', error))
+  };
+  redirect = () => {
+    this.props.history.push('/')
+  }
+  handleErrors = () => {
+    return (
+      <div>
+        <ul>{this.state.errors.map((error) => {
+          return <li key={error}>{error}</li>
+        })}</ul> 
+      </div>
+    )
+  }
+  render() {
+    const { classes } = this.props;
+
+    const {username, email, password, password_confirmation} = this.state
   return (
     <div>
       <Grid container component="main" className={classes.root}>
@@ -111,21 +144,23 @@ export default function SignUp(props) {
             <form
               className={classes.form}
               noValidate
-              onSubmit={event => handleSubmit(event)}
+              onSubmit={this.handleSubmit}
             >
               <TextField
-                onChange={handleChange}
+                value={username}
+                onChange={this.handleChange}
                 variant="outlined"
                 margin="normal"
                 required
                 fullWidth
                 id="name"
-                label="Name"
-                name="name"
+                label="User Name"
+                name="username"
                 autoFocus
               />
               <TextField
-                onChange={handleChange}
+                value={email}
+                onChange={this.handleChange}
                 variant="outlined"
                 margin="normal"
                 required
@@ -136,7 +171,8 @@ export default function SignUp(props) {
                 autoFocus
               />
               <TextField
-                onChange={handleChange}
+                value={password}
+                onChange={this.handleChange}
                 variant="outlined"
                 margin="normal"
                 required
@@ -147,12 +183,13 @@ export default function SignUp(props) {
                 id="password"
               />
               <TextField
-                onChange={handleChange}
+                value={password_confirmation}
+                onChange={this.handleChange}
                 variant="outlined"
                 margin="normal"
                 required
                 fullWidth
-                name="Confirm password"
+                name="password_confirmation"
                 label="Confirm Password"
                 type="password"
                 id="password_confirmation"
@@ -178,6 +215,11 @@ export default function SignUp(props) {
                 <Copyright />
               </Box>
             </form>
+            <div>
+          {
+            this.state.errors ? this.handleErrors() : null
+          }
+        </div>
           </div>
         </Grid>
       </Grid>
@@ -185,3 +227,8 @@ export default function SignUp(props) {
     </div>
   );
 }
+}
+SignUp.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+export default withStyles(styles)(SignUp);

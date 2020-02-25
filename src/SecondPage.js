@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import "antd/dist/antd.css";
 import "../src/index.css";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 //import restaurant from "./data/resdatabase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SearchDescription from "./components/SearchDescription";
@@ -10,6 +10,7 @@ import Footer from "../src/components/Footer";
 import NavBar from "./components/NavBar";
 import SearchCategories from "./components/SearchCategories";
 import Text from "./components/Text";
+import Loading from "./components/Loading"
 const axios = require('axios');
 
 
@@ -19,12 +20,22 @@ const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
 
 //console.log("api key ----", ZOMATO_API_KEY)
 function SecondPage(props) {
-  console.log("props--->", props)
-  const [state, setState] = useState({data:[]});
+  const [search, setSearch] = useState({});
+  // console.log()
+  const history = useHistory(
+    
+  );
+  const onClick = () => {
+    console.log("inside the submit")
+    history.push(`/search/${props.match.params.lat}/${props.match.params.lon}/${search}`)
+    window.location.reload()
+  };
+  // console.log("props--->", props)
+  const [state, setState] = useState({data:[], isLoading: true});
   
   // const apiUrl = `https://developers.zomato.com/api/v2.1/search?lat=${props.match.params.lat}&lon=${props.match.params.lon}`
 
-  const apiUrl = ` https://developers.zomato.com/api/v2.1/search?q=${props.match.params.search}&lat=${props.match.params.lat}&lon=${props.match.params.lon}&radius=15000`
+  const apiUrl = ` https://developers.zomato.com/api/v2.1/search?count=23&q=${props.match.params.search}&lat=${props.match.params.lat}&lon=${props.match.params.lon}&radius=15000`
     
   
   const getApi = () => {
@@ -45,7 +56,7 @@ function SecondPage(props) {
           }
         })
       }).then(data => {
-        console.log(data)
+        // console.log(data)
         setState({
           data: data,
           isLoading: false
@@ -61,8 +72,11 @@ function SecondPage(props) {
 
   return (
   <div>
+    { state.isLoading ? (
+      <Loading/>
+    ) : (
     <div>
-      <NavBar></NavBar>
+      <NavBar setSearch={setSearch} onClick={onClick}></NavBar>
    
      
       <SearchCategories></SearchCategories>
@@ -75,7 +89,11 @@ function SecondPage(props) {
       <br></br>
       <Footer></Footer>
     </div>
-  </div>)
+  )}
+  </div>
+  
+  
+  )
 
 
 }

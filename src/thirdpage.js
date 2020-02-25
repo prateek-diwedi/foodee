@@ -48,7 +48,7 @@ function ThirdPage(props) {
     })
 
     const reviewsAPIPromise = axios({
-      url: "http://localhost:3001/api/v1/reviews",
+      url: "http://localhost:3001/reviews",
       method: "get",
       params: {
         res_id: props.match.params.restaurant_id

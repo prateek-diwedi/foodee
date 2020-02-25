@@ -4,7 +4,7 @@ import React from "react";
 //import ThirdPage from "./thirdpage";
 // import SecondPage from "./SecondPage";
 //import axios from 'axios'
- import FirstPage from "./components/firstPage";
+import FirstPage from "./components/firstPage";
 
 function App() {
   return (
