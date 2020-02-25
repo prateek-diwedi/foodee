@@ -2,6 +2,8 @@ import React from "react";
 import { Comment, Avatar, Form, Button, List, Input, Rate } from "antd";
 import moment from "moment";
 const { TextArea } = Input;
+const axios = require("axios");
+
 // This is a function to transfer input reviews data from API to the required format in this component
 
 const formatedReviews = data => {
@@ -76,6 +78,7 @@ class ReviewsList extends React.Component {
       note: null,
       rate: null
     };
+    this.res_id = props.res_id;
   }
 
   handleSubmit = () => {
@@ -86,27 +89,47 @@ class ReviewsList extends React.Component {
     this.setState({
       submitting: true
     });
+  let review = {
+    user_id: 5,
+    res_id: this.res_id,
+    review_text :this.state.note
+  }
 
-    setTimeout(() => {
-      this.setState({
-        submitting: false,
-        note: null,
-        rate: null,
-        comments: [
-          {
-            author: this.state.user.username,
-            avatar: this.state.user.avatar,
-            content: <p>{this.state.note}</p>,
-            datetime: moment().fromNow(),
-            rate: this.state.rate
-          },
-          ...this.state.comments
-        ]
-      });
-    console.log(this.state.comments)  
-    }, 1000);
-    
+  let rating = {
+    user_id: 5,
+    res_id: this.res_id,
+    rating : this.state.rate
+  }
+  const rate_promise = axios
+  .post("http://localhost:3001/ratings", {rating}
+  )
+  const rev_promise = axios
+  .post("http://localhost:3001/reviews", {review}
+  )
+  Promise.all([rate_promise,rev_promise])
+  .then(() =>{
+    this.setState({
+      submitting: false,
+      note: null,
+      rate: null,
+      comments: [
+        {
+          author: this.state.user.username,
+          avatar: this.state.user.avatar,
+          content: <p>{this.state.note}</p>,
+          datetime: moment().fromNow(),
+          rate: this.state.rate
+        },
+        ...this.state.comments
+      ]
+    })
+    console.log(this.state.comments) 
+  })
+  .catch((e)=>{console.log(e)})
+
   };
+
+
 
   handleNoteChange = e => {
     console.log(this.state)
