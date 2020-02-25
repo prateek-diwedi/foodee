@@ -10,7 +10,8 @@ export default function NavBar(props) {
 
   const [state, setState] = useState('');
 
-  let loggedInUser = Cookies.get()
+  let loggedInUser = Cookies.get('name');
+  console.log('logged in userin nav bar', loggedInUser);
   
   function Navchange(e) {
     console.log('change thing', e.target.value)
@@ -23,9 +24,14 @@ export default function NavBar(props) {
     console.log("serached item in nav bar -->", state)
   }
 
+  const logoutUser = () => {
+    Cookies.remove('name');
+    window.location.reload();
+  }
 
   return (
     <div>
+      {!loggedInUser? (
     <Navbar bg="danger" variant="dark">
     <Navbar.Brand href="/">Fooddee</Navbar.Brand>
     <Nav className="mr-auto">
@@ -42,11 +48,11 @@ export default function NavBar(props) {
       </Button>
     </Form>
   </Navbar>
-
+      ) : (
   <Navbar bg="danger" variant="dark">
     <Navbar.Brand href="/">Fooddee</Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link href="/signIn">Login As name</Nav.Link>
+<Nav.Link href="/signIn">{loggedInUser}</Nav.Link>
     </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2"   
@@ -57,11 +63,12 @@ export default function NavBar(props) {
         Search
       </Button>
       <div className="space"> 
-      <Button variant="outline-light">Logout</Button>
+      <Button variant="outline-light" onClick={logoutUser}>Logout</Button>
       </div>
     </Form>
   </Navbar>
-  
+      )
+}
   </div>
   )
 }
