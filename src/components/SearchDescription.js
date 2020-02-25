@@ -20,7 +20,7 @@ const SearchDescription = props => {
   }, []);
 
   return (
-    <Container className="serachBoxContainerListItem">
+    <Container>
       <div className="search-container-style" ref={element => { cardRef.current[0] = element; }}>
         <div className="search-container" style={divStyle}>
           <div class="clearfix float-my-children">
@@ -45,7 +45,7 @@ const SearchDescription = props => {
                 <p>
                   <b>Cost for two persons: </b>
                   $ {props.averageCost}
-            </p>
+                </p>
                 <p>
                   <b>Address: </b>
                   {props.address}
@@ -61,7 +61,7 @@ const SearchDescription = props => {
                   disabled
                   allowHalf
                   defaultValue={Number(props.avgRating)}
-                  />
+                />
               </Col>
               <Col md="auto">
                 <b>
@@ -74,7 +74,7 @@ const SearchDescription = props => {
               </Col>
             </Row>
           </div>
-        </div>        
+        </div>
       </div>
     </Container>
   );
