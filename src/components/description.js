@@ -6,6 +6,7 @@ import MapDirection from "./directionMap";
 import MapModal from "./mapmodal";
 // import Button from 'react-bootstrap/Button'
 import { Icon } from "antd";
+import Rating from "./Rating";
 const axios = require("axios");
 
 
@@ -92,6 +93,11 @@ const Description = props => {
             />
           </MapModal>
         </Col>
+      </Row>
+      <Row>
+        <Rating restaurant = {props.restaurant} user = {props.user}>
+
+        </Rating>
       </Row>
     </div>
   );
