@@ -15,6 +15,7 @@ import ReviewsList from "./addReviews"
 const TabMenu = props => {
   const restaurant = props.restaurant;
   const user = props.user;
+  const comments = props.comments;
   return (
     <Tabs id="uncontrolled-tab-example">
       <Tab eventKey="Overview" title="Overview">
@@ -25,7 +26,7 @@ const TabMenu = props => {
         <PhotoCards restaurant={restaurant}></PhotoCards>
       </Tab>
       <Tab eventKey="Reviews" title="Reviews">
-        <ReviewsList user = {user} comments = {restaurant.all_reviews.reviews} res_id = {restaurant.id}></ReviewsList>
+        <ReviewsList user = {user} comments = {comments} res_id = {restaurant.id}></ReviewsList>
       </Tab>
       
       {/* <Tab eventKey = "Direction" title = "Direction Map">
