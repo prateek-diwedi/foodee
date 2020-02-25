@@ -1,9 +1,6 @@
 import React from "react";
-// import Photo from "./singlePhoto"
 import { Carousel } from "antd";
-import './photoCarousel.scss'
-
-
+import './photoCarousel.scss';
 
 const PhotoCarousel = props => {
   let photosMap = props.photoList.map(photo => {
@@ -11,9 +8,7 @@ const PhotoCarousel = props => {
   });
 
   return (
-    // <div style={divStyle}>
-      <Carousel autoplay>{photosMap}</Carousel>
-    // </div>
+    <Carousel autoplay>{photosMap}</Carousel>
   );
 };
 

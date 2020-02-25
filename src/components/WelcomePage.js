@@ -1,13 +1,12 @@
 import React, { Component, useState } from 'react';
-import Button from "../components/Button"
-import SearchBar from "../components/SearchBar"
-import AutoText from "../components/AutoText"
-import Location from "../components/LocationWithCoordinates"
-import "./WelcomePage.scss"
-import { Route, Link, useHistory } from 'react-router-dom'
-import Background_Video from "../components/Background-Video"
-import Cookies from 'js-cookie'
-//import history from "../history"
+import Button from "../components/Button";
+import SearchBar from "../components/SearchBar";
+import AutoText from "../components/AutoText";
+import Location from "../components/LocationWithCoordinates";
+import "./WelcomePage.scss";
+import { Route, Link, useHistory } from 'react-router-dom';
+import Background_Video from "../components/Background-Video";
+import Cookies from 'js-cookie';
 
 export default function WelcomePage(props) {
   const history = useHistory();
@@ -16,9 +15,7 @@ export default function WelcomePage(props) {
   // state coming from search box
   const [search, setSearch] = useState({});
 
-  //console.log("props in homepage", Cookies.get('name'));
   let loggedInUser = Cookies.get('name')
-  console.log("Logged in homepage-->", loggedInUser);
 
   const onSubmit = () => {
     history.push(`/search/${coordinates.coords.lat}/${coordinates.coords.lng}/${search}`)
@@ -27,12 +24,10 @@ export default function WelcomePage(props) {
   const logoutUser = () => {
     Cookies.remove('name');
     window.location.reload();
-    console.log('user logged out')
   }
 
   return (
     <div className="welcomePage" >
-      {/* <img src={require('../images/foodee.jpg')}/> */}
       <div className="background_video">
         <Background_Video></Background_Video>
       </div>
@@ -41,11 +36,11 @@ export default function WelcomePage(props) {
         <div className="logout-Button">
           <Button danger onClick={logoutUser}>Logout</Button>
         </div>
-       ) : (
-        <div className="login-Button">
-          <Button confirm onClick={() => history.push('/signIn')}>Login</Button>
-        </div>
-       )
+      ) : (
+          <div className="login-Button">
+            <Button confirm onClick={() => history.push('/signIn')}>Login</Button>
+          </div>
+        )
       }
       <div className="search_bar_Home_page">
         <SearchBar setSearch={setSearch} onSubmit={onSubmit}></SearchBar>

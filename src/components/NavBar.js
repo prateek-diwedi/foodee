@@ -10,16 +10,13 @@ export default function NavBar(props) {
   const [state, setState] = useState('');
 
   let loggedInUser = Cookies.get('name');
-  console.log('logged in userin nav bar', loggedInUser);
 
   function Navchange(e) {
-    console.log('change thing', e.target.value)
     props.setSearch(e.target.value);
   }
 
   function onSubmit(e) {
     props.onClick();
-    console.log("serached item in nav bar -->", state)
   }
 
   const logoutUser = () => {
@@ -49,7 +46,6 @@ export default function NavBar(props) {
             <Navbar.Brand href="/">Fooddee</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link>Logged in as : {loggedInUser}</Nav.Link>
-              {/* <h4 className="h"> Logged in as : {loggedInUser} </h4>  */}
             </Nav>
             <Form inline>
               <FormControl type="text" placeholder="Search" className="mr-sm-2"

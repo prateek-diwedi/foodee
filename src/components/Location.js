@@ -77,7 +77,7 @@ export default function GoogleMaps() {
     }
 
     fetch({ input: inputValue }, results => {
-      console.log('res',results);
+      console.log('res', results);
       if (active) {
         setOptions(results || []);
       }

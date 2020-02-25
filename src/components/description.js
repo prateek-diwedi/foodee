@@ -4,7 +4,6 @@ import Col from "react-bootstrap/Col";
 import { Rate } from "antd";
 import MapDirection from "./directionMap";
 import MapModal from "./mapmodal";
-// import Button from 'react-bootstrap/Button'
 import { Icon } from "antd";
 
 const divStyle = {
@@ -55,7 +54,7 @@ const Description = props => {
           <Icon
             type="like"
             style={{ fontSize: "40px", color: "#08c" }}
-            onClick={event => {}}
+            onClick={event => { }}
           />
         </Col>
 
