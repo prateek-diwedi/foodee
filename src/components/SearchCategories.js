@@ -33,37 +33,37 @@ export default function Categories() {
       <div class="categories-container" ref={element => {cardRef.current[1] = element;}}>
         {/* <Row> */}
           {/* <Col> */}
-            <a href="https://www.zomato.com/vancouver/breakfast" class="column ta-center start-categories-item">
+            <a href="http://localhost:3000/search/49.2827291/-123.1207375/breakfast" class="column ta-center start-categories-item">
               <img class="pic" src={require('../images/breakfast.jpeg')} data-original="https://b.zmtcdn.com/images/search_tokens/app_icons/category_8.png?output-format=webp"/>
               <div class="category-text" ref={element => {cardRef.current[2] = element;}}>Breakfast</div>
             </a>
           {/* </Col>     */}
           {/* <Col> */}
-            <a href="https://www.zomato.com/vancouver/lunch" class="column ta-center start-categories-item">
+            <a href="http://localhost:3000/search/49.2827291/-123.1207375/lunch" class="column ta-center start-categories-item">
               <img class="pic" src={require('../images/lunch.jpg')} data-original="https://b.zmtcdn.com/images/search_tokens/app_icons/category_9.png?output-format=webp"/>
               <div class="category-text" ref={element => {cardRef.current[3] = element;}}>Lunch</div>
             </a>
           {/* </Col>     */}
           {/* <Col>   */}
-            <a href="https://www.zomato.com/vancouver/dinner" class="column ta-center start-categories-item">
+            <a href="http://localhost:3000/search/49.2827291/-123.1207375/dinner" class="column ta-center start-categories-item">
               <img class="pic1" src={require('../images/dinner.jpeg')} data-original="https://b.zmtcdn.com/images/search_tokens/app_icons/category_10.png?output-format=webp"/>
               <div class="category-text" ref={element => {cardRef.current[4] = element;}}>Dinner</div>
             </a>
           {/* </Col>     */}
           {/* <Col>         */}
-            <a href="https://www.zomato.com/vancouver/drinks-and-nightlife" class="column ta-center start-categories-item">
+            <a href="http://localhost:3000/search/49.2827291/-123.1207375/nightlife" class="column ta-center start-categories-item">
               <img class="pic2" src={require('../images/drinks.jpeg')} data-original="https://b.zmtcdn.com/images/search_tokens/app_icons/category_3.png?output-format=webp" />
               <div class="category-text" ref={element => {cardRef.current[5] = element;}}>Drinks &amp; Nightlife</div>
             </a>
           {/* </Col>     */}
           {/* <Col> */}
-            <a href="https://www.zomato.com/vancouver/cafés" class="column ta-center start-categories-item">
+            <a href="http://localhost:3000/search/49.2827291/-123.1207375/cafes" class="column ta-center start-categories-item">
               <img class="pic" src={require('../images/cafe.jpeg')} data-original="https://b.zmtcdn.com/images/search_tokens/app_icons/category_6.png?output-format=webp"/>
               <div class="category-text" ref={element => {cardRef.current[6] = element;}}>Cafés</div>
             </a>
           {/* </Col>     */}
           {/* <Col> */}
-            <a href="https://www.zomato.com/vancouver/take-away" class="column ta-center start-categories-item">
+            <a href="http://localhost:3000/search/49.2827291/-123.1207375/take-away" class="column ta-center start-categories-item">
               <img class="pic" src={require('../images/takeout.jpeg')} data-original="https://b.zmtcdn.com/images/search_tokens/app_icons/category_5.png?output-format=webp"/>
               <div class="category-text" ref={element => {cardRef.current[7] = element;}}>Take-Out</div>
             </a>
