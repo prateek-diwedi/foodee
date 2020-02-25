@@ -80,10 +80,7 @@ const SearchDescription = props => {
         </div>
       </div>
     </Container>
-<<<<<<< HEAD
 
-=======
->>>>>>> master
   );
 };
 
