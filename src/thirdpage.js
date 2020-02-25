@@ -11,12 +11,42 @@ import TabMenu from "./components/tabs";
 import axios from "axios";
 import NavBar from "./components/NavBar";
 import Footer from '../src/components/Footer';
+import moment from "moment";
+
 // const restaurant_id = 16619055; //16618773; // 16617115 16618902 16618033 16619055 16617176 16625742 16626268 16628153 16708849
 
 const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
 const user = {user_id : 2,
               username : "ArioN",
               avatar : "https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387_1280.png"};
+
+// a function to fomrat reviews from api to comments
+const formatedReviews = data => {
+  let reviewNew = data.map(item => {
+    return {
+      author: item.review.user.name,
+      avatar: item.review.user.profile_image,
+      content: item.review.review_text,
+      datetime: item.review.review_time_friendly,
+      rate: item.review.rating
+    };
+  });
+  return reviewNew;
+};
+// a function to format reviews from DB to comments
+const dataBaseReviews = (data,user) =>{
+  let reviewList = data.map(item=>{
+    return{
+    author: user[item.user_id-1].username,
+    avatar: "https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387_1280.png",
+    content: item.review_text,
+    datetime:moment(item.created_at).fromNow(),
+    rate: 3
+    }
+  });
+  return reviewList
+}
+
 function ThirdPage(props) {
   console.log("props--->>",props);
   const [rest, setRest] = useState(null);
@@ -60,22 +90,31 @@ function ThirdPage(props) {
       },
       responseType: "json"
     })
-    Promise.all([restaurantPromise, reviewsPromise, reviewsAPIPromise])
+    const usersAPIpromise = axios({
+      url: "http://localhost:3001/users",
+      method: "get",
+      headers: {
+        Accept: "application/json"
+      },
+      responseType: "json"
+    })
+
+    Promise.all([restaurantPromise, reviewsPromise, reviewsAPIPromise,usersAPIpromise])
       .then(values => {
         setRest(values[0].data);
-        
+        let rev = (values[1].data.user_reviews)
+        const comments1 = formatedReviews(rev);
         if (!values[2].data){
-        let rev = [...values[1].data.user_reviews]
-        console.log(rev)
+          
+          const comments = [...comments1];
+          setReviews(comments);
         } else {
-         let rev = [...values[1].data.user_reviews,values[2].data]
-         console.log(values[2].data)
-         console.log(rev)
+          let dbrev = values[2].data;
+          let dbusers = values[3].data.users;
+          const comments2 = dataBaseReviews(dbrev,dbusers)
+          const comments = [...comments2,...comments1]
+          setReviews(comments);
         }
-        setReviews(values[1].data);
-
-        console.log(values[1].data.user_reviews)
-        
       })
       .catch(e => console.log(e));
   }, []);
@@ -86,8 +125,7 @@ function ThirdPage(props) {
     const cuisine = rest.cuisines;
     const location = rest.location;
     const user_rating = rest.user_rating;
-    rest.all_reviews.reviews = revs.user_reviews;
-    console.log(revss)
+    const comments = (revs); // the () around this variable is VERY IMPORTANT otherwise it won't work.
     return (
       <div>
         <div className="App">
@@ -111,7 +149,7 @@ function ThirdPage(props) {
         </div>
         <br />
         <div>
-          <TabMenu restaurant={rest} user={user}></TabMenu>
+          <TabMenu restaurant={rest} user={user} comments = {comments}></TabMenu>
           <Footer></Footer>
         </div>
       </div>
