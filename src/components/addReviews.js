@@ -73,7 +73,7 @@ class ReviewsList extends React.Component {
     super(props);
     this.state = {
       user: props.user,
-      comments: formatedReviews(props.comments),
+      comments: props.comments,
       submitting: false,
       note: null,
       rate: null
