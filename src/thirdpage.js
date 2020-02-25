@@ -14,7 +14,9 @@ import Footer from '../src/components/Footer';
 // const restaurant_id = 16619055; //16618773; // 16617115 16618902 16618033 16619055 16617176 16625742 16626268 16628153 16708849
 
 const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
-
+const user = {user_id : 2,
+              username : "ArioN",
+              avatar : "https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387_1280.png"};
 function ThirdPage(props) {
   console.log("props--->>",props);
   const [rest, setRest] = useState(null);
@@ -109,7 +111,7 @@ function ThirdPage(props) {
         </div>
         <br />
         <div>
-          <TabMenu restaurant={rest}></TabMenu>
+          <TabMenu restaurant={rest} user={user}></TabMenu>
           <Footer></Footer>
         </div>
       </div>
