@@ -10,6 +10,7 @@ import Footer from "../src/components/Footer";
 import NavBar from "./components/NavBar";
 import SearchCategories from "./components/SearchCategories";
 import Text from "./components/Text";
+import Loading from "./components/Loading"
 const axios = require('axios');
 
 
@@ -30,7 +31,7 @@ function SecondPage(props) {
     window.location.reload()
   };
   // console.log("props--->", props)
-  const [state, setState] = useState({data:[]});
+  const [state, setState] = useState({data:[], isLoading: true});
   
   // const apiUrl = `https://developers.zomato.com/api/v2.1/search?lat=${props.match.params.lat}&lon=${props.match.params.lon}`
 
@@ -71,6 +72,9 @@ function SecondPage(props) {
 
   return (
   <div>
+    { state.isLoading ? (
+      <Loading/>
+    ) : (
     <div>
       <NavBar setSearch={setSearch} onClick={onClick}></NavBar>
    
@@ -85,7 +89,11 @@ function SecondPage(props) {
       <br></br>
       <Footer></Footer>
     </div>
-  </div>)
+  )}
+  </div>
+  
+  
+  )
 
 
 }
