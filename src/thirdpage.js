@@ -48,6 +48,7 @@ const dataBaseReviews = (data,user) =>{
 }
 
 function ThirdPage(props) {
+  // const user = props.user;
   console.log("props--->>",props);
   const [rest, setRest] = useState(null);
   const [revs, setReviews] = useState(null);
@@ -145,6 +146,8 @@ function ThirdPage(props) {
             cuisine={cuisine}
             location={location}
             user_rating={user_rating}
+            user = {user}
+            restaurant={rest}
           ></Description>
         </div>
         <br />
