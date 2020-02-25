@@ -35,7 +35,7 @@ function SecondPage(props) {
   
   // const apiUrl = `https://developers.zomato.com/api/v2.1/search?lat=${props.match.params.lat}&lon=${props.match.params.lon}`
 
-  const apiUrl = ` https://developers.zomato.com/api/v2.1/search?q=${props.match.params.search}&lat=${props.match.params.lat}&lon=${props.match.params.lon}&radius=15000`
+  const apiUrl = ` https://developers.zomato.com/api/v2.1/search?count=23&q=${props.match.params.search}&lat=${props.match.params.lat}&lon=${props.match.params.lon}&radius=15000`
     
   
   const getApi = () => {
