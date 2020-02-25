@@ -26,7 +26,7 @@ const TabMenu = props => {
         <PhotoCards restaurant={restaurant}></PhotoCards>
       </Tab>
       <Tab eventKey="Reviews" title="Reviews">
-        <ReviewsList user = {user} comments = {restaurant.all_reviews.reviews}></ReviewsList>
+        <ReviewsList user = {user} comments = {restaurant.all_reviews.reviews} res_id = {restaurant.id}></ReviewsList>
       </Tab>
       
       {/* <Tab eventKey = "Direction" title = "Direction Map">
