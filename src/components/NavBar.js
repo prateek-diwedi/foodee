@@ -36,7 +36,6 @@ export default function NavBar(props) {
     <Navbar.Brand href="/">Fooddee</Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="/signIn">Login</Nav.Link>
-      {/* <Nav.Link href="#features">Location</Nav.Link> */}
     </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2"   
@@ -52,7 +51,8 @@ export default function NavBar(props) {
   <Navbar bg="danger" variant="dark">
     <Navbar.Brand href="/">Fooddee</Navbar.Brand>
     <Nav className="mr-auto">
-<Nav.Link href="/signIn">{loggedInUser}</Nav.Link>
+<Nav.Link>Logged in as : {loggedInUser}</Nav.Link>
+{/* <h4 className="h"> Logged in as : {loggedInUser} </h4>  */}
     </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2"   
