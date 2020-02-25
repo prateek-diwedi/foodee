@@ -14,6 +14,7 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Footer from "../components/Footer";
 import PropTypes from 'prop-types';
+import Cookies from 'js-cookie'
 
 const axios = require("axios");
 
@@ -97,6 +98,10 @@ handleSubmit = (event) => {
       .post("http://localhost:3001/login", {user},
       {withCredentials: true})
       .then(response => {
+        // console.log("logged in user", user)
+        Cookies.set('name', user.username, { expires: 7 });
+        let loggedInUser = Cookies.get('name')
+        console.log("cookie-->", loggedInUser)
         if (response.data.logged_in) {
           // this.props.handleLogin(response.data)
           this.redirect()
