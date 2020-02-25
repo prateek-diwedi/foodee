@@ -8,22 +8,19 @@ import Button from "../components/Button";
 import SearchBar from "../components/SearchBar";
 import PictureWithInfo from "../components/PictureWithInfo";
 import NavBar from "../components/NavBar";
-import PictureWithInfoReverse from "../components/PictureWithInfoRevrese"
-import Footer from "../components/Footer"
-import WelcomePage from "../components/WelcomePage"
-import AutoText from "../components/AutoText"
-import Categories from "../components/Categories"
-import Location from "../components/Location"
+import PictureWithInfoReverse from "../components/PictureWithInfoRevrese";
+import Footer from "../components/Footer";
+import WelcomePage from "../components/WelcomePage";
+import AutoText from "../components/AutoText";
+import Categories from "../components/Categories";
+import Location from "../components/Location";
 import SearchCategories from "../components/SearchCategories";
-import SignInPage from "../components/SignInPage"
-import FirstPage from "../components/firstPage"
+import SignInPage from "../components/SignInPage";
+import FirstPage from "../components/firstPage";
 import SearchCard from "../SecondPage";
 import Text from "../components/Text";
-//import RestaurantPage from "../thirdpage";
 import Background_Video from "../components/Background-Video";
 import LocationWithCoords from "../components/LocationWithCoordinates";
-import NavBarLogout from "../components/NavBarLogout";
-import Loading from "../components/Loading";
 
 //-------------------------------- categories Data ----------------------------------//
 
@@ -157,13 +154,3 @@ storiesOf("location with coords", module)
  // ------------------------------------------------- Text  ---------------------------------- //
  storiesOf("Text", module)
  .add("Text", () => <Text>Text</Text>)
-
-
-
- // ------------------------------------------------- NavBar Logout  ---------------------------------- //
- storiesOf("NavBarLogout", module)
- .add("NavBarLogout", () => <NavBarLogout>NavBarLogout</NavBarLogout>)
-
- // ------------------------------------------------- NavBar Logout  ---------------------------------- //
- storiesOf("Loading", module)
- .add("Loading", () => <Loading/>)

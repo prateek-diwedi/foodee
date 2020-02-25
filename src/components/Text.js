@@ -62,7 +62,7 @@ window.onload = function() {
   return(
     <div className="text_type">
     <h1>
-  <a href="" class="typewrite" data-period="2000" 
+  <a href="" style={{ textDecoration: 'none', color: 'red' }} class="typewrite" data-period="2000" 
   data-type='[ "Hi, Welcome to fooddee!", "Local Restuarants NearBy" ]'>
     <span class="wrap"></span>
   </a>
