@@ -10,12 +10,11 @@ import ReviewsList from "./addReviews"
 // Data is imported from database
 // import reviews from "../data/reviewsdatabase";
 // User is fixed until user database is fixed
-const user = {username : "Apama",
-              avatar : "https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387_1280.png"};
 
 
 const TabMenu = props => {
   const restaurant = props.restaurant;
+  const user = props.user;
   return (
     <Tabs id="uncontrolled-tab-example">
       <Tab eventKey="Overview" title="Overview">
