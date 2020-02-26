@@ -13,7 +13,7 @@ const formatedReviews = data => {
       avatar: item.review.user.profile_image,
       content: item.review.review_text,
       datetime: item.review.review_time_friendly,
-      rate: item.review.rating
+       rate: item.review.rating
     };
   });
   return reviewNew;
@@ -31,7 +31,7 @@ const CommentList = ({ comments }) => (
           </div>
           <div>
             <Rate
-              disabled
+              disabled 
               allowHalf
               value={props.rate}
             />
