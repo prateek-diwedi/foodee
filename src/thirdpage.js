@@ -11,17 +11,14 @@ import TabMenu from "./components/tabs";
 import axios from "axios";
 import NavBar from "./components/NavBar";
 import Footer from '../src/components/Footer';
-// const restaurant_id = 16619055; //16618773; // 16617115 16618902 16618033 16619055 16617176 16625742 16626268 16628153 16708849
 
 const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
 
 function ThirdPage(props) {
-  console.log("props--->>",props);
   const [rest, setRest] = useState(null);
   const [revs, setReviews] = useState(null);
   const [revss, setReviewsfromdatabase] = useState(null);
   useEffect(() => {
-    // const restPromise =
     const restaurantPromise = axios({
       url: "https://developers.zomato.com/api/v2.1/restaurant",
       method: "get",
@@ -63,25 +60,22 @@ function ThirdPage(props) {
         setRest(values[0].data);
         setReviews(values[1].data);
         setReviewsfromdatabase(values[2].data);
-        console.log("values of 2", values[2])
-
       })
       .catch(e => console.log(e));
   }, []);
 
-  if (rest&&revs&&revss) {
+  if (rest && revs && revss) {
     const name = rest.name;
     const hours = rest.timings;
     const cuisine = rest.cuisines;
     const location = rest.location;
     const user_rating = rest.user_rating;
     rest.all_reviews.reviews = revs.user_reviews;
-    console.log(revss)
     return (
       <div>
         <div className="App">
           <NavBar></NavBar>
-           
+
           <Row>
             <Col>
               <PhotoCarousel photoList={rest.photos}></PhotoCarousel>
