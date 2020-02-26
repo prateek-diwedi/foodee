@@ -4,7 +4,6 @@ import Col from "react-bootstrap/Col";
 import { Rate } from "antd";
 import MapDirection from "./directionMap";
 import MapModal from "./mapmodal";
-// import Button from 'react-bootstrap/Button'
 import { Icon } from "antd";
 import Rating from "./Rating";
 const axios = require("axios");
@@ -15,21 +14,25 @@ const divStyle = {
 };
 const Description = props => {
   const [theme, setTheme] = useState(false)
+  console.log(props.user)
   const handleliked = () => {
-    // let favourite = {
-    //   user_id: 2,
-    //   res_id: 16626796 
-    // }
-    // axios
-    // .post("http://localhost:3001/favourites", 
-    //  {favourite}
-    // )
-    //  .then(response => {
+     let favourite = {
+      // user_id: 6,
+      user_id: props.user.user_id,
+      res_id: props.restaurant.id 
+     }
+
+     console.log('favourite',favourite)
+     axios
+     .post("http://localhost:3001/favourites", 
+      {favourite}
+     )
+      .then(response => {
        setTheme(!theme);
-    //     console.log(theme);
-    //     console.log(response)
-    //   })
-    //   .catch(e=>{console.log(e)})
+         console.log(theme);
+         console.log(response)
+       })
+       .catch(e=>{console.log(e)})
   };
 
   
