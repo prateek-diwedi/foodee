@@ -1,25 +1,22 @@
-
 .looking {
 position: absolute;
 top:60%;
 left:30%;
 }
 
-.textAnimation
-{
+.textAnimation {
   position:absolute;
   top:70%;
   left:50%;
   transform: translate(-50%,-50%);
-  // text-transform: uppercase;
   font-family: 'Pacifico', cursive;
   letter-spacing: 5px;
   margin:0;
   padding:0;
   color: transparent;
 }
-.textAnimation:before
-{
+
+.textAnimation:before {
   content: attr(data-text);
   position:absolute;
   top: 0;

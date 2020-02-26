@@ -20,6 +20,7 @@ const routing = (
       <Route path = "/SignUp"  component={SignUp}/>
       <Route path= "/restaurant/:restaurant_id" component={RestaurantPage}/>
       <Route path = "/search/:lat/:lon/:search" component={SearchPage}/>
+      {/* <Route path = "/profile/:username" component= */}
       </Switch>
     </div>
   </Router>

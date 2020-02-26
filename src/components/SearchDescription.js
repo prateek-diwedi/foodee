@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Image from 'react-bootstrap/Image'
+import Image from 'react-bootstrap/Image';
 import { Rate } from "antd";
 import "./SearchDescription.scss";
 import { Container } from "react-bootstrap";
