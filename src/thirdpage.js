@@ -15,6 +15,8 @@ import Footer from '../src/components/Footer';
 const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
 
 function ThirdPage(props) {
+  const params = props.match.params;
+  console.log("props--->>",params);
   const [rest, setRest] = useState(null);
   const [revs, setReviews] = useState(null);
   const [revss, setReviewsfromdatabase] = useState(null);
@@ -90,6 +92,7 @@ function ThirdPage(props) {
             cuisine={cuisine}
             location={location}
             user_rating={user_rating}
+            rest_id = {params}
           ></Description>
         </div>
         <br />

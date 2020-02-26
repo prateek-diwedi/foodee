@@ -23,6 +23,8 @@ import Profile from "../components/Profile";
 //import RestaurantPage from "../thirdpage";
 import Background_Video from "../components/Background-Video";
 import LocationWithCoords from "../components/LocationWithCoordinates";
+import ShareButton from "../components/ShareButtons"
+import ShareModal from "../components/ShareModal"
 
 //-------------------------------- categories Data ----------------------------------//
 
@@ -161,3 +163,14 @@ storiesOf("location with coords", module)
  // ------------------------------------------------- profile  ---------------------------------- //
  storiesOf("Profile", module)
  .add("Profile", () => <Profile>Profile</Profile>)
+
+
+ // ------------------------------ share button ---------------------------------------
+ storiesOf("Share Button", module)
+ .add("Share Button", () => <ShareButton>Share</ShareButton>)
+
+
+ // ------------------------------ share Modal ---------------------------------------
+ storiesOf("Share Modal", module)
+ .add("Share Modal", () => <ShareModal>Share</ShareModal>)
+ 
