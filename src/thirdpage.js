@@ -46,20 +46,17 @@ const dataBaseReviews = (data,user) =>{
     avatar: "https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387_1280.png",
     content: item.review_text,
     datetime:moment(item.created_at).fromNow(),
-    rate: 3
+    rate: item.rating
     }
   });
   return reviewList
 }
 
 function ThirdPage(props) {
-  // const user = props.user;
-  // console.log("props--->>",props);
-  // const params = props.match.params;
-  // console.log("props--->>",params);
+
+  // const user_location = {lan:props.match.params.lan,lat:props.match.params.lat};
   const [rest, setRest] = useState(null);
   const [revs, setReviews] = useState(null);
-  // const [revss, setReviewsfromdatabase] = useState(null);
   useEffect(() => {
     const restaurantPromise = axios({
       url: "https://developers.zomato.com/api/v2.1/restaurant",
@@ -147,6 +144,7 @@ function ThirdPage(props) {
         <br />
         <div>
           <Description
+            // user_loc = {user_location}
             name={name}
             hours={hours}
             cuisine={cuisine}
