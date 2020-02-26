@@ -2,19 +2,12 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Rate, Icon } from 'antd';
-<<<<<<< HEAD
 import "./overview.scss"
 const Overview = (props)=>{
   return(
     <div className="overviewBoxWithTabs">
     
       <br/>
-=======
-const Overview = (props) => {
-  return (
-    <div>
-      <br />
->>>>>>> 43546ec867b57b86456867f49100cace1aa55289
       <Row>
         <Col sm={2}>
           <b>Highlight : </b>

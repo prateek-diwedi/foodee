@@ -2,16 +2,8 @@ import React from "react";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Overview from "./overview";
-<<<<<<< HEAD
-import PhotoCards from "./photocards"
-import "./tabs.scss"
-// import ReviewsList from "./reviews";
-// import MapDirection from "./directionMap"
-import ReviewsList from "./addReviews"
-=======
 import PhotoCards from "./photocards";
 import ReviewsList from "./addReviews";
->>>>>>> 43546ec867b57b86456867f49100cace1aa55289
 
 const user = {
   username: "Apama",
