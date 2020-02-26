@@ -1,8 +1,6 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import "./ViewNavBar.scss";
 import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
-import { Route, Link, useHistory } from 'react-router-dom';
-import { Icon } from "antd";
 
 import Cookies from 'js-cookie';
 
@@ -26,6 +24,7 @@ export default function NavBar(props) {
     window.location.reload();
   }
 
+
   return (
     <div>
       {!loggedInUser ? (
@@ -47,8 +46,8 @@ export default function NavBar(props) {
           <Navbar bg="danger" variant="dark">
             <Navbar.Brand href="/">Fooddee</Navbar.Brand>
             <Nav className="mr-auto">
-              <Nav.Link href="/search/:lat/:lon/:search">Back to main page</Nav.Link>
-              {/* <Icon type="rollback" href="/search/:lat/:lon/:search">Back to main page</Icon> */}
+              <Nav.Link href="/search/49.2813127/-123.1145121/pizza">Back to main page</Nav.Link>
+              {/* <Nav.Link href=`/search/${props.match.params.lat}/${props.match.params.lon}/${search}`>Back to main page</Nav.Link> */}
               <Nav.Link>Logged in as : {loggedInUser}</Nav.Link>
             </Nav>
             <Form inline>

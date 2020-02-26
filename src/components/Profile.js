@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import NavBar from "../components/NavBar";
 import Footer from '../components/Footer';
 import axios from "axios";
-import "../components/ProfileCard.scss"
+import "../components/ProfileCard.scss";
 import { Link, useHistory } from "react-router-dom";
 import Loading from "../components/Loading";
 
