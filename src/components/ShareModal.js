@@ -46,7 +46,7 @@ export class ShareModal extends React.Component {
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
-          <ShareButton  url={this.props.rst_id.restaurant_id}/>
+          <ShareButton  url={this.props.rst_id}/>
         </Modal>
       </div>
     );
