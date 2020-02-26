@@ -84,7 +84,7 @@ function SecondPage(props) {
       <Text></Text>
       <br></br>
       {(state.data || []).map((props) => {
-        return (<Link to={`/restaurant/${props.id}`}><SearchDescription key={`${props.id}`} {...props} ></SearchDescription></Link>)
+        return (<Link style={{ textDecoration: 'none', color: 'white' }} to={`/restaurant/${props.id}`}><SearchDescription key={`${props.id}`} {...props} ></SearchDescription></Link>)
       })}
       <br></br>
       <Footer></Footer>
