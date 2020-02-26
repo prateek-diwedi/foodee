@@ -135,10 +135,10 @@ console.log(`theme changed to ${theme} and saved changed to ${saved}`);
         <Col md="auto">
           <MapModal>
             <MapDirection
-              // start_lng={props.user_loc.lan}
-              // start_lat={props.user_loc.lat}
-              start_lat={49.2813} 
-              start_lng={-123.1151} 
+              start_lng={props.user_loc.lan}
+              start_lat={props.user_loc.lat}
+              // start_lat={49.2813} 
+              // start_lng={-123.1151} 
               end_lng={props.location.longitude}
               end_lat={props.location.latitude}
             />

@@ -18,7 +18,7 @@ const routing = (
         <Route exact path = "/" component={App}/>
         <Route path = "/signIn" component={SignIpPage}/>
         <Route path = "/SignUp"  component={SignUp}/>
-        <Route path= "/restaurant/:restaurant_id" component={RestaurantPage} render={(routeProps) => 
+        <Route path= "/restaurant/:restaurant_id/:lat/:lan" component={RestaurantPage} render={(routeProps) => 
           <RestaurantPage {...routeProps} />}  />
         <Route path = "/search/:lat/:lon/:search" component={SearchPage}/>
         <Route path = "/profile/:username" component={Profile}/>
