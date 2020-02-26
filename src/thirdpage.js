@@ -54,7 +54,7 @@ const dataBaseReviews = (data,user) =>{
 
 function ThirdPage(props) {
 
-  // const user_location = {lan:props.match.params.lan,lat:props.match.params.lat};
+  const user_location = {lan:props.match.params.lan,lat:props.match.params.lat};
   const [rest, setRest] = useState(null);
   const [revs, setReviews] = useState(null);
   useEffect(() => {
@@ -144,7 +144,7 @@ function ThirdPage(props) {
         <br />
         <div>
           <Description
-            // user_loc = {user_location}
+            user_loc = {user_location}
             name={name}
             hours={hours}
             cuisine={cuisine}
