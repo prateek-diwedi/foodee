@@ -22,7 +22,7 @@ const Overview = (props)=>{
           <b>Price range :</b>
         </Col>
         <Col md="4">
-          <Rate disabled character='$' color='#08c' defaultValue={props.restaurant.price_range} />
+          <Rate disabled character='$' color='#1dd301' defaultValue={props.restaurant.price_range} />
         </Col>
       </Row>
       <br />
@@ -31,7 +31,7 @@ const Overview = (props)=>{
           <b>Average cost for two persons : </b>
         </Col>
         <Col md="4">
-          {props.restaurant.average_cost_for_two} $
+          $ {props.restaurant.average_cost_for_two} 
       </Col>
       </Row>
       <br />
