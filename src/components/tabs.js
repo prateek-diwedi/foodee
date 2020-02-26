@@ -14,6 +14,7 @@ const user = {
 const TabMenu = props => {
   const restaurant = props.restaurant;
   return (
+    <div className="tabMenuClass">
     <Tabs id="uncontrolled-tab-example">
       <Tab eventKey="Overview" title="Overview">
         <Overview restaurant={restaurant} />
@@ -26,6 +27,7 @@ const TabMenu = props => {
         <ReviewsList user={user} comments={restaurant.all_reviews.reviews}></ReviewsList>
       </Tab>
     </Tabs>
+    </div>
   );
 };
 

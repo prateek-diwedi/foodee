@@ -7,7 +7,8 @@ import MapModal from "./mapmodal";
 import { Icon } from "antd";
 
 const divStyle = {
-  padding: "0.5em"
+  paddingLeft: "55px",
+  paddingTop: "10px"
 };
 const Description = props => {
   return (
