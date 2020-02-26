@@ -2,9 +2,10 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Rate, Icon } from 'antd';
+import "./overview.scss"
 const Overview = (props)=>{
   return(
-    <div>
+    <div className="overviewBoxWithTabs">
     
       <br/>
       <Row>

@@ -3,6 +3,7 @@ import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Overview from "./overview";
 import PhotoCards from "./photocards"
+import "./tabs.scss"
 // import ReviewsList from "./reviews";
 // import MapDirection from "./directionMap"
 import ReviewsList from "./addReviews"
@@ -17,6 +18,7 @@ const user = {username : "Apama",
 const TabMenu = props => {
   const restaurant = props.restaurant;
   return (
+    <div className="tabMenuClass">
     <Tabs id="uncontrolled-tab-example">
       <Tab eventKey="Overview" title="Overview">
         <Overview restaurant={restaurant}/>
@@ -28,13 +30,8 @@ const TabMenu = props => {
       <Tab eventKey="Reviews" title="Reviews">
         <ReviewsList user = {user} comments = {restaurant.all_reviews.reviews}></ReviewsList>
       </Tab>
-      
-      {/* <Tab eventKey = "Direction" title = "Direction Map">
-       
-          <MapDirection  start_lng ={-123.1278} start_lat = {49.2778}  end_lng ={restaurant.location.longitude} end_lat ={restaurant.location.latitude}/>
-        
-      </Tab> */}
     </Tabs>
+    </div>
   );
 };
 
