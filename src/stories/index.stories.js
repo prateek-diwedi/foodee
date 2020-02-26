@@ -20,7 +20,7 @@ import FirstPage from "../components/firstPage";
 import SearchCard from "../SecondPage";
 import Text from "../components/Text";
 import Profile from "../components/Profile";
-//import RestaurantPage from "../thirdpage";
+import ViewNavBar from "../components/ViewNavBar";
 import Background_Video from "../components/Background-Video";
 import LocationWithCoords from "../components/LocationWithCoordinates";
 import ShareButton from "../components/ShareButtons"
@@ -174,3 +174,9 @@ storiesOf("location with coords", module)
  storiesOf("Share Modal", module)
  .add("Share Modal", () => <ShareModal>Share</ShareModal>)
  
+   // ----------------------------------- ViewNavBar ---------------------------- //
+   storiesOf("ViewNavBar", module)
+   .addParameters({
+     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+   })
+   .add("ViewNav Bar", () => <ViewNavBar>View Nav Bar</ViewNavBar>)
