@@ -8,6 +8,7 @@ import SignIpPage from "./components/SignInPage"
 import RestaurantPage from "./thirdpage";
 import SearchPage from "./SecondPage";
 import SignUp from './components/SignUp';
+import ShareButton from "./components/ShareButtons";
 
 //import history from "./history"
 
@@ -15,12 +16,13 @@ const routing = (
   <Router >
     <div>
       <Switch>
-      <Route exact path = "/" component={App}/>
-      <Route path = "/signIn" component={SignIpPage}/>
-      <Route path = "/SignUp"  component={SignUp}/>
-      <Route path= "/restaurant/:restaurant_id" component={RestaurantPage}/>
-      <Route path = "/search/:lat/:lon/:search" component={SearchPage}/>
-      {/* <Route path = "/profile/:username" component= */}
+        <Route exact path = "/" component={App}/>
+        <Route path = "/signIn" component={SignIpPage}/>
+        <Route path = "/SignUp"  component={SignUp}/>
+        <Route path= "/restaurant/:restaurant_id" component={RestaurantPage} render={(routeProps) => 
+          <RestaurantPage {...routeProps} />}  />
+        <Route path = "/search/:lat/:lon/:search" component={SearchPage}/>
+        {/* <Route path = "/profile/:username" component= */}
       </Switch>
     </div>
   </Router>

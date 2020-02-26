@@ -5,6 +5,7 @@ import { Rate } from "antd";
 import MapDirection from "./directionMap";
 import MapModal from "./mapmodal";
 import { Icon } from "antd";
+import ShareModal from "../components/ShareModal";
 
 const divStyle = {
   paddingLeft: "55px",
@@ -68,6 +69,9 @@ const Description = props => {
               end_lat={props.location.latitude}
             />
           </MapModal>
+        </Col>
+        <Col md="auto">
+          <ShareModal rst_id={props.rest_id}/>
         </Col>
       </Row>
     </div>
