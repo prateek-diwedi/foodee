@@ -6,7 +6,6 @@ import Cookies from 'js-cookie';
 
 
 export default function NavBar(props) {
-
   const [state, setState] = useState('');
 
   let loggedInUser = Cookies.get('name');
@@ -45,7 +44,7 @@ export default function NavBar(props) {
           <Navbar bg="danger" variant="dark">
             <Navbar.Brand href="/">Fooddee</Navbar.Brand>
             <Nav className="mr-auto">
-              <Nav.Link>Logged in as : {loggedInUser}</Nav.Link>
+              <Nav.Link href={`/profile/${loggedInUser}`}>Logged in as : {loggedInUser}</Nav.Link>
             </Nav>
             <Form inline>
               <FormControl type="text" placeholder="Search" className="mr-sm-2"

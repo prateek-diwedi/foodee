@@ -9,6 +9,7 @@ import RestaurantPage from "./thirdpage";
 import SearchPage from "./SecondPage";
 import SignUp from './components/SignUp';
 import ShareButton from "./components/ShareButtons";
+import Profile from './components/Profile';
 
 const routing = (
   <Router >
@@ -20,7 +21,7 @@ const routing = (
         <Route path= "/restaurant/:restaurant_id" component={RestaurantPage} render={(routeProps) => 
           <RestaurantPage {...routeProps} />}  />
         <Route path = "/search/:lat/:lon/:search" component={SearchPage}/>
-        {/* <Route path = "/profile/:username" component= */}
+        <Route path = "/profile/:username" component={Profile}/>
       </Switch>
     </div>
   </Router>

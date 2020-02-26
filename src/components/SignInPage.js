@@ -68,6 +68,7 @@ class SignIpPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      username: '',
       email: '',
       password: '',
       errors: ''
@@ -100,6 +101,8 @@ class SignIpPage extends React.Component {
       .then(response => {
         Cookies.set('name', user.username, { expires: 7 });
         let loggedInUser = Cookies.get('name')
+        Cookies.set('email', user.email, {expires: 7 })
+        console.log("cookie-->", user.email)
         console.log("cookie-->", loggedInUser)
         if (response.data.logged_in) {
           this.redirect()
