@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Description from "./components/description";
 import TabMenu from "./components/tabs";
 import axios from "axios";
-import NavBar from "./components/NavBar";
+import ViewNavBar from "./components/ViewNavBar";
 import Footer from '../src/components/Footer';
 
 const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
@@ -76,7 +76,7 @@ function ThirdPage(props) {
     return (
       <div>
         <div className="App">
-          <NavBar></NavBar>
+          <ViewNavBar></ViewNavBar>
 
           <Row>
             <Col>
