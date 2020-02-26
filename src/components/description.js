@@ -5,7 +5,7 @@ import { Rate } from "antd";
 import MapDirection from "./directionMap";
 import MapModal from "./mapmodal";
 import { Icon } from "antd";
-import Rating from "./Rating";
+// import Rating from "./Rating";
 import ShareModal from "../components/ShareModal";
 
 const axios = require("axios");
@@ -135,8 +135,10 @@ console.log(`theme changed to ${theme} and saved changed to ${saved}`);
         <Col md="auto">
           <MapModal>
             <MapDirection
-              start_lng={-123.1278}
-              start_lat={49.2778}
+              // start_lng={props.user_loc.lan}
+              // start_lat={props.user_loc.lat}
+              start_lat={49.2813} 
+              start_lng={-123.1151} 
               end_lng={props.location.longitude}
               end_lat={props.location.latitude}
             />
@@ -146,11 +148,11 @@ console.log(`theme changed to ${theme} and saved changed to ${saved}`);
           <ShareModal rst_id={props.restaurant.id}/>
         </Col>
       </Row>
-      <Row>
+      {/* <Row>
         <Rating restaurant = {props.restaurant} user = {props.user}>
 
         </Rating>
-      </Row>
+      </Row> */}
     </div>
   );
 };
