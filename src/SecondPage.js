@@ -27,7 +27,8 @@ function SecondPage(props) {
   const [state, setState] = useState({ data: [], isLoading: true });
 
   const apiUrl = ` https://developers.zomato.com/api/v2.1/search?count=23&q=${props.match.params.search}&lat=${props.match.params.lat}&lon=${props.match.params.lon}&radius=15000`
-
+  const lat = props.match.params.lat;
+  const lon = props.match.params.lon;
   const getApi = () => {
     axios
       .get(apiUrl, { headers: { "user-key": ZOMATO_API_KEY } })
@@ -71,7 +72,7 @@ function SecondPage(props) {
             <Text></Text>
             <br></br>
             {(state.data || []).map((props) => {
-              return (<Link style={{ textDecoration: 'none', color: 'white' }} to={`/restaurant/${props.id}/${props.match.params.lat}/${props.match.params.lon}`}><SearchDescription key={`${props.id}`} {...props} ></SearchDescription></Link>)
+              return (<Link style={{ textDecoration: 'none', color: 'white' }} to={`/restaurant/${props.id}/${lat}/${lon}`}><SearchDescription key={`${props.id}`} {...props} ></SearchDescription></Link>)
             })}
             <br></br>
             <Footer></Footer>
