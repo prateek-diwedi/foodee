@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 // import './index.css';
-import { Modal, Button } from 'antd';
+import { Modal, Icon } from 'antd';
 import ShareButton from "./ShareButtons"
 
 export class ShareModal extends React.Component {
@@ -37,9 +37,9 @@ export class ShareModal extends React.Component {
     console.log('props in share modal--->', this.props)
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>
-          Share
-        </Button>
+         <Icon type="share-alt" 
+        style={{ fontSize: "40px", color: "#08c" }}
+        onClick={this.showModal}/>
         <Modal
           title="Share This Place With Your Friends!"
           visible={this.state.visible}
