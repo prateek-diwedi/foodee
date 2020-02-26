@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Rate } from "antd";
@@ -13,26 +13,69 @@ const divStyle = {
   padding: "0.5em"
 };
 const Description = props => {
-  const [theme, setTheme] = useState(false)
+  const [theme, setTheme] = useState(false);
+  const [saved,setSaved] = useState(false);
+  const [id,setID] = useState(null);
   console.log(props.user)
+
+  let user_id = props.user.user_id;
+  let res_id= props.restaurant.id;
+  //  }
+// First the page reads the favourite from table if it was liked before to change it to true
+useEffect(()=>{
+  axios.get("http://localhost:3001/find_favourite",
+  {params: {user_id:user_id,
+            res_id :res_id}})
+  .then(response=>{
+    // console.log(favourite)
+    console.log('---->>>>>>>>>>>',response.data)
+    if (response.data){
+      setTheme(!theme);
+      setSaved(!saved);
+      setID(response.data.id);
+    }
+  })
+  .catch(e=>console.log(e))
+},[])
+  
+console.log(`theme changed to ${theme} and saved changed to ${saved}`);
+
   const handleliked = () => {
+    console.log(id)
      let favourite = {
-      // user_id: 6,
+       id: id,
       user_id: props.user.user_id,
       res_id: props.restaurant.id 
      }
-
      console.log('favourite',favourite)
-     axios
-     .post("http://localhost:3001/favourites", 
-      {favourite}
-     )
-      .then(response => {
-       setTheme(!theme);
-         console.log(theme);
-         console.log(response)
-       })
-       .catch(e=>{console.log(e)})
+     if (saved){
+       // need to DELTE 
+       axios
+       .delete(`http://localhost:3001/favourites`, 
+       {params: {id:id}})
+        .then(response => {
+         setTheme(!theme);
+         setSaved(!saved);
+        //  setID(id);
+           console.log(`theme changed to ${theme} and saved changed to ${saved}`);
+           console.log(`DELETE response is ${response}`)
+         })
+         .catch(e=>{console.log(e)})
+     } else {
+       // need to POST
+       axios
+       .post("http://localhost:3001/favourites", 
+        {favourite}
+       )
+        .then(response => {
+         setTheme(!theme);
+         setSaved(!saved);
+         setID(response.data.favourite.id);
+         console.log(`theme changed to ${theme} and saved changed to ${saved}`);
+         console.log(response.data)
+         })
+         .catch(e=>{console.log(e)})
+     }
   };
 
   
