@@ -12,12 +12,17 @@ import axios from "axios";
 import NavBar from "./components/NavBar";
 import Footer from '../src/components/Footer';
 import moment from "moment";
+import Cookies from 'js-cookie'
 
 // const restaurant_id = 16619055; //16618773; // 16617115 16618902 16618033 16619055 16617176 16625742 16626268 16628153 16708849
 
 const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
-const user = {user_id : 2,
-              username : "ArioN",
+// const user = {user_id : 2,
+//               username : 'ario',
+//               avatar : "https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387_1280.png"};
+
+const user = {user_id : Cookies.get('id'),
+              username : Cookies.get('name'),
               avatar : "https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387_1280.png"};
 
 // a function to fomrat reviews from api to comments
