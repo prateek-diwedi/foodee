@@ -66,30 +66,30 @@ const styles = theme => ({
 
 
 class SignUp extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-    username: '',
-    email: '',
-    password: '',
-    password_confirmation :'',
-    errors:''
+      username: '',
+      email: '',
+      password: '',
+      password_confirmation: '',
+      errors: ''
     }
-    
+
 
   }
 
   handleChange = (event) => {
-    const {name, value} = event.target
+    const { name, value } = event.target
     this.setState({
       [name]: value
     })
   };
-  
+
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const {username, email, password, password_confirmation} = this.state
+    const { username, email, password, password_confirmation } = this.state
     let user = {
       username: username,
       email: email,
@@ -97,20 +97,20 @@ class SignUp extends React.Component {
       password_confirmation: password_confirmation
     }
     axios
-    .post("http://localhost:3001/users", 
-     {user}, 
-     {withCredentials: true})
-    .then(response => {
-      if (response.data.status === 'created') {
-        // this.props.handleLogin(response.data)
-        this.redirect()
-      } else {
-        this.setState({
-          errors: response.data.errors
-        })
-      }
-    })
-    .catch(error => console.log('api errors:', error))
+      .post("http://localhost:3001/users",
+        { user },
+        { withCredentials: true })
+      .then(response => {
+        if (response.data.status === 'created') {
+          // this.props.handleLogin(response.data)
+          this.redirect()
+        } else {
+          this.setState({
+            errors: response.data.errors
+          })
+        }
+      })
+      .catch(error => console.log('api errors:', error))
   };
   redirect = () => {
     this.props.history.push('/')
@@ -120,113 +120,113 @@ class SignUp extends React.Component {
       <div>
         <ul>{this.state.errors.map((error) => {
           return <li key={error}>{error}</li>
-        })}</ul> 
+        })}</ul>
       </div>
     )
   }
   render() {
     const { classes } = this.props;
 
-    const {username, email, password, password_confirmation} = this.state
-  return (
-    <div>
-      <Grid container component="main" className={classes.root}>
-        <CssBaseline />
-        <Grid item xs={false} sm={4} md={7} className={classes.image} />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <div className={classes.paper}>
-            <Avatar className={classes.avatar}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign Up
-            </Typography>
-            <form
-              className={classes.form}
-              noValidate
-              onSubmit={this.handleSubmit}
-            >
-              <TextField
-                value={username}
-                onChange={this.handleChange}
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="name"
-                label="User Name"
-                name="username"
-                autoFocus
-              />
-              <TextField
-                value={email}
-                onChange={this.handleChange}
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoFocus
-              />
-              <TextField
-                value={password}
-                onChange={this.handleChange}
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-              />
-              <TextField
-                value={password_confirmation}
-                onChange={this.handleChange}
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="password_confirmation"
-                label="Confirm Password"
-                type="password"
-                id="password_confirmation"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
+    const { username, email, password, password_confirmation } = this.state
+    return (
+      <div>
+        <Grid container component="main" className={classes.root}>
+          <CssBaseline />
+          <Grid item xs={false} sm={4} md={7} className={classes.image} />
+          <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+            <div className={classes.paper}>
+              <Avatar className={classes.avatar}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography component="h1" variant="h5">
                 Sign Up
+            </Typography>
+              <form
+                className={classes.form}
+                noValidate
+                onSubmit={this.handleSubmit}
+              >
+                <TextField
+                  value={username}
+                  onChange={this.handleChange}
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="name"
+                  label="User Name"
+                  name="username"
+                  autoFocus
+                />
+                <TextField
+                  value={email}
+                  onChange={this.handleChange}
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoFocus
+                />
+                <TextField
+                  value={password}
+                  onChange={this.handleChange}
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                />
+                <TextField
+                  value={password_confirmation}
+                  onChange={this.handleChange}
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password_confirmation"
+                  label="Confirm Password"
+                  type="password"
+                  id="password_confirmation"
+                />
+                <FormControlLabel
+                  control={<Checkbox value="remember" color="primary" />}
+                  label="Remember me"
+                />
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                >
+                  Sign Up
               </Button>
-              <Grid container>
-                <Grid item xs></Grid>
-                <Grid item></Grid>
-              </Grid>
-              <Box mt={5}>
-                <Copyright />
-              </Box>
-            </form>
-            <div>
-          {
-            this.state.errors ? this.handleErrors() : null
-          }
-        </div>
-          </div>
+                <Grid container>
+                  <Grid item xs></Grid>
+                  <Grid item></Grid>
+                </Grid>
+                <Box mt={5}>
+                  <Copyright />
+                </Box>
+              </form>
+              <div>
+                {
+                  this.state.errors ? this.handleErrors() : null
+                }
+              </div>
+            </div>
+          </Grid>
         </Grid>
-      </Grid>
-      <Footer />
-    </div>
-  );
-}
+        <Footer />
+      </div>
+    );
+  }
 }
 SignUp.propTypes = {
   classes: PropTypes.object.isRequired,

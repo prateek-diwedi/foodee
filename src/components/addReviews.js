@@ -1,6 +1,7 @@
 import React from "react";
 import { Comment, Avatar, Form, Button, List, Input, Rate } from "antd";
 import moment from "moment";
+import './addReviews.scss'
 const { TextArea } = Input;
 const axios = require("axios");
 
@@ -150,7 +151,7 @@ class ReviewsList extends React.Component {
     const { user, comments, submitting, note, rate } = this.state;
     console.log(comments)
     return (
-      <div>
+      <div className="reviewStylingClass">
         {comments.length > 0 && <CommentList comments={comments} />}
         <Comment
           avatar={<Avatar src={user.avatar} alt={user.username} />}

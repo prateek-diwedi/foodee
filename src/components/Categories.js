@@ -1,5 +1,5 @@
 import React from "react";
-import "./Categories.scss"
+import "./Categories.scss";
 
 export default function Categories() {
 
@@ -10,7 +10,6 @@ export default function Categories() {
         <h4> Categories </h4>
       </div>
       <section class="wrapper mtop2 ptop">
-
         <div class="categories-container">
           <a style={{ textDecoration: 'none', color: 'white' }} href="http://localhost:3000/search/49.2827291/-123.1207375/breakfast" class="column ta-center start-categories-item">
             <img class="category-icons" src="https://b.zmtcdn.com/images/search_tokens/app_icons/category_8.png?output-format=webp" data-original="https://b.zmtcdn.com/images/search_tokens/app_icons/category_8.png?output-format=webp" />

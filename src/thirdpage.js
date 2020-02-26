@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Description from "./components/description";
 import TabMenu from "./components/tabs";
 import axios from "axios";
-import NavBar from "./components/NavBar";
+import ViewNavBar from "./components/ViewNavBar";
 import Footer from '../src/components/Footer';
 import moment from "moment";
 import Cookies from 'js-cookie'
@@ -54,12 +54,13 @@ const dataBaseReviews = (data,user) =>{
 
 function ThirdPage(props) {
   // const user = props.user;
-  console.log("props--->>",props);
+  // console.log("props--->>",props);
+  // const params = props.match.params;
+  // console.log("props--->>",params);
   const [rest, setRest] = useState(null);
   const [revs, setReviews] = useState(null);
-  const [revss, setReviewsfromdatabase] = useState(null);
+  // const [revss, setReviewsfromdatabase] = useState(null);
   useEffect(() => {
-    // const restPromise =
     const restaurantPromise = axios({
       url: "https://developers.zomato.com/api/v2.1/restaurant",
       method: "get",
@@ -135,8 +136,8 @@ function ThirdPage(props) {
     return (
       <div>
         <div className="App">
-          <NavBar></NavBar>
-           
+          <ViewNavBar></ViewNavBar>
+
           <Row>
             <Col>
               <PhotoCarousel photoList={rest.photos}></PhotoCarousel>

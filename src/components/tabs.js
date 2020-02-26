@@ -2,10 +2,8 @@ import React from "react";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Overview from "./overview";
-import PhotoCards from "./photocards"
-// import ReviewsList from "./reviews";
-// import MapDirection from "./directionMap"
-import ReviewsList from "./addReviews"
+import PhotoCards from "./photocards";
+import ReviewsList from "./addReviews";
 
 // Data is imported from database
 // import reviews from "../data/reviewsdatabase";
@@ -17,24 +15,20 @@ const TabMenu = props => {
   const user = props.user;
   const comments = props.comments;
   return (
+    <div className="tabMenuClass">
     <Tabs id="uncontrolled-tab-example">
       <Tab eventKey="Overview" title="Overview">
-        <Overview restaurant={restaurant}/>
+        <Overview restaurant={restaurant} />
       </Tab>
       <Tab eventKey="Photos" title="Photos">
-        <br/>
+        <br />
         <PhotoCards restaurant={restaurant}></PhotoCards>
       </Tab>
       <Tab eventKey="Reviews" title="Reviews">
         <ReviewsList user = {user} comments = {comments} res_id = {restaurant.id}></ReviewsList>
       </Tab>
-      
-      {/* <Tab eventKey = "Direction" title = "Direction Map">
-       
-          <MapDirection  start_lng ={-123.1278} start_lat = {49.2778}  end_lng ={restaurant.location.longitude} end_lat ={restaurant.location.latitude}/>
-        
-      </Tab> */}
     </Tabs>
+    </div>
   );
 };
 

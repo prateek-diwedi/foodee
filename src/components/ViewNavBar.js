@@ -1,7 +1,9 @@
 import React, { Component, useState } from "react";
-import "./NavBar.scss";
+import "./ViewNavBar.scss";
 import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
 import { Route, Link, useHistory } from 'react-router-dom';
+import { Icon } from "antd";
+
 import Cookies from 'js-cookie';
 
 
@@ -45,16 +47,11 @@ export default function NavBar(props) {
           <Navbar bg="danger" variant="dark">
             <Navbar.Brand href="/">Fooddee</Navbar.Brand>
             <Nav className="mr-auto">
+              <Nav.Link href="/search/:lat/:lon/:search">Back to main page</Nav.Link>
+              {/* <Icon type="rollback" href="/search/:lat/:lon/:search">Back to main page</Icon> */}
               <Nav.Link>Logged in as : {loggedInUser}</Nav.Link>
             </Nav>
             <Form inline>
-              <FormControl type="text" placeholder="Search" className="mr-sm-2"
-                onChange={Navchange}
-              />
-
-              <Button variant="outline-light" onClick={onSubmit} onChange={Navchange}>
-                Search
-              </Button>
               <div className="space">
                 <Button variant="outline-light" onClick={logoutUser}>Logout</Button>
               </div>

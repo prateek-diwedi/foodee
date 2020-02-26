@@ -6,11 +6,14 @@ import MapDirection from "./directionMap";
 import MapModal from "./mapmodal";
 import { Icon } from "antd";
 import Rating from "./Rating";
+import ShareModal from "../components/ShareModal";
+
 const axios = require("axios");
 
 
 const divStyle = {
-  padding: "0.5em"
+  paddingLeft: "55px",
+  paddingTop: "10px"
 };
 const Description = props => {
   const [theme, setTheme] = useState(false);
@@ -138,6 +141,9 @@ console.log(`theme changed to ${theme} and saved changed to ${saved}`);
               end_lat={props.location.latitude}
             />
           </MapModal>
+        </Col>
+        <Col md="auto">
+          <ShareModal rst_id={props.rest_id}/>
         </Col>
       </Row>
       <Row>
