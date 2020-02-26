@@ -143,7 +143,7 @@ console.log(`theme changed to ${theme} and saved changed to ${saved}`);
           </MapModal>
         </Col>
         <Col md="auto">
-          <ShareModal rst_id={props.rest_id}/>
+          <ShareModal rst_id={props.restaurant.id}/>
         </Col>
       </Row>
       <Row>
