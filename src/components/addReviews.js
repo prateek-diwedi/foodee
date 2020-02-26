@@ -7,18 +7,8 @@ const axios = require("axios");
 
 // This is a function to transfer input reviews data from API to the required format in this component
 
-const formatedReviews = data => {
-  let reviewNew = data.map(item => {
-    return {
-      author: item.review.user.name,
-      avatar: item.review.user.profile_image,
-      content: item.review.review_text,
-      datetime: item.review.review_time_friendly,
-       rate: item.review.rating
-    };
-  });
-  return reviewNew;
-};
+
+
 const CommentList = ({ comments }) => (
   <List
     dataSource={comments}
@@ -83,7 +73,7 @@ class ReviewsList extends React.Component {
   }
 
   handleSubmit = () => {
-    if (!this.state.note || !this.state.rate) {
+    if (!this.state.note && !this.state.rate) {
       return;
     }
 
@@ -93,21 +83,15 @@ class ReviewsList extends React.Component {
   let review = {
     user_id: this.state.user.user_id,
     res_id: this.res_id,
-    review_text :this.state.note
+    review_text :this.state.note,
+   rating :this.state.rate
   }
 
-  let rating = {
-    user_id: this.state.user.user_id,
-    res_id: this.res_id,
-    rating : this.state.rate
-  }
-  const rate_promise = axios
-  .post("http://localhost:3001/ratings", {rating}
-  )
+
   const rev_promise = axios
   .post("http://localhost:3001/reviews", {review}
   )
-  Promise.all([rate_promise,rev_promise])
+  Promise.all([rev_promise])
   .then(() =>{
     this.setState({
       submitting: false,
