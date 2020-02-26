@@ -98,10 +98,12 @@ handleSubmit = (event) => {
       .post("http://localhost:3001/login", {user},
       {withCredentials: true})
       .then(response => {
-        // console.log("logged in user", user)
+        // console.log("logged in user ---->>> for id", response.data.user.id)
         Cookies.set('name', user.username, { expires: 7 });
+        Cookies.set('id', response.data.user.id)
         let loggedInUser = Cookies.get('name')
-        console.log("cookie-->", loggedInUser)
+        let loggedUserId = Cookies.get('id')
+        console.log("cookie-->", loggedUserId)
         if (response.data.logged_in) {
           // this.props.handleLogin(response.data)
           this.redirect()
