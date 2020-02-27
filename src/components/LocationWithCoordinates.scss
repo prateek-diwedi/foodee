@@ -4,15 +4,19 @@
   border-radius: 20px;
   border-color: brown;
   padding: 5px;
+  outline: none;
 }
 
 .custom-style-list {
   background-color: white;
-  border-radius: 20px;
+  border-radius: 30px;
   width: 400px;
+  
+  
   border-color: brown;
   padding: 5px;
   list-style: none;
+  outline: none;
   text-align: left;
   &::before {
     content: '📍';

@@ -68,7 +68,7 @@ export default function Profile(props) {
           <div class="profile-card-body">
              <h4 class="card-title">Username: {user}</h4>
               <p class="card-text">email : {email}</p>
-              <h3>Your favourite restuarents are:</h3> 
+              <h3>Restaurants Liked by you:</h3> 
           </div>
       <br></br>
             {(state.data || []).map((props) => {
