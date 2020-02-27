@@ -7,6 +7,8 @@ import "./WelcomePage.scss";
 import { Route, Link, useHistory } from 'react-router-dom';
 import Background_Video from "../components/Background-Video";
 import Cookies from 'js-cookie';
+import FoodeeLogo from "../components/Foodee"
+
 
 export default function WelcomePage(props) {
   const history = useHistory();
@@ -32,6 +34,9 @@ export default function WelcomePage(props) {
         <Background_Video></Background_Video>
       </div>
 
+      <div className="foodeeLogo">
+        <FoodeeLogo/>
+      </div>
       {loggedInUser ? (
         <div className="logout-Button">
           <Button danger onClick={logoutUser}>Logout</Button>

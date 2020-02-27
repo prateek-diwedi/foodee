@@ -2,10 +2,13 @@ import React from "react";
 import { Comment, Avatar, Form, Button, List, Input, Rate } from "antd";
 import moment from "moment";
 import "./addReviews.scss";
+import Cookies from "js-cookie"
+import { Alert } from 'reactstrap';
 const { TextArea } = Input;
 const axios = require("axios");
 
 // This is a function to transfer input reviews data from API to the required format in this component
+
 
 const CommentList = ({ comments }) => (
   <List
@@ -28,7 +31,11 @@ const CommentList = ({ comments }) => (
 );
 const desc = ["terrible", "bad", "normal", "good", "wonderful"];
 
+Cookies.get('name');
+    let loggedInUser = Cookies.get('name');
+    console.log('user in comment button -->', loggedInUser)
 const Editor = ({
+  
   onChangeNote,
   onChangeRate,
   onSubmit,
@@ -56,6 +63,8 @@ const Editor = ({
       </span>
     </Form.Item>
     <Form.Item>
+    <div>
+        { loggedInUser ? (
       <Button
         htmlType="submit"
         loading={submitting}
@@ -64,6 +73,13 @@ const Editor = ({
       >
         Add Comment
       </Button>
+       ) : (
+        <Alert color="danger">
+      Login to add Reviews!
+    </Alert>
+       
+        )}
+        </div>
     </Form.Item>
   </div>
 );
@@ -138,9 +154,12 @@ class ReviewsList extends React.Component {
   };
 
   render() {
+    
     const { user, comments, submitting, note, rate } = this.state;
     console.log(comments);
     return (
+      <div>
+      
       <div className="reviewStylingClass">
         {comments.length > 0 && <CommentList comments={comments} />}
         <Comment
@@ -156,6 +175,8 @@ class ReviewsList extends React.Component {
             />
           }
         />
+      </div>
+        
       </div>
     );
   }

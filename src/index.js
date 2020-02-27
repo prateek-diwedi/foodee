@@ -8,7 +8,6 @@ import SignIpPage from "./components/SignInPage";
 import RestaurantPage from "./thirdpage";
 import SearchPage from "./SecondPage";
 import SignUp from './components/SignUp';
-import ShareButton from "./components/ShareButtons";
 import Profile from './components/Profile';
 
 const routing = (
