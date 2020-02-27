@@ -19,6 +19,8 @@ export default function NavBar(props) {
 
   const logoutUser = () => {
     Cookies.remove('name');
+    Cookies.remove('id');
+    Cookies.remove('email');
     window.location.reload();
   }
 
