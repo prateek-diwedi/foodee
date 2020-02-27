@@ -5,14 +5,15 @@ import Overview from "./overview";
 import PhotoCards from "./photocards";
 import ReviewsList from "./addReviews";
 
-const user = {
-  username: "Apama",
-  avatar: "https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387_1280.png"
-};
+// Data is imported from database
+// import reviews from "../data/reviewsdatabase";
+// User is fixed until user database is fixed
 
 
 const TabMenu = props => {
   const restaurant = props.restaurant;
+  const user = props.user;
+  const comments = props.comments;
   return (
     <div className="tabMenuClass">
     <Tabs id="uncontrolled-tab-example">
@@ -24,7 +25,7 @@ const TabMenu = props => {
         <PhotoCards restaurant={restaurant}></PhotoCards>
       </Tab>
       <Tab eventKey="Reviews" title="Reviews">
-        <ReviewsList user={user} comments={restaurant.all_reviews.reviews}></ReviewsList>
+        <ReviewsList user = {user} comments = {comments} res_id = {restaurant.id}></ReviewsList>
       </Tab>
     </Tabs>
     </div>

@@ -99,8 +99,12 @@ class SignIpPage extends React.Component {
       .post("http://localhost:3001/login", { user },
         { withCredentials: true })
       .then(response => {
+        // console.log("logged in user ---->>> for id", response.data.user.id)
         Cookies.set('name', user.username, { expires: 7 });
+        Cookies.set('id', response.data.user.id)
         let loggedInUser = Cookies.get('name')
+        let loggedUserId = Cookies.get('id')
+        console.log("cookie-->", loggedUserId)
         Cookies.set('email', user.email, {expires: 7 })
         console.log("cookie-->", user.email)
         console.log("cookie-->", loggedInUser)

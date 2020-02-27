@@ -1,22 +1,12 @@
 import React from "react";
 import { Comment, Avatar, Form, Button, List, Input, Rate } from "antd";
 import moment from "moment";
-import './addReviews.scss'
+import "./addReviews.scss";
 const { TextArea } = Input;
+const axios = require("axios");
+
 // This is a function to transfer input reviews data from API to the required format in this component
 
-const formatedReviews = data => {
-  let reviewNew = data.map(item => {
-    return {
-      author: item.review.user.name,
-      avatar: item.review.user.profile_image,
-      content: item.review.review_text,
-      datetime: item.review.review_time_friendly,
-      rate: item.review.rating
-    };
-  });
-  return reviewNew;
-};
 const CommentList = ({ comments }) => (
   <List
     dataSource={comments}
@@ -29,28 +19,40 @@ const CommentList = ({ comments }) => (
             <Comment {...props} />
           </div>
           <div>
-            <Rate
-              disabled
-              allowHalf
-              value={props.rate}
-            />
+            <Rate disabled allowHalf value={props.rate} />
           </div>
         </div>
       );
     }}
   />
 );
-const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+const desc = ["terrible", "bad", "normal", "good", "wonderful"];
 
-const Editor = ({ onChangeNote, onChangeRate, onSubmit, submitting, notevalue, ratevalue }) => (
+const Editor = ({
+  onChangeNote,
+  onChangeRate,
+  onSubmit,
+  submitting,
+  notevalue,
+  ratevalue
+}) => (
   <div>
     <Form.Item>
       <TextArea rows={4} onChange={onChangeNote} id="note" value={notevalue} />
     </Form.Item>
     <Form.Item>
       <span>
-        <Rate tooltips={desc} onChange={onChangeRate} id="rate" value={ratevalue} />
-        {ratevalue ? <span className="ant-rate-text">{desc[ratevalue - 1]}</span> : ''}
+        <Rate
+          tooltips={desc}
+          onChange={onChangeRate}
+          id="rate"
+          value={ratevalue}
+        />
+        {ratevalue ? (
+          <span className="ant-rate-text">{desc[ratevalue - 1]}</span>
+        ) : (
+          ""
+        )}
       </span>
     </Form.Item>
     <Form.Item>
@@ -63,7 +65,6 @@ const Editor = ({ onChangeNote, onChangeRate, onSubmit, submitting, notevalue, r
         Add Comment
       </Button>
     </Form.Item>
-
   </div>
 );
 
@@ -72,61 +73,73 @@ class ReviewsList extends React.Component {
     super(props);
     this.state = {
       user: props.user,
-      comments: formatedReviews(props.comments),
+      comments: props.comments,
       submitting: false,
       note: null,
       rate: null
     };
+    this.res_id = props.res_id;
   }
 
   handleSubmit = () => {
-    if (!this.state.note || !this.state.rate) {
+    if (!this.state.note && !this.state.rate) {
       return;
     }
 
     this.setState({
       submitting: true
     });
+    let review = {
+      
+      user_id: this.state.user.user_id,
+      res_id: this.res_id,
+      review_text: this.state.note,
+      rating: this.state.rate
+    };
 
-    setTimeout(() => {
-      this.setState({
-        submitting: false,
-        note: null,
-        rate: null,
-        comments: [
-          {
-            author: this.state.user.username,
-            avatar: this.state.user.avatar,
-            content: <p>{this.state.note}</p>,
-            datetime: moment().fromNow(),
-            rate: this.state.rate
-          },
-          ...this.state.comments
-        ]
+    axios
+      .post("http://localhost:3001/reviews", { review })
+      .then(() => {
+        
+        this.setState({
+          submitting: false,
+          note: null,
+          rate: null,
+          comments: [
+            {
+              author: this.state.user.username,
+              avatar: this.state.user.avatar,
+              content: <p>{this.state.note}</p>,
+              datetime: moment().fromNow(),
+              rate: this.state.rate
+            },
+            ...this.state.comments
+          ]
+        });
+        console.log(this.state.comments);
+      })
+      .catch(e => {
+        console.log(e);
       });
-    console.log(this.state.comments)  
-    }, 1000);
-    
   };
 
   handleNoteChange = e => {
-    console.log(this.state)
+    console.log(this.state);
     this.setState({
       note: e.target.value
     });
   };
 
   handleRateChange = e => {
-    console.log(this.state)
+    console.log(this.state);
     this.setState({
       rate: e
     });
   };
 
-
   render() {
     const { user, comments, submitting, note, rate } = this.state;
-    console.log(comments)
+    console.log(comments);
     return (
       <div className="reviewStylingClass">
         {comments.length > 0 && <CommentList comments={comments} />}
