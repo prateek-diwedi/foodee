@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchDescription from "./SearchDescription";
 import Cookies from "js-cookie";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/ViewNavBar";
 import Footer from '../components/Footer';
 import axios from "axios";
 import "../components/ProfileCard.scss";
