@@ -16,17 +16,15 @@ import Cookies from 'js-cookie'
 
 // const restaurant_id = 16619055; //16618773; // 16617115 16618902 16618033 16619055 16617176 16625742 16626268 16628153 16708849
 
-const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
 // const user = {user_id : 2,
 //               username : 'ario',
 //               avatar : "https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387_1280.png"};
 
-const user = {user_id : Cookies.get('id'),
-              username : Cookies.get('name'),
-              avatar : "https://joeschmoe.io/api/v1/random"};
+
 
 // a function to fomrat reviews from api to comments
 const formatedReviews = data => {
+
   let reviewNew = data.map(item => {
     return {
       author: item.review.user.name,
@@ -53,6 +51,10 @@ const dataBaseReviews = (data,user) =>{
 }
 
 function ThirdPage(props) {
+  const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
+  const user = {user_id : Cookies.get('id'),
+  username : Cookies.get('name'),
+  avatar : "https://joeschmoe.io/api/v1/random"};
 
   const user_location = {lan:props.match.params.lan,lat:props.match.params.lat};
   const [rest, setRest] = useState(null);
@@ -122,7 +124,6 @@ function ThirdPage(props) {
       })
       .catch(e => console.log(e));
   }, []);
-
   if (rest&&revs) {
     const name = rest.name;
     const hours = rest.timings;
@@ -144,6 +145,7 @@ function ThirdPage(props) {
         <br />
         <div>
           <Description
+            history = {props.history}
             user_loc = {user_location}
             name={name}
             hours={hours}
@@ -156,7 +158,7 @@ function ThirdPage(props) {
         </div>
         <br />
         <div>
-          <TabMenu restaurant={rest} user={user} comments = {comments}></TabMenu>
+          <TabMenu restaurant={rest} user={user} comments = {comments} history = {props.history}></TabMenu>
           <Footer></Footer>
         </div>
       </div>
