@@ -25,6 +25,8 @@ export default function WelcomePage(props) {
 
   const logoutUser = () => {
     Cookies.remove('name');
+    Cookies.remove('id');
+    Cookies.remove('email');
     window.location.reload();
   }
 
