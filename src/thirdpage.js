@@ -43,7 +43,7 @@ const dataBaseReviews = (data,user) =>{
   let reviewList = data.map(item=>{
     return{
     author: user[item.user_id-1].username,
-    avatar: "https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387_1280.png",
+    avatar: "https://joeschmoe.io/api/v1/random",
     content: item.review_text,
     datetime:moment(item.created_at).fromNow(),
     rate: item.rating
