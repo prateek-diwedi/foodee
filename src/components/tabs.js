@@ -14,6 +14,7 @@ const TabMenu = props => {
   const restaurant = props.restaurant;
   const user = props.user;
   const comments = props.comments;
+  console.log('tab user --->',user)
   return (
     <div className="tabMenuClass">
     <Tabs id="uncontrolled-tab-example">

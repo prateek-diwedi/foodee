@@ -31,11 +31,11 @@ const CommentList = ({ comments }) => (
 );
 const desc = ["terrible", "bad", "normal", "good", "wonderful"];
 
-Cookies.get('name');
-    let loggedInUser = Cookies.get('name');
-    console.log('user in comment button -->', loggedInUser)
+// Cookies.get('name');
+//     let loggedInUser = Cookies.get('name');
+//     console.log('user in comment button -->', loggedInUser)
 const Editor = ({
-  
+  user,
   onChangeNote,
   onChangeRate,
   onSubmit,
@@ -64,7 +64,7 @@ const Editor = ({
     </Form.Item>
     <Form.Item>
     <div>
-        { loggedInUser ? (
+        { user.user_id ? (
       <Button
         htmlType="submit"
         loading={submitting}
@@ -96,7 +96,7 @@ class ReviewsList extends React.Component {
     };
     this.res_id = props.res_id;
   }
-
+  
   handleSubmit = () => {
     if (!this.state.note && !this.state.rate) {
       return;
@@ -166,6 +166,7 @@ class ReviewsList extends React.Component {
           avatar={<Avatar src={user.avatar} alt={user.username} />}
           content={
             <Editor
+              user = {user}
               onChangeNote={this.handleNoteChange}
               onChangeRate={this.handleRateChange}
               onSubmit={this.handleSubmit}
