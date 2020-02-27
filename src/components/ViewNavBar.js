@@ -48,7 +48,7 @@ export default function NavBar(props) {
             <Nav className="mr-auto">
               <Nav.Link href="/search/49.2813127/-123.1145121/pizza">Back to main page</Nav.Link>
               {/* <Nav.Link href=`/search/${props.match.params.lat}/${props.match.params.lon}/${search}`>Back to main page</Nav.Link> */}
-              <Nav.Link>Logged in as : {loggedInUser}</Nav.Link>
+              <Nav.Link href={`/profile/${loggedInUser}`}>Logged in as : {loggedInUser}</Nav.Link>
             </Nav>
             <Form inline>
               <div className="space">
