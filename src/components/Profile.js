@@ -56,8 +56,8 @@ export default function Profile(props) {
               <img class="card-img-top" src="https://joeschmoe.io/api/v1/random" alt="Card image" />
             </div>
             <div class="profile-card-body">
-              <h4 class="card-title">Username: {user}</h4>
-              <p class="card-text">email : {email}</p>
+              <h4 class="card-title"><b>Username:</b> {user}</h4>
+              <p class="card-text"><b>email :</b> {email}</p>
               <h3>Your favourite restuarents are:</h3>
             </div>
             <br></br>
