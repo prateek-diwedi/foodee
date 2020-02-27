@@ -6,7 +6,6 @@ import ShareButton from "./ShareButtons"
 export class ShareModal extends React.Component {
   constructor(props) {
     super(props);
-
   }
   state = { visible: false };
 

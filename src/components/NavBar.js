@@ -1,7 +1,6 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import "./NavBar.scss";
 import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
-import { Route, Link, useHistory } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 
