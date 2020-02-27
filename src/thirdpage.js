@@ -23,7 +23,7 @@ const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
 
 const user = {user_id : Cookies.get('id'),
               username : Cookies.get('name'),
-              avatar : "https://cdn.pixabay.com/photo/2014/03/24/17/19/teacher-295387_1280.png"};
+              avatar : "https://joeschmoe.io/api/v1/random"};
 
 // a function to fomrat reviews from api to comments
 const formatedReviews = data => {
