@@ -25,7 +25,7 @@ const TabMenu = props => {
         <PhotoCards restaurant={restaurant}></PhotoCards>
       </Tab>
       <Tab eventKey="Reviews" title="Reviews">
-        <ReviewsList user = {user} comments = {comments} res_id = {restaurant.id}></ReviewsList>
+        <ReviewsList history = {props.history} user = {user} comments = {comments} res_id = {restaurant.id}></ReviewsList>
       </Tab>
     </Tabs>
     </div>
