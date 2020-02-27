@@ -6,9 +6,9 @@ export default function PictureWithInfo() {
   return (
     <div class="container" >
       <article>
-        <h2>Every Flavor Welcome</h2>
+        <h2>You’ve got stuff to do. We’ve got options.</h2>
         <p>
-          From your neighborhood sushi spot to the burger and fries you crave, choose from over 300,000 local and national favorites across the U.S. and Canada.
+          Just search for a cuisine, meal or a specific thing and we will show you all the options available around or for any place that you have selected. You can Check the rate and reviews and even share it with your friends.
 	    	</p>
       </article>
 

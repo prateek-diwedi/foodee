@@ -6,6 +6,7 @@ import MapDirection from "./directionMap";
 import MapModal from "./mapmodal";
 import { Icon } from "antd";
 import ShareModal from "../components/ShareModal";
+import { Link } from "react-router-dom";
 
 const axios = require("axios");
 const divStyle = {
@@ -40,10 +41,14 @@ const Description = props => {
   }, [])
 
   const handleliked = () => {
+    if (!user_id){
+      return props.history.push('/signIn')
+
+    }
     let favourite = {
       id: id,
-      user_id: props.user.user_id,
-      res_id: props.restaurant.id
+      user_id: user_id,
+      res_id: res_id
     }
     if (saved) {
       // need to DELTE 
@@ -123,6 +128,8 @@ const Description = props => {
         <Col md="auto">
           <MapModal>
             <MapDirection
+            // start_lat = {49.2813}
+            // start_lng = {-123.1151}
               start_lng={props.user_loc.lan}
               start_lat={props.user_loc.lat}
               end_lng={props.location.longitude}

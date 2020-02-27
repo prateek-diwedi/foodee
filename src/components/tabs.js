@@ -14,6 +14,7 @@ const TabMenu = props => {
   const restaurant = props.restaurant;
   const user = props.user;
   const comments = props.comments;
+  console.log('tab user --->',user)
   return (
     <div className="tabMenuClass">
     <Tabs id="uncontrolled-tab-example">
@@ -25,7 +26,7 @@ const TabMenu = props => {
         <PhotoCards restaurant={restaurant}></PhotoCards>
       </Tab>
       <Tab eventKey="Reviews" title="Reviews">
-        <ReviewsList user = {user} comments = {comments} res_id = {restaurant.id}></ReviewsList>
+        <ReviewsList history = {props.history} user = {user} comments = {comments} res_id = {restaurant.id}></ReviewsList>
       </Tab>
     </Tabs>
     </div>
