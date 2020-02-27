@@ -25,6 +25,7 @@ import Background_Video from "../components/Background-Video";
 import LocationWithCoords from "../components/LocationWithCoordinates";
 import ShareButton from "../components/ShareButtons"
 import ShareModal from "../components/ShareModal"
+import Foodeelogo from "../components/Foodee"
 
 //-------------------------------- categories Data ----------------------------------//
 
@@ -180,3 +181,10 @@ storiesOf("location with coords", module)
      backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
    })
    .add("ViewNav Bar", () => <ViewNavBar>View Nav Bar</ViewNavBar>)
+
+   // ----------------------------------- Foodee Logo ---------------------------- //
+   storiesOf("Logo", module)
+   .addParameters({
+     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+   })
+   .add("Logo", () => <Foodeelogo/>)
