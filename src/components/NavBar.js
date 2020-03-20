@@ -45,7 +45,7 @@ export default function NavBar(props) {
           <Navbar bg="danger" variant="dark">
             <Navbar.Brand href="/">Fooddee</Navbar.Brand>
             <Nav className="mr-auto">
-      <Nav.Link href={`/profile/${loggedInUser}`} style= {{color : "white"}}>Logged in as : {loggedInUser}</Nav.Link>
+      <Nav.Link href={`/profile/${loggedInUser}`} style= {{color : "white"}}><b>Logged in as : </b>{loggedInUser}</Nav.Link>
             </Nav>
             <Form inline>
               <FormControl type="text" placeholder="Search" className="mr-sm-2"
