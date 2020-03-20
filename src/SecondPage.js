@@ -16,7 +16,7 @@ const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
 
 function SecondPage(props) {
   const [search, setSearch] = useState({});
-
+  
   const history = useHistory();
 
   const onClick = () => {
