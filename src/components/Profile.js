@@ -16,7 +16,7 @@ export default function Profile() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/user_favourite", {
+      .get("https://foodee-api.herokuapp.com/user_favourite", {
         params: {
           user_id: loggedUserId
         }

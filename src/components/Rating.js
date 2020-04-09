@@ -23,7 +23,7 @@ class Rating extends React.Component {
       rating : value
     }
     axios
-    .post("http://localhost:3001/ratings", {rating}
+    .post("https://foodee-api.herokuapp.com/ratings", {rating}
     )
      .then(response => {
         this.setState({ value});

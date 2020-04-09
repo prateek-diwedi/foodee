@@ -18,7 +18,7 @@ export default function ShareButton(props) {
   const params = props.url
   const lat = props.loc.lat
   const long = props.loc.lan
-  const shareUrl = `http://localhost:3000/restaurant/${params}/${lat}/${long}`
+  const shareUrl = `https://app-foodee.herokuapp.com//restaurant/${params}/${lat}/${long}`
   const title = 'Checkout This Place!'
   return (
     <div className="shareLinkButtonClass">

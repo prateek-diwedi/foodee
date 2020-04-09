@@ -62,5 +62,5 @@
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.13"
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "https://foodee-api.herokuapp.com/"
 }

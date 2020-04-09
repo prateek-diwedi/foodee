@@ -87,7 +87,7 @@ function ThirdPage(props) {
     })
 
     const reviewsAPIPromise = axios({
-      url: "http://localhost:3001/find_review",
+      url: "https://foodee-api.herokuapp.com/find_review",
       method: "get",
       params: {
         res_id: props.match.params.restaurant_id
@@ -98,7 +98,7 @@ function ThirdPage(props) {
       responseType: "json"
     })
     const usersAPIpromise = axios({
-      url: "http://localhost:3001/users",
+      url: "https://foodee-api.herokuapp.com/users",
       method: "get",
       headers: {
         Accept: "application/json"

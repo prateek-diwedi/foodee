@@ -114,7 +114,7 @@ class ReviewsList extends React.Component {
     };
 
     axios
-      .post("http://localhost:3001/reviews", { review })
+      .post("https://foodee-api.herokuapp.com/reviews", { review })
       .then(() => {
         
         this.setState({

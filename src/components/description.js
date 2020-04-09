@@ -23,7 +23,7 @@ const Description = props => {
 
   // First the page reads the favourite from table if it was liked before to change it to true
   useEffect(() => {
-    axios.get("http://localhost:3001/find_favourite",
+    axios.get("https://foodee-api.herokuapp.com/find_favourite",
       {
         params: {
           user_id: user_id,
@@ -53,7 +53,7 @@ const Description = props => {
     if (saved) {
       // need to DELTE 
       axios
-        .delete(`http://localhost:3001/favourites`,
+        .delete(`https://foodee-api.herokuapp.com/favourites`,
           { params: { id: id } })
         .then(response => {
           setTheme(!theme);
@@ -64,7 +64,7 @@ const Description = props => {
     } else {
       // need to POST
       axios
-        .post("http://localhost:3001/favourites",
+        .post("https://foodee-api.herokuapp.com/favourites",
           { favourite }
         )
         .then(response => {

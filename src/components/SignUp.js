@@ -97,7 +97,7 @@ class SignUp extends React.Component {
       password_confirmation: password_confirmation
     }
     axios
-      .post("http://localhost:3001/users",
+      .post("https://foodee-api.herokuapp.com/users",
         { user },
         { withCredentials: true })
       .then(response => {
