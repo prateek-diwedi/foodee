@@ -52,7 +52,7 @@ const dataBaseReviews = (data,user) =>{
 
 function ThirdPage(props) {
   const ZOMATO_API_KEY = process.env.REACT_APP_ZOMATO_KEY
-
+  console.log('zomato api key --->>', ZOMATO_API_KEY)
   const user = {user_id : Cookies.get('id'),
   username : Cookies.get('name'),
   avatar : "https://joeschmoe.io/api/v1/random"};
