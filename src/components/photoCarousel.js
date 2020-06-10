@@ -3,6 +3,7 @@ import { Carousel } from "antd";
 import './photoCarousel.scss';
 
 const PhotoCarousel = props => {
+  console.log("Props are -----> ",props);
   let photosMap = props.photoList.map(photo => {
     return <img key={photo.photo.url} className="d-block w-100" src={photo.photo.url} alt="" />;
   });
