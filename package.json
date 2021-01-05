@@ -12,7 +12,7 @@
     "@testing-library/user-event": "^7.1.2",
     "antd": "^3.26.9",
     "autosuggest-highlight": "latest",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "gsap": "^3.2.0",
     "js-cookie": "^2.2.1",
